@@ -1,0 +1,180 @@
+import Image from "next/image";
+
+import { SiteHeader } from "@/components/home/SiteHeader";
+import { Hero } from "@/components/home/Hero";
+import { pillarsContent, founderContent, academyContent, itineraryContent, investmentContent, communityContent } from "@/content/site";
+
+export default function HomePage() {
+  return (
+    <div className="min-h-screen bg-background font-sans text-foreground">
+      <SiteHeader />
+      <Hero />
+
+      {/* Story / founder quote */}
+      <section id="story" className="bg-ink py-24 sm:py-32">
+        <div className="mx-auto grid w-full max-w-[1400px] gap-14 px-6 sm:px-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
+          <div className="relative aspect-[4/5] overflow-hidden rounded-sm">
+            <Image src={founderContent.image.src} alt={founderContent.image.alt} fill className="object-cover" sizes="(min-width:1024px) 40vw, 90vw" />
+          </div>
+          <div>
+            <p className="text-[0.75rem] font-semibold uppercase tracking-[0.32em] text-gold-luxury">{founderContent.eyebrow}</p>
+            <blockquote className="mt-6 font-serif text-3xl italic leading-snug text-background sm:text-4xl">“{founderContent.pullQuote}”</blockquote>
+            <p className="mt-8 text-base leading-8 text-background/70">{founderContent.body}</p>
+            <p className="mt-8 text-sm font-semibold uppercase tracking-[0.18em] text-background">
+              {founderContent.name} <span className="text-background/50">— {founderContent.role}</span>
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Pillars */}
+      <section id="pillars" className="py-24 sm:py-32">
+        <div className="mx-auto w-full max-w-[1400px] px-6 sm:px-10">
+          <div className="max-w-2xl">
+            <p className="text-[0.75rem] font-semibold uppercase tracking-[0.32em] text-gold">{pillarsContent.eyebrow}</p>
+            <h2 className="mt-4 font-sans text-4xl font-extrabold uppercase tracking-tight sm:text-5xl">{pillarsContent.title}</h2>
+          </div>
+          <div className="mt-14 grid gap-6 sm:grid-cols-3">
+            {pillarsContent.pillars.map((pillar) => (
+              <div key={pillar.key} className="group relative aspect-[3/4] overflow-hidden rounded-sm">
+                <Image
+                  src={pillar.image}
+                  alt={pillar.title}
+                  fill
+                  sizes="(min-width:1024px) 33vw, 100vw"
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
+                <div className="absolute inset-x-0 bottom-0 p-7">
+                  <h3 className="font-sans text-2xl font-extrabold uppercase tracking-tight text-background">{pillar.title}</h3>
+                  <p className="mt-2 text-sm leading-6 text-background/80">{pillar.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Academy */}
+      <section id="academy" className="bg-muted py-24 sm:py-32">
+        <div className="mx-auto grid w-full max-w-[1400px] gap-14 px-6 sm:px-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+          <div>
+            <p className="text-[0.75rem] font-semibold uppercase tracking-[0.32em] text-gold">{academyContent.eyebrow}</p>
+            <h2 className="mt-4 font-sans text-4xl font-extrabold uppercase tracking-tight sm:text-5xl">{academyContent.title}</h2>
+            <p className="mt-6 max-w-md text-base leading-8 text-foreground/70">{academyContent.description}</p>
+            <p className="mt-4 text-sm font-medium uppercase tracking-[0.14em] text-foreground/50">{academyContent.facilitator}</p>
+            <div className="relative mt-8 aspect-[4/3] w-full overflow-hidden rounded-sm">
+              <Image src={academyContent.image.src} alt={academyContent.image.alt} fill sizes="(min-width:1024px) 45vw, 90vw" className="object-cover" />
+            </div>
+            <a
+              href="#invest"
+              className="mt-8 inline-flex h-12 items-center justify-center rounded-sm bg-ink px-7 text-[0.8rem] font-semibold uppercase tracking-[0.18em] text-background transition-colors hover:bg-forest"
+            >
+              {academyContent.cta.label}
+            </a>
+          </div>
+
+          <div className="grid gap-4">
+            {academyContent.courses.map((course) => (
+              <div key={course.title} className="rounded-sm border border-border bg-background p-7">
+                <p className="text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-gold">{course.duration}</p>
+                <h3 className="mt-3 font-sans text-xl font-bold">{course.title}</h3>
+                <p className="mt-2 text-sm leading-7 text-foreground/65">{course.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Journey */}
+      <section id="journey" className="py-24 sm:py-32">
+        <div className="mx-auto w-full max-w-[1400px] px-6 sm:px-10">
+          <div className="max-w-2xl">
+            <p className="text-[0.75rem] font-semibold uppercase tracking-[0.32em] text-gold">{itineraryContent.eyebrow}</p>
+            <h2 className="mt-4 font-sans text-4xl font-extrabold uppercase tracking-tight sm:text-5xl">{itineraryContent.title}</h2>
+            <p className="mt-6 text-base leading-8 text-foreground/70">{itineraryContent.description}</p>
+          </div>
+
+          <div className="mt-14 grid gap-px overflow-hidden rounded-sm bg-border sm:grid-cols-2 lg:grid-cols-4">
+            {itineraryContent.highlights.map((stop) => (
+              <div key={stop.day} className="flex flex-col bg-background p-7">
+                <p className="text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-gold">
+                  {stop.day} · {stop.location}
+                </p>
+                <h3 className="mt-3 font-sans text-lg font-bold">{stop.title}</h3>
+                <p className="mt-2 flex-1 text-sm leading-6 text-foreground/65">{stop.description}</p>
+              </div>
+            ))}
+          </div>
+
+          <a
+            href="#"
+            className="mt-10 inline-flex h-12 items-center justify-center rounded-sm border border-foreground/20 px-7 text-[0.8rem] font-semibold uppercase tracking-[0.18em] text-foreground transition-colors hover:border-foreground"
+          >
+            {itineraryContent.cta.label}
+          </a>
+        </div>
+      </section>
+
+      {/* Investment */}
+      <section id="invest" className="bg-ink py-24 sm:py-32">
+        <div className="mx-auto w-full max-w-[1400px] px-6 sm:px-10">
+          <div className="max-w-2xl">
+            <p className="text-[0.75rem] font-semibold uppercase tracking-[0.32em] text-gold-luxury">{investmentContent.eyebrow}</p>
+            <h2 className="mt-4 font-sans text-4xl font-extrabold uppercase tracking-tight text-background sm:text-5xl">
+              {investmentContent.title}
+            </h2>
+            <p className="mt-6 text-base leading-8 text-background/70">{investmentContent.description}</p>
+          </div>
+
+          <div className="mt-14 grid gap-6 lg:grid-cols-3">
+            {investmentContent.tiers.map((tier, i) => (
+              <div key={tier.name} className={`flex flex-col rounded-sm border p-8 ${i === 1 ? "border-gold-luxury/60 bg-white/[0.04]" : "border-background/15"}`}>
+                <h3 className="font-sans text-2xl font-bold text-background">{tier.name}</h3>
+                <p className="mt-3 text-sm leading-6 text-background/65">{tier.description}</p>
+                <div className="mt-6 rounded-sm border border-background/15 bg-background/5 px-4 py-3">
+                  <p className="text-[0.65rem] uppercase tracking-[0.2em] text-background/50">Accommodation included</p>
+                  <p className="mt-1 text-sm leading-6 text-background/75">{tier.accommodation}</p>
+                </div>
+                <ul className="mt-6 flex-1 space-y-2 border-t border-background/10 pt-6">
+                  {tier.inclusions.map((item) => (
+                    <li key={item} className="text-sm leading-6 text-background/60">
+                      · {item}
+                    </li>
+                  ))}
+                </ul>
+                <a
+                  href="#"
+                  className="mt-8 inline-flex h-11 items-center justify-center rounded-sm bg-gold-luxury px-5 text-[0.75rem] font-semibold uppercase tracking-[0.18em] text-ink transition-transform hover:scale-[1.02]"
+                >
+                  {tier.ctaLabel}
+                </a>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Community */}
+      <section id="community" className="bg-forest py-20 sm:py-28">
+        <div className="mx-auto flex w-full max-w-[1000px] flex-col items-center px-6 text-center sm:px-10">
+          <p className="text-[0.75rem] font-semibold uppercase tracking-[0.32em] text-gold-luxury">{communityContent.eyebrow}</p>
+          <h2 className="mt-5 font-sans text-3xl font-extrabold uppercase tracking-tight text-background sm:text-4xl">{communityContent.title}</h2>
+          <p className="mt-5 max-w-xl text-base leading-8 text-background/75">{communityContent.description}</p>
+          <a
+            href="#"
+            className="mt-8 inline-flex h-12 items-center justify-center rounded-sm border border-background/50 px-7 text-[0.8rem] font-semibold uppercase tracking-[0.18em] text-background transition-colors hover:bg-background hover:text-forest"
+          >
+            {communityContent.buttonLabel}
+          </a>
+        </div>
+      </section>
+
+      <footer className="border-t border-border bg-background py-8">
+        <div className="mx-auto w-full max-w-[1400px] px-6 text-sm text-foreground/60 sm:px-10">
+          © 2026 The Real Return™. Reconnect with intention.
+        </div>
+      </footer>
+    </div>
+  );
+}

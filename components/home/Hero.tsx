@@ -1,0 +1,73 @@
+"use client";
+
+import Image from "next/image";
+import { useEffect, useState } from "react";
+
+import { heroSlides } from "@/content/site";
+
+const AUTO_ADVANCE_MS = 6500;
+
+export function Hero() {
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setIndex((current) => (current + 1) % heroSlides.length);
+    }, AUTO_ADVANCE_MS);
+    return () => clearInterval(timer);
+  }, []);
+
+  return (
+    <section className="relative flex h-[100svh] min-h-[640px] w-full items-end overflow-hidden bg-ink">
+      {heroSlides.map((slide, i) => (
+        <div
+          key={slide.src}
+          className="absolute inset-0 transition-opacity duration-[1400ms] ease-out"
+          style={{ opacity: i === index ? 1 : 0 }}
+          aria-hidden={i !== index}
+        >
+          <Image src={slide.src} alt={slide.alt} fill priority={i === 0} sizes="100vw" className="object-cover" />
+        </div>
+      ))}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-black/10" />
+
+      <div className="relative z-10 mx-auto w-full max-w-[1600px] px-6 pb-24 pt-40 sm:px-10 sm:pb-32">
+        <p className="text-[0.75rem] font-semibold uppercase tracking-[0.4em] text-gold-luxury">The Real Return™</p>
+        <h1 className="mt-6 max-w-3xl font-sans text-[2.75rem] font-extrabold uppercase leading-[1.02] tracking-tight text-background sm:text-[4.25rem]">
+          Remember. Return. Rebuild.
+        </h1>
+        <p className="mt-6 max-w-xl text-base leading-8 text-background/80 sm:text-lg">
+          A heritage and legacy platform for the African diaspora — built for those returning to Ghana not as tourists, but as family
+          coming home.
+        </p>
+        <div className="mt-10 flex flex-wrap items-center gap-4">
+          <a
+            href="#invest"
+            className="inline-flex h-12 items-center justify-center rounded-sm bg-gold-luxury px-7 text-[0.8rem] font-semibold uppercase tracking-[0.18em] text-ink transition-transform hover:scale-[1.02]"
+          >
+            Begin Your Journey
+          </a>
+          <a
+            href="#story"
+            className="inline-flex h-12 items-center justify-center rounded-sm border border-background/40 px-7 text-[0.8rem] font-semibold uppercase tracking-[0.18em] text-background transition-colors hover:border-background"
+          >
+            Our Story
+          </a>
+        </div>
+      </div>
+
+      <div className="absolute bottom-8 right-6 z-10 flex gap-2 sm:right-10">
+        {heroSlides.map((slide, i) => (
+          <button
+            key={slide.src}
+            type="button"
+            aria-label={`Show slide ${i + 1}`}
+            aria-current={i === index}
+            onClick={() => setIndex(i)}
+            className={`h-1.5 rounded-full transition-all ${i === index ? "w-8 bg-gold-luxury" : "w-1.5 bg-white/40 hover:bg-white/70"}`}
+          />
+        ))}
+      </div>
+    </section>
+  );
+}
