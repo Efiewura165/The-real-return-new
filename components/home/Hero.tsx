@@ -32,17 +32,9 @@ export function Hero() {
       <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-black/10" />
 
       <div className="relative z-10 mx-auto w-full max-w-[1600px] px-6 pb-24 pt-40 sm:px-10 sm:pb-32">
-        <p className="text-[0.75rem] font-semibold uppercase tracking-[0.4em] text-gold-luxury">The Real Return™</p>
-        <h1 className="mt-6 max-w-3xl font-sans text-[2.75rem] font-extrabold uppercase leading-[1.02] tracking-tight text-background sm:text-[4.25rem]">
-          Remember. Return. Rebuild.
-        </h1>
-        <p className="mt-6 max-w-xl text-base leading-8 text-background/80 sm:text-lg">
-          A heritage and legacy platform for the African diaspora — built for those returning to Ghana not as tourists, but as family
-          coming home.
-        </p>
-        <div className="mt-10 flex flex-wrap items-center gap-4">
+        <div className="flex flex-wrap items-center gap-4">
           <a
-            href="#invest"
+            href="/reserve"
             className="inline-flex h-12 items-center justify-center rounded-sm bg-gold-luxury px-7 text-[0.8rem] font-semibold uppercase tracking-[0.18em] text-ink transition-transform hover:scale-[1.02]"
           >
             Begin Your Journey

@@ -19,7 +19,7 @@ const cormorant = Cormorant_Garamond({
 export const metadata: Metadata = {
   title: "The Real Return™ | Remember. Return. Rebuild.",
   description:
-    "The Real Return™ is a heritage and legacy platform for the African diaspora — built for those returning to Ghana not as tourists, but as family coming home.",
+    "The Real Return™ is a heritage and legacy platform for the African diaspora, built for those returning to Ghana not as tourists, but as family coming home.",
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
