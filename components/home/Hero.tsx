@@ -6,9 +6,11 @@ import { useEffect, useState } from "react";
 import { heroSlides } from "@/content/site";
 
 const AUTO_ADVANCE_MS = 6500;
+const VIDEO_INTRO_MS = 7500;
 
 export function Hero() {
   const [index, setIndex] = useState(0);
+  const [showVideo, setShowVideo] = useState(true);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -17,18 +19,32 @@ export function Hero() {
     return () => clearInterval(timer);
   }, []);
 
+  useEffect(() => {
+    const timeout = setTimeout(() => setShowVideo(false), VIDEO_INTRO_MS);
+    return () => clearTimeout(timeout);
+  }, []);
+
   return (
     <section className="relative flex h-[100svh] min-h-[640px] w-full items-end overflow-hidden bg-ink">
-      {heroSlides.map((slide, i) => (
-        <div
-          key={slide.src}
-          className="absolute inset-0 transition-opacity duration-[1400ms] ease-out"
-          style={{ opacity: i === index ? 1 : 0 }}
-          aria-hidden={i !== index}
-        >
-          <Image src={slide.src} alt={slide.alt} fill priority={i === 0} sizes="100vw" className="object-cover" />
-        </div>
-      ))}
+      <div className="absolute inset-0 transition-opacity duration-[1400ms] ease-out" style={{ opacity: showVideo ? 1 : 0 }} aria-hidden={!showVideo}>
+        <video autoPlay muted loop playsInline poster="/images/stock/grand-resort-aerial.jpg" className="h-full w-full object-cover">
+          <source src="/videos/luxury-resort-pool.mp4" type="video/mp4" />
+        </video>
+      </div>
+
+      <div className="absolute inset-0 transition-opacity duration-[1400ms] ease-out" style={{ opacity: showVideo ? 0 : 1 }} aria-hidden={showVideo}>
+        {heroSlides.map((slide, i) => (
+          <div
+            key={slide.src}
+            className="absolute inset-0 transition-opacity duration-[1400ms] ease-out"
+            style={{ opacity: i === index ? 1 : 0 }}
+            aria-hidden={i !== index}
+          >
+            <Image src={slide.src} alt={slide.alt} fill priority={i === 0} sizes="100vw" className="object-cover" />
+          </div>
+        ))}
+      </div>
+
       <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-black/10" />
 
       <div className="relative z-10 mx-auto w-full max-w-[1600px] px-6 pb-24 pt-40 sm:px-10 sm:pb-32">
@@ -48,7 +64,10 @@ export function Hero() {
         </div>
       </div>
 
-      <div className="absolute bottom-8 right-6 z-10 flex gap-2 sm:right-10">
+      <div
+        className="absolute bottom-8 right-6 z-10 flex gap-2 transition-opacity duration-[1400ms] ease-out sm:right-10"
+        style={{ opacity: showVideo ? 0 : 1 }}
+      >
         {heroSlides.map((slide, i) => (
           <button
             key={slide.src}

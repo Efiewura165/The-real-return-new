@@ -30,10 +30,10 @@ export default async function ReservePage({ searchParams }: { searchParams: Prom
           muted
           loop
           playsInline
-          poster="/images/stock/cape-coast-castle.jpg"
+          poster="/images/stock/grand-resort-aerial.jpg"
           className="absolute inset-0 h-full w-full object-cover"
         >
-          <source src="/videos/cape-coast-castle-aerial.mp4" type="video/mp4" />
+          <source src="/videos/luxury-resort-pool.mp4" type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/85 to-ink/40" />
         <div className="absolute inset-0 bg-gradient-to-r from-ink/70 via-ink/20 to-transparent" />
