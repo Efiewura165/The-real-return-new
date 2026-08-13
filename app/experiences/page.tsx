@@ -4,7 +4,9 @@ import Link from "next/link";
 
 import { SiteHeader } from "@/components/home/SiteHeader";
 import { PackageCard } from "@/components/experiences/PackageCard";
+import { GhanaRegionMap } from "@/components/experiences/GhanaRegionMap";
 import { getFlagshipJourneys, getPackagesByRegion } from "@/content/experiences";
+import { slugify } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "Experiences | The Real Return™",
@@ -77,9 +79,23 @@ export default function ExperiencesPage() {
         </div>
       </section>
 
+      {/* Region map */}
+      <section className="border-b border-border py-16 sm:py-20">
+        <div className="mx-auto w-full max-w-[1400px] px-6 sm:px-10">
+          <p className="text-[0.75rem] font-semibold uppercase tracking-[0.32em] text-gold">Browse By Region</p>
+          <h2 className="mt-4 max-w-2xl font-serif text-3xl font-normal leading-tight sm:text-4xl">Find your way in.</h2>
+          <p className="mt-4 max-w-xl text-base leading-7 text-foreground/65">
+            Select a region on the map to jump straight to its experiences.
+          </p>
+          <div className="mt-10 flex justify-center">
+            <GhanaRegionMap />
+          </div>
+        </div>
+      </section>
+
       {/* Regional sections */}
       {regions.map(({ region, packages }) => (
-        <section key={region} className="border-b border-border py-16 sm:py-20">
+        <section key={region} id={slugify(region)} className="scroll-mt-20 border-b border-border py-16 sm:py-20">
           <div className="mx-auto w-full max-w-[1400px] px-6 sm:px-10">
             <h2 className="font-serif text-2xl font-normal leading-tight sm:text-3xl">{region}</h2>
             <div className="mt-8 flex flex-wrap gap-x-6 gap-y-10">

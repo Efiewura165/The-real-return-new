@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 
 import { SiteHeader } from "@/components/home/SiteHeader";
@@ -26,14 +25,16 @@ export default async function ReservePage({ searchParams }: { searchParams: Prom
       <SiteHeader />
 
       <section className="relative overflow-hidden pb-20 pt-40 sm:pb-28">
-        <Image
-          src="/images/stock/h1.jpg"
-          alt="The illuminated entrance of a grand resort at dusk, framed by palm trees"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover"
-        />
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          poster="/images/stock/cape-coast-castle.jpg"
+          className="absolute inset-0 h-full w-full object-cover"
+        >
+          <source src="/videos/cape-coast-castle-aerial.mp4" type="video/mp4" />
+        </video>
         <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/85 to-ink/40" />
         <div className="absolute inset-0 bg-gradient-to-r from-ink/70 via-ink/20 to-transparent" />
         <div className="relative mx-auto w-full max-w-[1400px] px-6 sm:px-10">
