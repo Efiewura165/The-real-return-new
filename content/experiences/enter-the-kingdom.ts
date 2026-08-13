@@ -103,5 +103,5 @@ export const enterTheKingdom: ExperiencePackage = {
 
   registration: { enabled: true, cta: "ENTER THE KINGDOM" },
 
-  relatedExperiences: ["threads-of-a-kingdom", "the-symbols-that-speak", "from-earth-to-art", "the-sacred-waters", "return-to-the-beginning", "the-soul-of-ghana"],
+  relatedExperiences: ["threads-of-a-kingdom", "the-symbols-that-speak", "from-earth-to-art", "the-sacred-waters", "wings-of-ghana", "return-to-the-beginning"],
 };

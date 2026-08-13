@@ -22,7 +22,7 @@ export function PackageBanner({ package: pkg }: PackageBannerProps) {
         <p className="mt-4 max-w-md text-sm leading-7 text-foreground/60">{pkg.shortDescription}</p>
         <div className="mt-6 flex flex-wrap items-center gap-3">
           <span className="rounded-full border border-border px-3 py-1 text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-foreground/60">
-            {pkg.duration.days} Days
+            {pkg.duration.days} Day{pkg.duration.days === 1 ? "" : "s"}
           </span>
           <span className="text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-gold">{pkg.category.join(" · ")}</span>
         </div>

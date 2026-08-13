@@ -75,5 +75,5 @@ export const aboveTheCity: ExperiencePackage = {
 
   registration: { enabled: true, cta: "DISCOVER ABURI" },
 
-  relatedExperiences: ["the-soul-of-ghana", "into-the-mountains"],
+  relatedExperiences: ["from-bean-to-chocolate", "the-soul-of-ghana", "into-the-mountains"],
 };

@@ -82,5 +82,5 @@ export const returnToTheBeginning: ExperiencePackage = {
 
   registration: { enabled: true, cta: "RETURN TO THE BEGINNING" },
 
-  relatedExperiences: ["enter-the-kingdom", "the-soul-of-ghana"],
+  relatedExperiences: ["where-history-meets-the-atlantic", "above-the-rainforest", "enter-the-kingdom", "the-soul-of-ghana"],
 };

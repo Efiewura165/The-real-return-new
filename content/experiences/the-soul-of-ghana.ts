@@ -85,5 +85,5 @@ export const theSoulOfGhana: ExperiencePackage = {
 
   registration: { enabled: true, cta: "BEGIN YOUR RETURN" },
 
-  relatedExperiences: ["return-to-the-beginning", "the-atlantic-escape", "enter-the-kingdom"],
+  relatedExperiences: ["where-the-river-meets-the-sea", "return-to-the-beginning", "the-atlantic-escape", "enter-the-kingdom"],
 };

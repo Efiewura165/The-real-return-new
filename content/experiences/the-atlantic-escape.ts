@@ -82,5 +82,5 @@ export const theAtlanticEscape: ExperiencePackage = {
 
   registration: { enabled: true, cta: "ESCAPE TO THE ATLANTIC" },
 
-  relatedExperiences: ["return-to-the-beginning", "the-soul-of-ghana"],
+  relatedExperiences: ["ghanas-hidden-water-world", "from-coconut-to-golden-oil", "return-to-the-beginning", "the-soul-of-ghana"],
 };

@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 
 import { SiteHeader } from "@/components/home/SiteHeader";
 import { DepositCheckout } from "@/components/reserve/DepositCheckout";
 import { InquiryForm } from "@/components/reserve/InquiryForm";
 import { PackageBanner } from "@/components/experiences/PackageBanner";
 import { investmentContent } from "@/content/site";
-import { experiencePackages } from "@/content/experiences";
+import { getExperienceBySlug } from "@/content/experiences";
 import { RESERVATION_DEPOSIT_AMOUNT, RESERVATION_DEPOSIT_CURRENCY } from "@/lib/paypal";
 
 export const metadata: Metadata = {
@@ -16,6 +17,9 @@ export const metadata: Metadata = {
 
 export default async function ReservePage({ searchParams }: { searchParams: Promise<{ tier?: string }> }) {
   const { tier } = await searchParams;
+  const featuredPackages = ["enter-the-kingdom", "return-to-the-beginning", "the-ghana-safari"]
+    .map((slug) => getExperienceBySlug(slug))
+    .filter((pkg): pkg is NonNullable<typeof pkg> => Boolean(pkg));
 
   return (
     <div className="min-h-screen bg-background font-sans text-foreground">
@@ -46,7 +50,7 @@ export default async function ReservePage({ searchParams }: { searchParams: Prom
       </section>
 
       {/* Choose your experience */}
-      {experiencePackages.length > 0 ? (
+      {featuredPackages.length > 0 ? (
         <section className="border-b border-border py-16 sm:py-20">
           <div className="mx-auto w-full max-w-[1400px] px-6 sm:px-10">
             <p className="text-[0.75rem] font-semibold uppercase tracking-[0.32em] text-gold">Choose Your Experience</p>
@@ -54,10 +58,16 @@ export default async function ReservePage({ searchParams }: { searchParams: Prom
               Curated journeys into the story of Ghana.
             </h2>
             <div className="mt-10 grid gap-8">
-              {experiencePackages.map((pkg) => (
+              {featuredPackages.map((pkg) => (
                 <PackageBanner key={pkg.slug} package={pkg} />
               ))}
             </div>
+            <Link
+              href="/experiences"
+              className="mt-10 inline-flex h-12 items-center justify-center rounded-sm border border-foreground/20 px-7 text-[0.8rem] font-semibold uppercase tracking-[0.18em] text-foreground transition-colors hover:border-foreground"
+            >
+              View All Experiences
+            </Link>
           </div>
         </section>
       ) : null}

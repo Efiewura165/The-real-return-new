@@ -10,7 +10,7 @@ interface PackageDetailProps {
 }
 
 export function PackageDetail({ package: pkg }: PackageDetailProps) {
-  const related = getRelatedExperiences(pkg);
+  const related = getRelatedExperiences(pkg).slice(0, 4);
 
   return (
     <div className="bg-background">
@@ -25,7 +25,8 @@ export function PackageDetail({ package: pkg }: PackageDetailProps) {
           <h1 className="mt-4 max-w-3xl font-serif text-5xl font-normal leading-tight text-background sm:text-6xl">{pkg.title}</h1>
           <p className="mt-5 max-w-xl text-lg leading-8 text-background/85">{pkg.tagline}</p>
           <p className="mt-4 text-[0.75rem] font-semibold uppercase tracking-[0.2em] text-background/60">
-            {pkg.duration.days} Days{pkg.duration.nights ? ` / ${pkg.duration.nights} Night${pkg.duration.nights === 1 ? "" : "s"}` : ""} &nbsp;·&nbsp;{" "}
+            {pkg.duration.days} Day{pkg.duration.days === 1 ? "" : "s"}
+            {pkg.duration.nights ? ` / ${pkg.duration.nights} Night${pkg.duration.nights === 1 ? "" : "s"}` : ""} &nbsp;·&nbsp;{" "}
             {pkg.category.join(" · ")}
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
