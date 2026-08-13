@@ -59,8 +59,8 @@ export default async function ReservePage({ searchParams }: { searchParams: Prom
               Curated journeys into the story of Ghana.
             </h2>
             <div className="mt-10 grid gap-8">
-              {featuredPackages.map((pkg) => (
-                <PackageBanner key={pkg.slug} package={pkg} />
+              {featuredPackages.map((pkg, i) => (
+                <PackageBanner key={pkg.slug} package={pkg} videoStartIndex={i * 2} />
               ))}
             </div>
             <Link

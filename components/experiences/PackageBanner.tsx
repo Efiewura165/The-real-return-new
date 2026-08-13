@@ -1,24 +1,24 @@
-import Image from "next/image";
 import Link from "next/link";
 
 import type { ExperiencePackage } from "@/types/experience";
+import { VideoCarousel } from "./VideoCarousel";
+import { LUXURY_AMBIENCE_VIDEOS } from "@/lib/luxury-videos";
 
 interface PackageBannerProps {
   package: ExperiencePackage;
+  videoStartIndex?: number;
 }
 
-export function PackageBanner({ package: pkg }: PackageBannerProps) {
+export function PackageBanner({ package: pkg, videoStartIndex = 0 }: PackageBannerProps) {
   return (
     <Link
       href={`/experiences/${pkg.slug}`}
       className="group relative flex aspect-[16/10] w-full overflow-hidden rounded-sm sm:aspect-[21/9]"
     >
-      <Image
-        src={pkg.heroImage.src}
-        alt={pkg.heroImage.alt}
-        fill
-        sizes="100vw"
-        className="object-cover transition-transform duration-700 group-hover:scale-105"
+      <VideoCarousel
+        videos={LUXURY_AMBIENCE_VIDEOS}
+        startIndex={videoStartIndex}
+        className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/55 to-transparent" />
       <div className="relative mt-auto w-full p-6 sm:p-10">
