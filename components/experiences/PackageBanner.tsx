@@ -9,30 +9,34 @@ interface PackageBannerProps {
 
 export function PackageBanner({ package: pkg }: PackageBannerProps) {
   return (
-    <div className="grid overflow-hidden rounded-sm border border-border bg-background lg:grid-cols-[0.9fr_1.1fr]">
-      <div className="relative aspect-[4/3] lg:aspect-auto">
-        <Image src={pkg.heroImage.src} alt={pkg.heroImage.alt} fill sizes="(min-width:1024px) 45vw, 100vw" className="object-cover" />
-      </div>
-      <div className="flex flex-col justify-center p-8 sm:p-12">
-        <p className="text-[0.75rem] font-semibold uppercase tracking-[0.32em] text-gold">
+    <Link
+      href={`/experiences/${pkg.slug}`}
+      className="group relative flex aspect-[16/10] w-full overflow-hidden rounded-sm sm:aspect-[21/9]"
+    >
+      <Image
+        src={pkg.heroImage.src}
+        alt={pkg.heroImage.alt}
+        fill
+        sizes="100vw"
+        className="object-cover transition-transform duration-700 group-hover:scale-105"
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/55 to-transparent" />
+      <div className="relative mt-auto w-full p-6 sm:p-10">
+        <p className="text-[0.75rem] font-semibold uppercase tracking-[0.32em] text-gold-luxury">
           {pkg.region} · {pkg.locations.join(", ")}
         </p>
-        <h3 className="mt-4 font-serif text-3xl font-normal leading-tight text-foreground sm:text-4xl">{pkg.title}</h3>
-        <p className="mt-4 max-w-md text-base leading-8 text-foreground/70">{pkg.tagline}</p>
-        <p className="mt-4 max-w-md text-sm leading-7 text-foreground/60">{pkg.shortDescription}</p>
-        <div className="mt-6 flex flex-wrap items-center gap-3">
-          <span className="rounded-full border border-border px-3 py-1 text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-foreground/60">
+        <h3 className="mt-3 max-w-xl font-serif text-2xl font-normal leading-tight text-background sm:text-4xl">{pkg.title}</h3>
+        <p className="mt-3 max-w-lg text-sm leading-7 text-background/80 sm:text-base sm:leading-8">{pkg.tagline}</p>
+        <div className="mt-5 flex flex-wrap items-center gap-3">
+          <span className="rounded-full border border-background/30 px-3 py-1 text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-background/85">
             {pkg.duration.days} Day{pkg.duration.days === 1 ? "" : "s"}
           </span>
-          <span className="text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-gold">{pkg.category.join(" · ")}</span>
+          <span className="text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-gold-luxury">{pkg.category.join(" · ")}</span>
         </div>
-        <Link
-          href={`/experiences/${pkg.slug}`}
-          className="mt-8 inline-flex h-12 w-fit items-center justify-center gap-2 rounded-sm bg-gold-luxury px-7 text-[0.8rem] font-semibold uppercase tracking-[0.18em] text-ink transition-transform hover:scale-[1.02]"
-        >
+        <span className="mt-6 inline-flex items-center gap-2 text-[0.8rem] font-semibold uppercase tracking-[0.18em] text-background transition-transform group-hover:translate-x-1">
           {pkg.registration.cta} <span aria-hidden="true">→</span>
-        </Link>
+        </span>
       </div>
-    </div>
+    </Link>
   );
 }
