@@ -4,9 +4,12 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 
 import { heroSlides } from "@/content/site";
+import { LUXURY_AMBIENCE_VIDEOS } from "@/lib/luxury-videos";
+import { VideoCarousel } from "@/components/experiences/VideoCarousel";
 
 const AUTO_ADVANCE_MS = 6500;
-const VIDEO_INTRO_MS = 7500;
+const VIDEO_SLIDE_MS = 5000;
+const VIDEO_INTRO_MS = VIDEO_SLIDE_MS * LUXURY_AMBIENCE_VIDEOS.length;
 
 export function Hero() {
   const [index, setIndex] = useState(0);
@@ -27,9 +30,7 @@ export function Hero() {
   return (
     <section className="relative flex h-[100svh] min-h-[640px] w-full items-end overflow-hidden bg-ink">
       <div className="absolute inset-0 transition-opacity duration-[1400ms] ease-out" style={{ opacity: showVideo ? 1 : 0 }} aria-hidden={!showVideo}>
-        <video autoPlay muted loop playsInline poster="/images/stock/grand-resort-aerial.jpg" className="h-full w-full object-cover">
-          <source src="/videos/luxury-resort-pool.mp4" type="video/mp4" />
-        </video>
+        <VideoCarousel videos={LUXURY_AMBIENCE_VIDEOS} intervalMs={VIDEO_SLIDE_MS} className="h-full w-full object-cover" />
       </div>
 
       <div className="absolute inset-0 transition-opacity duration-[1400ms] ease-out" style={{ opacity: showVideo ? 0 : 1 }} aria-hidden={showVideo}>
