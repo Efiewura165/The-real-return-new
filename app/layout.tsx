@@ -3,6 +3,8 @@ import { Cormorant_Garamond, Inter } from "next/font/google";
 
 import "./globals.css";
 
+import { BookingCTAPopup } from "@/components/home/BookingCTAPopup";
+
 const inter = Inter({
   variable: "--font-sans",
   subsets: ["latin"],
@@ -25,7 +27,10 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${inter.variable} ${cormorant.variable}`}>
-      <body className="min-h-screen bg-background text-foreground antialiased">{children}</body>
+      <body className="min-h-screen bg-background text-foreground antialiased">
+        {children}
+        <BookingCTAPopup />
+      </body>
     </html>
   );
 }

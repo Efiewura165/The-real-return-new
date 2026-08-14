@@ -17,7 +17,7 @@ export function PackageDetail({ package: pkg }: PackageDetailProps) {
       {/* Full-screen hero */}
       <section className="relative flex h-[100svh] min-h-[640px] w-full items-end overflow-hidden bg-ink">
         <Image src={pkg.heroImage.src} alt={pkg.heroImage.alt} fill priority sizes="100vw" className="object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/10" />
+        <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/30 to-ink/5" />
         <div className="relative z-10 mx-auto w-full max-w-[1400px] px-6 pb-20 pt-40 sm:px-10 sm:pb-28">
           <p className="text-[0.75rem] font-semibold uppercase tracking-[0.32em] text-gold-luxury">
             {pkg.region} · {pkg.locations.join(", ")}

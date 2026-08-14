@@ -44,7 +44,7 @@ export default function HomePage() {
                   sizes="(min-width:1024px) 33vw, 100vw"
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/20 to-transparent" />
                 <div className="absolute inset-x-0 bottom-0 p-7">
                   <h3 className="font-serif text-2xl font-normal text-background">{pillar.title}</h3>
                   <p className="mt-2 text-sm leading-6 text-background/80">{pillar.description}</p>

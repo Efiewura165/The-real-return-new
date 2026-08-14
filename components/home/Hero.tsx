@@ -46,7 +46,7 @@ export function Hero() {
         ))}
       </div>
 
-      <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-black/10" />
+      <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-ink/18 to-ink/5" />
 
       <div className="relative z-10 mx-auto w-full max-w-[1600px] px-6 pb-24 pt-40 sm:px-10 sm:pb-32">
         <div className="flex flex-wrap items-center gap-4">

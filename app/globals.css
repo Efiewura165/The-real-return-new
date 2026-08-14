@@ -5,7 +5,7 @@
   --foreground: #161310;
   --muted: #f5f0e5;
   --border: rgba(22, 19, 16, 0.12);
-  --ink: #0d0d0c;
+  --ink: #1c140f;
   --forest: #1f4d3d;
   --gold: #b6863c;
   --gold-luxury: #d9b25c;
@@ -38,4 +38,15 @@ body {
 ::selection {
   background: rgba(217, 178, 92, 0.3);
   color: var(--foreground);
+}
+
+@keyframes cta-popup-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

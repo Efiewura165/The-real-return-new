@@ -4,6 +4,7 @@ import Link from "next/link";
 
 import { SiteHeader } from "@/components/home/SiteHeader";
 import { PackageCard } from "@/components/experiences/PackageCard";
+import { RegionAmbienceCard } from "@/components/experiences/RegionAmbienceCard";
 import { GhanaRegionMap } from "@/components/experiences/GhanaRegionMap";
 import { getFlagshipJourneys, getPackagesByRegion } from "@/content/experiences";
 import { slugify } from "@/lib/utils";
@@ -30,7 +31,7 @@ export default function ExperiencesPage() {
           sizes="100vw"
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/85 to-ink/40" />
+        <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/45 to-ink/15" />
         <div className="relative mx-auto w-full max-w-[1400px] px-6 sm:px-10">
           <p className="text-[0.75rem] font-semibold uppercase tracking-[0.32em] text-gold-luxury">Experiences</p>
           <h1 className="mt-4 max-w-2xl font-serif text-4xl font-normal leading-tight text-background sm:text-5xl">
@@ -94,7 +95,7 @@ export default function ExperiencesPage() {
       </section>
 
       {/* Regional sections */}
-      {regions.map(({ region, packages }) => (
+      {regions.map(({ region, packages }, regionIndex) => (
         <section key={region} id={slugify(region)} className="scroll-mt-20 border-b border-border py-16 sm:py-20">
           <div className="mx-auto w-full max-w-[1400px] px-6 sm:px-10">
             <h2 className="font-serif text-2xl font-normal leading-tight sm:text-3xl">{region}</h2>
@@ -102,6 +103,7 @@ export default function ExperiencesPage() {
               {packages.map((pkg) => (
                 <PackageCard key={pkg.slug} package={pkg} />
               ))}
+              <RegionAmbienceCard startIndex={regionIndex * 2} />
             </div>
           </div>
         </section>

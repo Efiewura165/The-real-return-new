@@ -43,7 +43,11 @@ export function VideoCarousel({ videos, startIndex = 0, intervalMs = 8000, class
       loop
       playsInline
       className={className}
-      style={{ opacity: visible ? 1 : 0, transition: `opacity ${FADE_MS}ms ease-out` }}
+      style={{
+        opacity: visible ? 1 : 0,
+        transition: `opacity ${FADE_MS}ms ease-out`,
+        filter: "brightness(1.22) saturate(1.08) contrast(1.02)",
+      }}
     >
       <source src={videos[index]} type="video/mp4" />
     </video>

@@ -32,11 +32,12 @@ export default async function ReservePage({ searchParams }: { searchParams: Prom
           playsInline
           poster="/images/stock/grand-resort-aerial.jpg"
           className="absolute inset-0 h-full w-full object-cover"
+          style={{ filter: "brightness(1.22) saturate(1.08) contrast(1.02)" }}
         >
           <source src="/videos/luxury-resort-pool.mp4" type="video/mp4" />
         </video>
-        <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/85 to-ink/40" />
-        <div className="absolute inset-0 bg-gradient-to-r from-ink/70 via-ink/20 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/45 to-ink/15" />
+        <div className="absolute inset-0 bg-gradient-to-r from-ink/55 via-ink/12 to-transparent" />
         <div className="relative mx-auto w-full max-w-[1400px] px-6 sm:px-10">
           <p className="text-[0.75rem] font-semibold uppercase tracking-[0.32em] text-gold-luxury">Reserve Your Journey</p>
           <div className="mt-4 h-px w-16 bg-gradient-to-r from-gold-luxury to-transparent" />

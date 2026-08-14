@@ -20,7 +20,7 @@ export function PackageBanner({ package: pkg, videoStartIndex = 0 }: PackageBann
         startIndex={videoStartIndex}
         className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/55 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/25 to-transparent" />
       <div className="relative mt-auto w-full p-6 sm:p-10">
         <p className="text-[0.75rem] font-semibold uppercase tracking-[0.32em] text-gold-luxury">
           {pkg.region} · {pkg.locations.join(", ")}
