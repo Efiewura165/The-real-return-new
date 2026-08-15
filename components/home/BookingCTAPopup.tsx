@@ -65,7 +65,7 @@ export function BookingCTAPopup() {
       <div className="p-5">
         <p className="text-[0.65rem] font-semibold uppercase tracking-[0.28em] text-gold-luxury">The Real Return™</p>
         <p className="mt-2 font-serif text-lg font-normal leading-snug text-background">
-          You Are the Right Spot Where Adventure Meets Luxury
+          You are at the Right Spot Where Luxury meets Adventure
         </p>
         <Link
           href="/reserve"

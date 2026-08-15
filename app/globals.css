@@ -50,3 +50,22 @@ body {
     transform: translateY(0);
   }
 }
+
+@keyframes caption-splash {
+  0% {
+    opacity: 0;
+    transform: translateY(28px) scale(0.96);
+  }
+  12% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  80% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-14px) scale(0.98);
+  }
+}

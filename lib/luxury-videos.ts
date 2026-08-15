@@ -14,3 +14,17 @@ export const LUXURY_AMBIENCE_VIDEOS = [
   "/videos/luxury-beach-sunrise.mp4",
   "/videos/luxury-terrace-ocean.mp4",
 ];
+
+/**
+ * Captions for LUXURY_AMBIENCE_VIDEOS, same order. Deliberately non-locational
+ * (no place names) since the footage above is not verified Ghana property --
+ * see the caveat on LUXURY_AMBIENCE_VIDEOS.
+ */
+export const LUXURY_AMBIENCE_CAPTIONS = [
+  "Luxury, Ghanaian Style",
+  "Rest, Reconnect, Return",
+  "Flavors Worth the Journey",
+  "Comfort, Curated",
+  "Every Morning, A Homecoming",
+  "Where the Horizon Waits",
+];
