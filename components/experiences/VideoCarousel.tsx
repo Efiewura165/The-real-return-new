@@ -16,6 +16,7 @@ const READY_FALLBACK_MS = 1000;
 export function VideoCarousel({ videos, startIndex = 0, intervalMs = 8000, className, onIndexChange }: VideoCarouselProps) {
   const start = startIndex % videos.length;
   const [activeLayer, setActiveLayer] = useState<0 | 1>(0);
+  const [isNearViewport, setIsNearViewport] = useState(false);
   const activeLayerRef = useRef<0 | 1>(0);
   const currentIndexRef = useRef(start);
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([null, null]);
@@ -24,7 +25,29 @@ export function VideoCarousel({ videos, startIndex = 0, intervalMs = 8000, class
     activeLayerRef.current = activeLayer;
   }, [activeLayer]);
 
+  // Defer decoding until this carousel is actually near the viewport, so an
+  // off-screen card doesn't compete for bandwidth/decoder time with content
+  // the visitor can already see (see e.g. /experiences, which can render up
+  // to 9 of these at once).
   useEffect(() => {
+    const target = videoRefs.current[0];
+    if (!target) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((entry) => entry.isIntersecting)) {
+          setIsNearViewport(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "300px" },
+    );
+    observer.observe(target);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!isNearViewport) return;
     const first = videoRefs.current[0];
     if (first) {
       first.src = videos[start];
@@ -33,10 +56,10 @@ export function VideoCarousel({ videos, startIndex = 0, intervalMs = 8000, class
     }
     onIndexChange?.(start);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [isNearViewport]);
 
   useEffect(() => {
-    if (videos.length <= 1) return;
+    if (!isNearViewport || videos.length <= 1) return;
 
     const timer = setInterval(() => {
       const inactiveLayer: 0 | 1 = activeLayerRef.current === 0 ? 1 : 0;
@@ -61,7 +84,7 @@ export function VideoCarousel({ videos, startIndex = 0, intervalMs = 8000, class
 
     return () => clearInterval(timer);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [videos, intervalMs]);
+  }, [videos, intervalMs, isNearViewport]);
 
   return (
     <>
@@ -71,7 +94,6 @@ export function VideoCarousel({ videos, startIndex = 0, intervalMs = 8000, class
           ref={(el) => {
             videoRefs.current[layer] = el;
           }}
-          autoPlay
           muted
           loop
           playsInline
