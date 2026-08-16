@@ -62,11 +62,26 @@ export const academyCourses: AcademyCourse[] = [
     format: "Self-Paced Online",
     lessonCount: 5,
     curriculum: [
-      "Social hierarchy and respect norms",
-      "Greetings, etiquette, and Ghana Time",
-      "Family structure and the role of elders",
-      "Faith and its place in daily life",
-      "Everyday situations, worked through in advance",
+      {
+        title: "Social Hierarchy & Respect",
+        description: "Understanding elders, chiefs, and the structures of respect that shape every interaction in Ghanaian life.",
+      },
+      {
+        title: "Greetings & Everyday Etiquette",
+        description: "The greetings, gestures, and small courtesies that signal you belong, from first hello to Ghana Time.",
+      },
+      {
+        title: "Family & Community Structure",
+        description: "How extended family, clan, and community obligations shape decisions, hospitality, and daily rhythms.",
+      },
+      {
+        title: "Faith in Daily Life",
+        description: "The role of Christianity, Islam, and traditional belief in how Ghanaians move through an ordinary day.",
+      },
+      {
+        title: "Real-World Scenarios",
+        description: "Common situations worked through in advance, from market bargaining to visiting an elder's home.",
+      },
     ],
     featured: false,
   },
@@ -83,11 +98,26 @@ export const academyCourses: AcademyCourse[] = [
     format: "Self-Paced Online",
     lessonCount: 5,
     curriculum: [
-      "Survival phrases in Twi, Ga, and Ewe",
-      "Everyday expressions and small talk",
-      "Nonverbal communication and gesture",
-      "Akan proverbs and what they reveal",
-      "Listening practice with native speakers",
+      {
+        title: "Survival Phrases in Twi, Ga & Ewe",
+        description: "Core greetings, questions, and requests across Ghana's three most widely spoken languages.",
+      },
+      {
+        title: "Everyday Expressions",
+        description: "The small talk, filler words, and casual phrases that make conversation feel natural, not textbook.",
+      },
+      {
+        title: "Nonverbal Communication",
+        description: "Gesture, eye contact, tone, and the unspoken cues that carry as much meaning as words.",
+      },
+      {
+        title: "Akan Proverbs & Wisdom",
+        description: "Common proverbs and what they reveal about values, humor, and how Ghanaians think.",
+      },
+      {
+        title: "Listening Practice",
+        description: "Guided audio with native speakers so your ear adjusts before you ever land.",
+      },
     ],
     featured: false,
   },
@@ -104,11 +134,26 @@ export const academyCourses: AcademyCourse[] = [
     format: "Self-Paced Online",
     lessonCount: 5,
     curriculum: [
-      "Visa types and which one fits your plans",
-      "Right of Abode eligibility",
-      "Applying for the Ghana Card",
-      "Customs rules for returning travelers",
-      "Health and vaccination requirements",
+      {
+        title: "Visa Types & Requirements",
+        description: "Which visa fits your trip, from short-stay tourism to longer relocation plans.",
+      },
+      {
+        title: "Right of Abode Eligibility",
+        description: "Who qualifies, how to apply, and what it unlocks for diaspora returnees.",
+      },
+      {
+        title: "The Ghana Card",
+        description: "Step-by-step through applying for Ghana's national ID as a returning member of the diaspora.",
+      },
+      {
+        title: "Customs & Import Rules",
+        description: "What you can bring, what's restricted, and how to avoid delays at the border.",
+      },
+      {
+        title: "Health & Vaccination Requirements",
+        description: "The medical paperwork and preparations to sort out before you fly.",
+      },
     ],
     featured: false,
   },
@@ -125,11 +170,26 @@ export const academyCourses: AcademyCourse[] = [
     format: "Self-Paced + 1:1 Concierge",
     lessonCount: 30,
     curriculum: [
-      "All three Foundation & Orientation courses",
-      "Cultural Deep Dive and Identity & Belonging",
-      "Practical Relocation planning",
-      "Economic Opportunity and investment pathways",
-      "Ongoing 1:1 Concierge access to a steward",
+      {
+        title: "All Three Foundation Courses",
+        description: "Complete access to Cultural Acclimatization, Linguistic Basics, and Documentation.",
+      },
+      {
+        title: "Cultural Deep Dive & Identity",
+        description: "History, spirituality, and the emotional work of return, explored beyond the surface.",
+      },
+      {
+        title: "Practical Relocation Planning",
+        description: "Housing, healthcare, schooling, and the logistics of a longer stay.",
+      },
+      {
+        title: "Economic Opportunity",
+        description: "Business formation, land, and investment pathways for the diaspora.",
+      },
+      {
+        title: "Ongoing 1:1 Concierge",
+        description: "Direct, personal guidance from a Real Return™ steward for as long as you need it.",
+      },
     ],
     featured: true,
   },

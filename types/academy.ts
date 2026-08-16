@@ -3,6 +3,11 @@ export interface AcademyImage {
   alt: string;
 }
 
+export interface AcademyLesson {
+  title: string;
+  description: string;
+}
+
 export interface AcademyCourse {
   id: string;
   slug: string;
@@ -18,7 +23,7 @@ export interface AcademyCourse {
   format: string;
   lessonCount: number;
 
-  curriculum: string[];
+  curriculum: AcademyLesson[];
 
   featured: boolean;
 }
