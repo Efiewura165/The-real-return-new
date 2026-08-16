@@ -6,9 +6,9 @@ export const theKingdomAndTheGoldCoast: ExperiencePackage = {
 
   title: "The Kingdom & The Gold Coast",
   tagline: "Castles, canopy, and a kingdom that never stopped weaving.",
-  shortDescription: "Cape Coast, Elmina, Kakum, and the Ashanti Kingdom — Ghana's heritage coast and living kingdom in one connected circuit.",
+  shortDescription: "Cape Coast, Elmina, Kakum, and the Ashanti Kingdom: Ghana's heritage coast and living kingdom in one connected circuit.",
   longDescription:
-    "This journey traces a natural geographic line: from Accra down to the historic castles of the Gold Coast, up through Kakum's rainforest canopy, and on to Kumasi, seat of the Ashanti Kingdom. No backtracking, no wasted distance — just the most complete circuit through Ghana's coastal and Ashanti heritage.",
+    "This journey traces a natural geographic line: from Accra down to the historic castles of the Gold Coast, up through Kakum's rainforest canopy, and on to Kumasi, seat of the Ashanti Kingdom. No backtracking, no wasted distance, just the most complete circuit through Ghana's coastal and Ashanti heritage.",
 
   region: "Multi-Region Journey",
   country: "Ghana",
@@ -30,13 +30,13 @@ export const theKingdomAndTheGoldCoast: ExperiencePackage = {
   highlights: [
     "Cape Coast Castle and Elmina Castle, held with dignity and unhurried reflection",
     "Kakum National Park's rainforest canopy walkway",
-    "Manhyia Palace Museum and the full Ashanti craft circuit — Kente and Adinkra",
+    "Manhyia Palace Museum and the full Ashanti craft circuit: Kente and Adinkra",
     "A restful closing chapter at Lake Bosomtwe",
     "A single, logical circuit with no unnecessary backtracking",
   ],
 
   whyThisExperience:
-    "History and living culture, in one geographically coherent journey. This route pairs the weight of the coastal castles with the resilience and craft of the Ashanti Kingdom — memory and continuation, held together.",
+    "History and living culture, in one geographically coherent journey. This route pairs the weight of the coastal castles with the resilience and craft of the Ashanti Kingdom, memory and continuation held together.",
 
   itinerary: [
     {
@@ -72,7 +72,7 @@ export const theKingdomAndTheGoldCoast: ExperiencePackage = {
   ],
 
   culturalContext:
-    "This route connects two of Ghana's defining heritage narratives: the coastal castles central to transatlantic slave trade history, and the still-living Ashanti Kingdom further inland — two chapters of the same continuous story.",
+    "This route connects two of Ghana's defining heritage narratives: the coastal castles central to transatlantic slave trade history, and the still-living Ashanti Kingdom further inland, two chapters of the same continuous story.",
 
   included: [
     "Accommodation for the full 8-day itinerary",
@@ -84,7 +84,7 @@ export const theKingdomAndTheGoldCoast: ExperiencePackage = {
 
   practicalInformation: {
     bestTime: "November through March",
-    difficulty: "Easy to moderate — includes the Kakum canopy walkway",
+    difficulty: "Easy to moderate, including the Kakum canopy walkway",
     groupSize: "Private or small group (4–12 travelers)",
     recommendedFor: ["Diaspora travelers", "Heritage travelers", "Families"],
   },

@@ -90,7 +90,7 @@ export function EnrollmentForm({ courses }: EnrollmentFormProps) {
           <select value={courseSlug} onChange={(e) => setCourseSlug(e.target.value)} className={inputClass}>
             {courses.map((c) => (
               <option key={c.slug} value={c.slug}>
-                {c.title} — ${c.price} {c.currency}
+                {c.title} (${c.price} {c.currency})
               </option>
             ))}
           </select>

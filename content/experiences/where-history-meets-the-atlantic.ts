@@ -8,7 +8,7 @@ export const whereHistoryMeetsTheAtlantic: ExperiencePackage = {
   tagline: "A threshold between memory and the sea.",
   shortDescription: "Elmina Castle, the oldest European structure in sub-Saharan Africa, and the fishing town that has grown around it.",
   longDescription:
-    "Elmina Castle predates Cape Coast Castle by over a century — built in 1482, it is the oldest European building in sub-Saharan Africa, and among the earliest points in the transatlantic slave trade's long, painful history. Today, one of Ghana's largest fishing harbors operates in its shadow, a living town continuing on beside a difficult past.",
+    "Elmina Castle predates Cape Coast Castle by over a century. Built in 1482, it is the oldest European building in sub-Saharan Africa, and among the earliest points in the transatlantic slave trade's long, painful history. Today, one of Ghana's largest fishing harbors operates in its shadow, a living town continuing on beside a difficult past.",
 
   region: "Central Region",
   country: "Ghana",
@@ -30,7 +30,7 @@ export const whereHistoryMeetsTheAtlantic: ExperiencePackage = {
   ],
 
   whyThisExperience:
-    "Elmina asks the same dignity Cape Coast does — this is not a monument to visit quickly. Pairing the two castles gives a fuller picture of this history's scale, while Elmina's living harbor town offers a reminder that life continues, determined, beside even the heaviest history.",
+    "Elmina asks the same dignity Cape Coast does. This is not a monument to visit quickly. Pairing the two castles gives a fuller picture of this history's scale, while Elmina's living harbor town offers a reminder that life continues, determined, beside even the heaviest history.",
 
   itinerary: [
     {
@@ -61,7 +61,7 @@ export const whereHistoryMeetsTheAtlantic: ExperiencePackage = {
 
   practicalInformation: {
     bestTime: "Year-round; offered with the same care in every season",
-    difficulty: "Easy walking, though emotionally significant — paced deliberately, never rushed",
+    difficulty: "Easy walking, though emotionally significant, paced deliberately and never rushed",
     groupSize: "Private or small group (4–14 travelers)",
     recommendedFor: ["Diaspora travelers", "Heritage travelers", "Anyone pairing with Return to the Beginning"],
   },

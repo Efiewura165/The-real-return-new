@@ -89,7 +89,7 @@ export async function POST(request: Request) {
         from: "The Real Return™ <onboarding@resend.dev>",
         to: NOTIFY_EMAIL,
         replyTo: email,
-        subject: `New Journey Inquiry — ${name} (${tier})`,
+        subject: `New Journey Inquiry: ${name} (${tier})`,
         text: [
           `Lead ID: ${lead.id}`,
           `Name: ${name}`,

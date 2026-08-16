@@ -5,10 +5,10 @@ export const fromEarthToArt: ExperiencePackage = {
   slug: "from-earth-to-art",
 
   title: "From Earth to Art",
-  tagline: "Glass, fire, and color — turned into beads that carry a name.",
+  tagline: "Glass, fire, and color, turned into beads that carry a name.",
   shortDescription: "A hands-on glass bead-making experience with Krobo artisans in the Eastern Region, from crushed glass to finished bead.",
   longDescription:
-    "In Odumase-Krobo, generations of artisans have turned crushed recycled glass into some of West Africa's most recognized beads — ground by hand, molded, and fired in kilns still built the traditional way. This experience puts you inside that process, from raw glass to a finished bead you help make yourself.",
+    "In Odumase-Krobo, generations of artisans have turned crushed recycled glass into some of West Africa's most recognized beads: ground by hand, molded, and fired in kilns still built the traditional way. This experience puts you inside that process, from raw glass to a finished bead you help make yourself.",
 
   region: "Eastern Region",
   country: "Ghana",
@@ -30,7 +30,7 @@ export const fromEarthToArt: ExperiencePackage = {
   ],
 
   whyThisExperience:
-    "Krobo beads are among the most quietly influential exports of Ghanaian craft — worn across the diaspora, often without knowing their origin. Making one yourself, from crushed glass to fired bead, closes that distance.",
+    "Krobo beads are among the most quietly influential exports of Ghanaian craft, worn across the diaspora, often without knowing their origin. Making one yourself, from crushed glass to fired bead, closes that distance.",
 
   itinerary: [
     {
@@ -42,7 +42,7 @@ export const fromEarthToArt: ExperiencePackage = {
   ],
 
   culturalContext:
-    "Krobo beadmaking dates back generations, historically using recycled glass ground by hand and fired in wood-burning kilns. Beads carry social meaning in Krobo culture — worn at Dipo (coming-of-age) ceremonies and passed down as heirlooms.",
+    "Krobo beadmaking dates back generations, historically using recycled glass ground by hand and fired in wood-burning kilns. Beads carry social meaning in Krobo culture: worn at Dipo (coming-of-age) ceremonies and passed down as heirlooms.",
 
   included: [
     "Guided workshop visit",
@@ -54,7 +54,7 @@ export const fromEarthToArt: ExperiencePackage = {
 
   practicalInformation: {
     bestTime: "Year-round",
-    difficulty: "Easy — seated craft work, some heat exposure near kilns",
+    difficulty: "Easy, with seated craft work and some heat exposure near kilns",
     groupSize: "Private or small group (2–10 travelers)",
     recommendedFor: ["Craft enthusiasts", "Anyone pairing with From Bean to Chocolate", "Families"],
   },

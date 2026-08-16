@@ -9,7 +9,7 @@ export const returnToTheBeginning: ExperiencePackage = {
   shortDescription:
     "Cape Coast Castle, the Door of No Return, and the coastal fishing communities that carry that history forward with dignity.",
   longDescription:
-    "Cape Coast holds one of the most difficult and necessary chapters in the story of the African diaspora. This experience is not designed to overwhelm — it is designed to hold space. A guided walk through Cape Coast Castle, time with stewards trained to sit with grief, anger, and pride alike, and days after, spent with the living, resilient coastal community that calls this place home today.",
+    "Cape Coast holds one of the most difficult and necessary chapters in the story of the African diaspora. This experience is not designed to overwhelm. It is designed to hold space. A guided walk through Cape Coast Castle, time with stewards trained to sit with grief, anger, and pride alike, and days after, spent with the living, resilient coastal community that calls this place home today.",
 
   region: "Central Region",
   country: "Ghana",
@@ -30,12 +30,12 @@ export const returnToTheBeginning: ExperiencePackage = {
     "A guided walk through Cape Coast Castle's dungeons and the Door of No Return",
     "Time held with a steward trained to make space for grief, anger, and pride alike",
     "A visit to the fishing harbor and the community that lives beside the castle today",
-    "An evening reflection circle — unhurried, and never asked to resolve by sundown",
+    "An evening reflection circle, unhurried, and never asked to resolve by sundown",
     "Context on the region's role in the broader story of the transatlantic slave trade",
   ],
 
   whyThisExperience:
-    "This is, for many, the reason the whole journey began. Cape Coast Castle does not ask to be understood in an afternoon — it asks to be witnessed, honestly, and held afterward with care. We do not rush this. Reflection here is unhurried, and never asked to be resolved by sundown. This is history met with dignity, and a future built in its honor.",
+    "This is, for many, the reason the whole journey began. Cape Coast Castle does not ask to be understood in an afternoon. It asks to be witnessed, honestly, and held afterward with care. We do not rush this. Reflection here is unhurried, and never asked to be resolved by sundown. This is history met with dignity, and a future built in its honor.",
 
   itinerary: [
     {
@@ -59,7 +59,7 @@ export const returnToTheBeginning: ExperiencePackage = {
   ],
 
   culturalContext:
-    "Cape Coast Castle was one of roughly forty \"slave castles\" built along the Ghanaian coast, and among the last departure points for millions of enslaved Africans forcibly taken across the Atlantic. Today it stands as a UNESCO World Heritage Site and a place of pilgrimage for the African diaspora — not a ruin, but a witness.",
+    "Cape Coast Castle was one of roughly forty \"slave castles\" built along the Ghanaian coast, and among the last departure points for millions of enslaved Africans forcibly taken across the Atlantic. Today it stands as a UNESCO World Heritage Site and a place of pilgrimage for the African diaspora: not a ruin, but a witness.",
 
   included: [
     "Accommodation for the full itinerary",
@@ -72,7 +72,7 @@ export const returnToTheBeginning: ExperiencePackage = {
 
   practicalInformation: {
     bestTime: "Year-round; this experience is offered with the same care in every season",
-    difficulty: "Easy walking, though emotionally significant — paced deliberately, never rushed",
+    difficulty: "Easy walking, though emotionally significant, paced deliberately and never rushed",
     groupSize: "Private or small group (4–14 travelers)",
     recommendedFor: ["Diaspora travelers", "Heritage travelers", "Families ready to hold this history together"],
   },

@@ -5,10 +5,10 @@ export const whereTheRiverMeetsTheSea: ExperiencePackage = {
   slug: "where-the-river-meets-the-sea",
 
   title: "Where the River Meets the Sea",
-  tagline: "Two waters, one horizon — and a stillness Accra doesn't have.",
+  tagline: "Two waters, one horizon, and a stillness Accra doesn't have.",
   shortDescription: "Ada, where the Volta River meets the Atlantic Ocean in a rare, tranquil estuary landscape.",
   longDescription:
-    "An hour east of Accra, the Volta River widens into a broad estuary before giving itself, finally, to the Atlantic. Ada sits at that meeting point — sandbars, fishing canoes, and a horizon split quietly between fresh water and salt. It's one of the most photographed, least crowded landscapes in Ghana.",
+    "An hour east of Accra, the Volta River widens into a broad estuary before giving itself, finally, to the Atlantic. Ada sits at that meeting point: sandbars, fishing canoes, and a horizon split quietly between fresh water and salt. It's one of the most photographed, least crowded landscapes in Ghana.",
 
   region: "Greater Accra",
   country: "Ghana",
@@ -33,7 +33,7 @@ export const whereTheRiverMeetsTheSea: ExperiencePackage = {
   ],
 
   whyThisExperience:
-    "Ada is a landscape you won't quite believe until you're standing in it — fresh water on one side, salt on the other, and a silence that Accra never offers. It's an easy, grounding pairing with a Greater Accra chapter, and a reminder that Ghana's story is written in water as much as land.",
+    "Ada is a landscape you won't quite believe until you're standing in it: fresh water on one side, salt on the other, and a silence that Accra never offers. It's an easy, grounding pairing with a Greater Accra chapter, and a reminder that Ghana's story is written in water as much as land.",
 
   itinerary: [
     {
@@ -51,7 +51,7 @@ export const whereTheRiverMeetsTheSea: ExperiencePackage = {
   ],
 
   culturalContext:
-    "The Ada people have fished and farmed this estuary for centuries, and the Volta's mouth remains central to local life and livelihood — a working landscape as much as a beautiful one.",
+    "The Ada people have fished and farmed this estuary for centuries, and the Volta's mouth remains central to local life and livelihood, a working landscape as much as a beautiful one.",
 
   included: [
     "Accommodation for the full itinerary",
@@ -64,7 +64,7 @@ export const whereTheRiverMeetsTheSea: ExperiencePackage = {
 
   practicalInformation: {
     bestTime: "Year-round; November through March for the calmest water",
-    difficulty: "Easy — no swimming or paddling experience required",
+    difficulty: "Easy, with no swimming or paddling experience required",
     groupSize: "Private or small group (2–14 travelers)",
     recommendedFor: ["Couples", "Nature travelers", "Anyone pairing with a Greater Accra stay"],
   },

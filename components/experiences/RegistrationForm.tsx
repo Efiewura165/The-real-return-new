@@ -197,7 +197,7 @@ export function RegistrationForm({ experienceSlug, experienceTitle }: Registrati
         ))}
       </div>
       <p className="mt-3 text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-foreground/50">
-        Step {step} of 5 — {STEP_LABELS[step - 1]}
+        Step {step} of 5: {STEP_LABELS[step - 1]}
       </p>
 
       <div className="mt-6 space-y-5">

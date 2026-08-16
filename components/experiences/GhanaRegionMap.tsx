@@ -19,7 +19,7 @@ export function GhanaRegionMap() {
                   : "fill-foreground/10 stroke-background stroke-[6]"
               }
             >
-              <title>{hasPackages ? region.label : `${region.label} — experiences coming soon`}</title>
+              <title>{hasPackages ? region.label : `${region.label}: experiences coming soon`}</title>
             </path>
           );
 

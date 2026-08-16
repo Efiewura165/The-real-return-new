@@ -4,7 +4,7 @@ export const academyHero = {
   eyebrow: "The Real Return™ Academy",
   title: "Arrive prepared. Learn before you land.",
   description:
-    "Every Real Return™ journey is stronger when it begins before the flight. The Academy is a self-paced learning path taught by our founder — grounded, practical coursework that turns a trip into a homecoming.",
+    "Every Real Return™ journey is stronger when it begins before the flight. The Academy is a self-paced learning path taught by our founder, with grounded, practical coursework that turns a trip into a homecoming.",
   facilitator: "Taught by Tarsha Lewis, Founder of The Real Return™",
   image: { src: "/images/stock/academy-heritage-lesson.jpg", alt: "An educator writing on a whiteboard during a heritage studies lesson" },
 };
@@ -13,7 +13,7 @@ export const academyPhases: AcademyPhase[] = [
   {
     phase: "Phase 1",
     title: "Foundation & Orientation",
-    description: "Grounded, practical modules that prepare you before you ever set foot in Ghana — available now as standalone courses below.",
+    description: "Grounded, practical modules that prepare you before you ever set foot in Ghana, available now as standalone courses below.",
     unlocked: true,
   },
   {
@@ -25,7 +25,7 @@ export const academyPhases: AcademyPhase[] = [
   {
     phase: "Phase 3",
     title: "Identity & Belonging",
-    description: "Working through what it means to return — grief, pride, and everything between.",
+    description: "Working through what it means to return: grief, pride, and everything between.",
     unlocked: false,
   },
   {
@@ -55,7 +55,7 @@ export const academyCourses: AcademyCourse[] = [
     title: "Cultural Acclimatization",
     tagline: "Walk in like you already belong.",
     description:
-      "Social hierarchy and respect norms, greetings and etiquette, Ghana Time, family structure, and the role of faith in daily life — the unwritten rules that make the difference between visiting and arriving.",
+      "Social hierarchy and respect norms, greetings and etiquette, Ghana Time, family structure, and the role of faith in daily life: the unwritten rules that make the difference between visiting and arriving.",
     image: { src: "/images/stock/diaspora-lounge-portrait.jpg", alt: "A woman relaxing in a stylish lounge, surrounded by greenery" },
     price: 79,
     currency: "USD",
@@ -91,7 +91,7 @@ export const academyCourses: AcademyCourse[] = [
     title: "Linguistic Basics",
     tagline: "Speak the first words that open doors.",
     description:
-      "Survival phrases in Twi, Ga, and Ewe, everyday expressions, nonverbal communication, and the Akan proverbs that shape how people speak — enough to be understood, and to understand.",
+      "Survival phrases in Twi, Ga, and Ewe, everyday expressions, nonverbal communication, and the Akan proverbs that shape how people speak: enough to be understood, and to understand.",
     image: { src: "/images/stock/adinkra-stamping.jpg", alt: "A craftsman hand-stamping traditional Adinkra symbols onto cloth" },
     price: 89,
     currency: "USD",
@@ -127,7 +127,7 @@ export const academyCourses: AcademyCourse[] = [
     title: "Documentation",
     tagline: "Handle the paperwork before it handles you.",
     description:
-      "Visa types, Right of Abode eligibility, the Ghana Card, customs rules, and the health requirements to sort out before you travel — the practical groundwork done right, once.",
+      "Visa types, Right of Abode eligibility, the Ghana Card, customs rules, and the health requirements to sort out before you travel: the practical groundwork done right, once.",
     image: { src: "/images/stock/ghana-flag.jpg", alt: "The flag of Ghana" },
     price: 99,
     currency: "USD",

@@ -8,7 +8,7 @@ export const theAncientNorth: ExperiencePackage = {
   tagline: "Mud, faith, and eight centuries, still standing.",
   shortDescription: "Larabanga Mosque, one of the oldest mud-and-timber mosques in West Africa, and the village that has kept it standing.",
   longDescription:
-    "Larabanga Mosque rises from the savannah in the Sudano-Sahelian style — sun-dried mud walls, timber struts, and twin minarets that have stood, by local tradition, since the 13th century. It is one of the oldest surviving mosques in West Africa, still an active place of worship, and a striking contrast to the coastal castles further south.",
+    "Larabanga Mosque rises from the savannah in the Sudano-Sahelian style: sun-dried mud walls, timber struts, and twin minarets that have stood, by local tradition, since the 13th century. It is one of the oldest surviving mosques in West Africa, still an active place of worship, and a striking contrast to the coastal castles further south.",
 
   region: "Savannah Region",
   country: "Ghana",
@@ -30,7 +30,7 @@ export const theAncientNorth: ExperiencePackage = {
   ],
 
   whyThisExperience:
-    "Ghana's story isn't only coastal. Larabanga is proof of a northern history just as old and just as intact — an architectural tradition, and a faith, that has survived largely unchanged for centuries.",
+    "Ghana's story isn't only coastal. Larabanga is proof of a northern history just as old and just as intact: an architectural tradition, and a faith, that has survived largely unchanged for centuries.",
 
   itinerary: [
     {
@@ -49,7 +49,7 @@ export const theAncientNorth: ExperiencePackage = {
 
   practicalInformation: {
     bestTime: "December through April (dry season)",
-    difficulty: "Easy — short guided walking",
+    difficulty: "Easy, with short guided walking",
     groupSize: "Private or small group (2–14 travelers)",
     recommendedFor: ["Heritage travelers", "Anyone pairing with The Ghana Safari"],
   },

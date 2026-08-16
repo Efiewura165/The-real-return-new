@@ -8,7 +8,7 @@ export const threadsOfAKingdom: ExperiencePackage = {
   tagline: "Every color has a name. Every pattern, a meaning.",
   shortDescription: "Hands-on time with master Kente weavers in Bonwire, the village where the cloth of kings is still made by hand.",
   longDescription:
-    "In Bonwire, just outside Kumasi, narrow wooden looms still click with the same rhythm they have for centuries — thread by thread, pattern by pattern, into Kente cloth. This experience puts you at the loom itself, learning not just the technique but the meaning: every color and pattern in Kente says something, and a master weaver will teach you to read it.",
+    "In Bonwire, just outside Kumasi, narrow wooden looms still click with the same rhythm they have for centuries, thread by thread and pattern by pattern, into Kente cloth. This experience puts you at the loom itself, learning not just the technique but the meaning: every color and pattern in Kente says something, and a master weaver will teach you to read it.",
 
   region: "Ashanti Region",
   country: "Ghana",
@@ -33,7 +33,7 @@ export const threadsOfAKingdom: ExperiencePackage = {
   ],
 
   whyThisExperience:
-    "Kente is one of the most recognized textiles from the African continent, and almost none of that recognition includes its meaning. Learning to read pattern and color the way weavers do — and leaving with cloth chosen, not assigned — turns a souvenir into something closer to a message.",
+    "Kente is one of the most recognized textiles from the African continent, and almost none of that recognition includes its meaning. Learning to read pattern and color the way weavers do, and leaving with cloth chosen rather than assigned, turns a souvenir into something closer to a message.",
 
   itinerary: [
     {
@@ -45,7 +45,7 @@ export const threadsOfAKingdom: ExperiencePackage = {
   ],
 
   culturalContext:
-    "Kente originated among the Ashanti as royal and ceremonial cloth, historically reserved for chiefs and important occasions. Each color and pattern carries specific meaning — gold for royalty and wealth, green for growth, and dozens of named patterns tied to proverbs, history, and status.",
+    "Kente originated among the Ashanti as royal and ceremonial cloth, historically reserved for chiefs and important occasions. Each color and pattern carries specific meaning: gold for royalty and wealth, green for growth, and dozens of named patterns tied to proverbs, history, and status.",
 
   included: [
     "Guided Bonwire weaving house tour",
@@ -57,7 +57,7 @@ export const threadsOfAKingdom: ExperiencePackage = {
 
   practicalInformation: {
     bestTime: "Year-round",
-    difficulty: "Easy — seated craft work",
+    difficulty: "Easy, seated craft work",
     groupSize: "Private or small group (2–10 travelers)",
     recommendedFor: ["Craft enthusiasts", "Anyone pairing with Enter the Kingdom", "Families"],
   },

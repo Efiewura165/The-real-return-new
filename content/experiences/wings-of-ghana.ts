@@ -8,7 +8,7 @@ export const wingsOfGhana: ExperiencePackage = {
   tagline: "Hundreds of species, and not one of them in a hurry.",
   shortDescription: "A gentle forest walk through Bobiri Forest Reserve, home to hundreds of Ghana's butterfly species.",
   longDescription:
-    "Bobiri Forest Reserve, a short drive from Kumasi, protects one of West Africa's richest concentrations of butterfly species — alongside towering old-growth trees and a canopy alive with birdsong. This is a gentle, unhurried chapter, built for noticing small things.",
+    "Bobiri Forest Reserve, a short drive from Kumasi, protects one of West Africa's richest concentrations of butterfly species, alongside towering old-growth trees and a canopy alive with birdsong. This is a gentle, unhurried chapter, built for noticing small things.",
 
   region: "Ashanti Region",
   country: "Ghana",
@@ -30,7 +30,7 @@ export const wingsOfGhana: ExperiencePackage = {
   ],
 
   whyThisExperience:
-    "Not every chapter needs to be a monument or a museum. Bobiri offers something gentler — proof that Ghana's forests are still teeming, still quietly spectacular, and worth walking through slowly.",
+    "Not every chapter needs to be a monument or a museum. Bobiri offers something gentler: proof that Ghana's forests are still teeming, still quietly spectacular, and worth walking through slowly.",
 
   itinerary: [
     {
@@ -54,7 +54,7 @@ export const wingsOfGhana: ExperiencePackage = {
 
   practicalInformation: {
     bestTime: "Year-round; dry season for easiest walking conditions",
-    difficulty: "Easy — flat forest paths",
+    difficulty: "Easy, flat forest paths",
     groupSize: "Private or small group (2–12 travelers)",
     recommendedFor: ["Families", "Nature and photography enthusiasts", "Anyone pairing with The Sacred Waters"],
   },

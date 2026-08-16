@@ -8,7 +8,7 @@ export const theAtlanticEscape: ExperiencePackage = {
   tagline: "Let the tide set the pace of your day.",
   shortDescription: "Palm-lined beaches, fishing villages, and slow Atlantic mornings in Busua, Ghana's Western Region.",
   longDescription:
-    "Busua is where the journey exhales. A crescent of golden sand, gentle surf, and a fishing village rhythm unbroken by the pace of the capital. This is a chapter built for rest — mornings under palm trees, afternoons in the water, evenings with fresh-caught fish and the sound of the Atlantic.",
+    "Busua is where the journey exhales. A crescent of golden sand, gentle surf, and a fishing village rhythm unbroken by the pace of the capital. This is a chapter built for rest: mornings under palm trees, afternoons in the water, evenings with fresh-caught fish and the sound of the Atlantic.",
 
   region: "Western Region",
   country: "Ghana",
@@ -31,11 +31,11 @@ export const theAtlanticEscape: ExperiencePackage = {
     "Beginner-friendly surf lessons with local instructors",
     "A boat visit to the fishing village and its daily catch",
     "Sunset dinners with fresh seafood on the sand",
-    "Unstructured time — the one chapter built for doing nothing at all",
+    "Unstructured time, the one chapter built for doing nothing at all",
   ],
 
   whyThisExperience:
-    "Every return needs rest built into it, not just history and discovery. Busua gives the journey somewhere to land — a slower rhythm after Cape Coast's weight and Kumasi's grandeur, where the only itinerary is the tide.",
+    "Every return needs rest built into it, not just history and discovery. Busua gives the journey somewhere to land: a slower rhythm after Cape Coast's weight and Kumasi's grandeur, where the only itinerary is the tide.",
 
   itinerary: [
     {
@@ -72,7 +72,7 @@ export const theAtlanticEscape: ExperiencePackage = {
 
   practicalInformation: {
     bestTime: "November through March for calmer seas; August for the strongest surf",
-    difficulty: "Easy — entirely optional activity level",
+    difficulty: "Easy, with an entirely optional activity level",
     groupSize: "Private or small group (2–14 travelers)",
     recommendedFor: ["Couples", "Luxury travelers", "Anyone closing out a longer Ghana journey"],
   },

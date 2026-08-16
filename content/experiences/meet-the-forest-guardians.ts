@@ -8,7 +8,7 @@ export const meetTheForestGuardians: ExperiencePackage = {
   tagline: "Where a village and its monkeys have kept faith for centuries.",
   shortDescription: "A rare, respectful visit to the Boabeng-Fiema Monkey Sanctuary, where mona and colobus monkeys are sacred.",
   longDescription:
-    "In the twin villages of Boabeng and Fiema, mona and black-and-white colobus monkeys move freely through the streets, protected by a taboo older than living memory. This is not a zoo — it's a covenant between a community and the forest around it, and one of the most quietly moving conservation stories in West Africa.",
+    "In the twin villages of Boabeng and Fiema, mona and black-and-white colobus monkeys move freely through the streets, protected by a taboo older than living memory. This is not a zoo. It's a covenant between a community and the forest around it, and one of the most quietly moving conservation stories in West Africa.",
 
   region: "Bono East Region",
   country: "Ghana",
@@ -33,7 +33,7 @@ export const meetTheForestGuardians: ExperiencePackage = {
   ],
 
   whyThisExperience:
-    "This sanctuary exists because a community decided, generations ago, that these monkeys were sacred — and kept that promise ever since. It's a living example of African conservation practice that predates Western environmentalism by centuries, and a gentle counterpoint to the more intense history held elsewhere in Ghana.",
+    "This sanctuary exists because a community decided, generations ago, that these monkeys were sacred, and kept that promise ever since. It's a living example of African conservation practice that predates Western environmentalism by centuries, and a gentle counterpoint to the more intense history held elsewhere in Ghana.",
 
   itinerary: [
     {
@@ -64,7 +64,7 @@ export const meetTheForestGuardians: ExperiencePackage = {
 
   practicalInformation: {
     bestTime: "Early morning and late afternoon, when monkeys are most active",
-    difficulty: "Easy — flat forest paths, no strenuous activity",
+    difficulty: "Easy, with flat forest paths and no strenuous activity",
     groupSize: "Private or small group (2–10 travelers)",
     recommendedFor: ["Families", "Wildlife and nature travelers", "Photography enthusiasts"],
   },

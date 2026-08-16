@@ -8,7 +8,7 @@ export const theGhanaSafari: ExperiencePackage = {
   tagline: "Meet the elephants that made this land a sanctuary.",
   shortDescription: "Wildlife drives and walking safaris through Mole National Park, Ghana's largest wildlife refuge.",
   longDescription:
-    "Mole National Park protects the largest population of savanna elephants in Ghana, alongside antelope, warthog, baboon, and over 300 bird species. This is West Africa's safari — quieter and less crowded than East Africa's famous parks, but no less alive, with elephants that sometimes wander right through the motel grounds.",
+    "Mole National Park protects the largest population of savanna elephants in Ghana, alongside antelope, warthog, baboon, and over 300 bird species. This is West Africa's safari: quieter and less crowded than East Africa's famous parks, but no less alive, with elephants that sometimes wander right through the motel grounds.",
 
   region: "Savannah Region",
   country: "Ghana",
@@ -25,7 +25,7 @@ export const theGhanaSafari: ExperiencePackage = {
   ],
 
   highlights: [
-    "Guided walking safaris — one of the few parks in Africa where this is possible",
+    "Guided walking safaris, one of the few parks in Africa where this is possible",
     "A vehicle game drive across Mole's savanna woodland",
     "African elephants, often visible from the park lodge itself",
     "Antelope, baboon, warthog, and over 300 recorded bird species",
@@ -33,7 +33,7 @@ export const theGhanaSafari: ExperiencePackage = {
   ],
 
   whyThisExperience:
-    "Mole is proof that Ghana's story includes wilderness as much as heritage and craft. A walking safari here — on foot, at eye level with elephants — is a different kind of encounter than a vehicle ever offers, and a reminder of the land your ancestors' land once was, and still is.",
+    "Mole is proof that Ghana's story includes wilderness as much as heritage and craft. A walking safari here, on foot and at eye level with elephants, is a different kind of encounter than a vehicle ever offers, and a reminder of the land your ancestors' land once was, and still is.",
 
   itinerary: [
     {
@@ -70,7 +70,7 @@ export const theGhanaSafari: ExperiencePackage = {
 
   practicalInformation: {
     bestTime: "December through April (dry season) for the best wildlife viewing",
-    difficulty: "Easy to moderate — walking safaris cover a few kilometers at a gentle pace",
+    difficulty: "Easy to moderate, with walking safaris covering a few kilometers at a gentle pace",
     groupSize: "Private or small group (2–12 travelers)",
     recommendedFor: ["Families", "Wildlife and adventure travelers", "Photography enthusiasts"],
   },

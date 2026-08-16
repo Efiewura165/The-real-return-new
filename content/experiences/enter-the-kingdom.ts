@@ -38,7 +38,7 @@ export const enterTheKingdom: ExperiencePackage = {
   ],
 
   whyThisExperience:
-    "The Ashanti Kingdom is one of the few African kingdoms whose royal line, rituals and craft traditions were never fully broken. To enter Manhyia is to stand inside a continuous story — gold that was never melted down, cloth that still carries meaning thread by thread, symbols still spoken before they are written. For travelers of the diaspora especially, Kumasi offers something rare: not a reconstruction of what was lost, but proof of what endured.",
+    "The Ashanti Kingdom is one of the few African kingdoms whose royal line, rituals and craft traditions were never fully broken. To enter Manhyia is to stand inside a continuous story: gold that was never melted down, cloth that still carries meaning thread by thread, symbols still spoken before they are written. For travelers of the diaspora especially, Kumasi offers something rare: not a reconstruction of what was lost, but proof of what endured.",
 
   itinerary: [
     {
@@ -53,7 +53,7 @@ export const enterTheKingdom: ExperiencePackage = {
       title: "Manhyia Palace Museum",
       location: "Manhyia",
       description:
-        "A guided walk through Manhyia Palace Museum with a steward trained in Ashanti royal history — the regalia, the golden stool's story, and the kings and queen mothers who shaped the kingdom.",
+        "A guided walk through Manhyia Palace Museum with a steward trained in Ashanti royal history: the regalia, the golden stool's story, and the kings and queen mothers who shaped the kingdom.",
     },
     {
       day: 3,
@@ -67,12 +67,12 @@ export const enterTheKingdom: ExperiencePackage = {
       title: "Cultural Performance & Departure",
       location: "Kumasi",
       description:
-        "A closing traditional performance of drumming and dance, a final reflection session, and departure — or an easy connection into a Central Region or Greater Accra experience.",
+        "A closing traditional performance of drumming and dance, a final reflection session, and departure, or an easy connection into a Central Region or Greater Accra experience.",
     },
   ],
 
   culturalContext:
-    "The Ashanti Kingdom (Asanteman) rose in the late 17th century and remains one of Africa's most intact royal traditions, still led today by an Asantehene. Kente cloth, Adinkra symbols and Ashanti gold aren't museum artifacts here — they're living practices, still made, still worn, still spoken.",
+    "The Ashanti Kingdom (Asanteman) rose in the late 17th century and remains one of Africa's most intact royal traditions, still led today by an Asantehene. Kente cloth, Adinkra symbols and Ashanti gold aren't museum artifacts here. They're living practices, still made, still worn, still spoken.",
 
   included: [
     "Accommodation for the full itinerary",
@@ -91,7 +91,7 @@ export const enterTheKingdom: ExperiencePackage = {
 
   practicalInformation: {
     bestTime: "November through March, and around the Akwasidae festival for a live royal ceremony",
-    difficulty: "Easy — mostly walking, no strenuous activity",
+    difficulty: "Easy, mostly walking with no strenuous activity",
     groupSize: "Private or small group (4–12 travelers)",
     recommendedFor: ["Heritage travelers", "Diaspora travelers", "Families", "Culture and craft enthusiasts"],
   },

@@ -8,7 +8,7 @@ export const theSacredWaters: ExperiencePackage = {
   tagline: "A lake formed by fire, held sacred by generations.",
   shortDescription: "A restful chapter at Lake Bosomtwe, Ghana's only natural lake, formed by a meteorite impact and held sacred by the Ashanti.",
   longDescription:
-    "Lake Bosomtwe fills a meteorite crater roughly a million years old, its still water ringed by forested hills. To the Ashanti, it is sacred — believed to be home to the souls of the dead, and fished from traditional wooden paddleboards rather than canoes, out of respect. It's one of the most tranquil places in the region, and a natural place to rest between chapters.",
+    "Lake Bosomtwe fills a meteorite crater roughly a million years old, its still water ringed by forested hills. To the Ashanti, it is sacred, believed to be home to the souls of the dead, and fished from traditional wooden paddleboards rather than canoes, out of respect. It's one of the most tranquil places in the region, and a natural place to rest between chapters.",
 
   region: "Ashanti Region",
   country: "Ghana",
@@ -48,7 +48,7 @@ export const theSacredWaters: ExperiencePackage = {
   ],
 
   culturalContext:
-    "Lake Bosomtwe was formed by a meteorite impact roughly one million years ago and remains Ghana's only natural lake. The Ashanti consider it sacred, traditionally believing it receives the souls of the dead — fishing is done from wooden paddleboards known as 'padua,' not canoes, in keeping with local custom.",
+    "Lake Bosomtwe was formed by a meteorite impact roughly one million years ago and remains Ghana's only natural lake. The Ashanti consider it sacred, traditionally believing it receives the souls of the dead. Fishing is done from wooden paddleboards known as 'padua,' not canoes, in keeping with local custom.",
 
   included: [
     "Accommodation for the full itinerary",
@@ -61,7 +61,7 @@ export const theSacredWaters: ExperiencePackage = {
 
   practicalInformation: {
     bestTime: "Year-round; November through March for clearest skies",
-    difficulty: "Easy — light paddling and moderate hiking",
+    difficulty: "Easy, with light paddling and moderate hiking",
     groupSize: "Private or small group (2–12 travelers)",
     recommendedFor: ["Wellness travelers", "Nature travelers", "Anyone pairing with Enter the Kingdom"],
   },

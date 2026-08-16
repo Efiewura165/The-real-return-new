@@ -8,7 +8,7 @@ export const intoTheMountains: ExperiencePackage = {
   tagline: "Let the tallest falls in West Africa remind you how small you are, and how much that matters.",
   shortDescription: "A forest hike to Wli Waterfalls, the highest waterfall in West Africa, in Ghana's lush Volta Region.",
   longDescription:
-    "In the Agumatsa Wildlife Sanctuary, a two-tiered waterfall drops nearly 80 meters through a canopy alive with fruit bats and birdsong. Reaching it means a scenic hike through tropical forest — easy to the lower falls, more demanding to the upper. Either way, the reward is the same: mist on your face, and a reminder of how much of Ghana is still wild.",
+    "In the Agumatsa Wildlife Sanctuary, a two-tiered waterfall drops nearly 80 meters through a canopy alive with fruit bats and birdsong. Reaching it means a scenic hike through tropical forest: easy to the lower falls, more demanding to the upper. Either way, the reward is the same: mist on your face, and a reminder of how much of Ghana is still wild.",
 
   region: "Volta Region",
   country: "Ghana",
@@ -33,7 +33,7 @@ export const intoTheMountains: ExperiencePackage = {
   ],
 
   whyThisExperience:
-    "After the weight of history held in Cape Coast or the living pageantry of Kumasi, Wli offers something different: pure, uncomplicated wonder. Standing beneath water falling from 80 meters, surrounded by forest and the wingbeats of thousands of bats, is its own kind of return — to scale, to nature, to breath.",
+    "After the weight of history held in Cape Coast or the living pageantry of Kumasi, Wli offers something different: pure, uncomplicated wonder. Standing beneath water falling from 80 meters, surrounded by forest and the wingbeats of thousands of bats, is its own kind of return: to scale, to nature, to breath.",
 
   itinerary: [
     {
@@ -64,7 +64,7 @@ export const intoTheMountains: ExperiencePackage = {
 
   practicalInformation: {
     bestTime: "November through March, outside the heaviest rains",
-    difficulty: "Moderate — the lower falls hike is easy; the upper falls hike is more strenuous",
+    difficulty: "Moderate: the lower falls hike is easy, while the upper falls hike is more strenuous",
     groupSize: "Private or small group (2–12 travelers)",
     recommendedFor: ["Adventure travelers", "Nature travelers", "Wellness travelers"],
   },

@@ -5,10 +5,10 @@ export const theGhanaianCraftsman: ExperiencePackage = {
   slug: "the-ghanaian-craftsman",
 
   title: "The Ghanaian Craftsman",
-  tagline: "Cocoa, beads, cloth, and symbols — Ghana made entirely by hand.",
+  tagline: "Cocoa, beads, cloth, and symbols: Ghana made entirely by hand.",
   shortDescription: "A hands-on tour through Ghana's living craft traditions: cocoa, glass beads, Kente, Adinkra, and the food that ties it together.",
   longDescription:
-    "This journey is built for makers and those who love what's made by hand. From cocoa farms in the Eastern Region to bead workshops in Odumase-Krobo, and on to the weaving and stamping villages of the Ashanti Kingdom, every day puts you inside a working craft tradition — hands in the process, not just watching from the side.",
+    "This journey is built for makers and those who love what's made by hand. From cocoa farms in the Eastern Region to bead workshops in Odumase-Krobo, and on to the weaving and stamping villages of the Ashanti Kingdom, every day puts you inside a working craft tradition, hands in the process rather than just watching from the side.",
 
   region: "Multi-Region Journey",
   country: "Ghana",
@@ -77,7 +77,7 @@ export const theGhanaianCraftsman: ExperiencePackage = {
   ],
 
   culturalContext:
-    "Each craft on this route — cocoa, glass beads, Kente, and Adinkra — represents a distinct regional tradition passed down through families and cooperatives, together forming a fuller picture of Ghana's living, working artisan economy.",
+    "Each craft on this route (cocoa, glass beads, Kente, and Adinkra) represents a distinct regional tradition passed down through families and cooperatives, together forming a fuller picture of Ghana's living, working artisan economy.",
 
   included: [
     "Accommodation for the full 6-day itinerary",
@@ -89,7 +89,7 @@ export const theGhanaianCraftsman: ExperiencePackage = {
 
   practicalInformation: {
     bestTime: "October through March, the primary cocoa harvest season",
-    difficulty: "Easy — hands-on craft work, no strenuous activity",
+    difficulty: "Easy, hands-on craft work with no strenuous activity",
     groupSize: "Private or small group (2–12 travelers)",
     recommendedFor: ["Craft and food enthusiasts", "Diaspora travelers", "Families"],
   },

@@ -12,11 +12,11 @@ const SIGN_OFF = "\n\nWarmly,\nThe Real Return™\nRemember. Return. Rebuild.™
 export function academyConfirmationEmail(lead: TravelLead, course: AcademyCourse): EmailContent {
   const firstName = lead.name.split(" ")[0];
   return {
-    subject: `You're Enrolled — ${course.title} | The Real Return™ Academy`,
+    subject: `You're Enrolled in ${course.title} | The Real Return™ Academy`,
     text: [
       `Dear ${firstName},`,
       "",
-      `Thank you for enrolling in ${course.title}. This is one of the most meaningful steps you can take before your journey — arriving prepared, not just present.`,
+      `Thank you for enrolling in ${course.title}. This is one of the most meaningful steps you can take before your journey. It means arriving prepared, not just present.`,
       "",
       `- Course: ${course.title}`,
       `- Format: ${course.format}`,
@@ -32,7 +32,7 @@ export function academyConfirmationEmail(lead: TravelLead, course: AcademyCourse
 /** Sent immediately to The Real Return™ team on enrollment. */
 export function academyInternalNotificationEmail(lead: TravelLead, course: AcademyCourse): EmailContent {
   return {
-    subject: `NEW ACADEMY ENROLLMENT — ${course.title}`,
+    subject: `NEW ACADEMY ENROLLMENT: ${course.title}`,
     text: [
       `Lead ID: ${lead.id}`,
       `Submitted: ${lead.createdAt}`,
@@ -61,7 +61,7 @@ export function academyFollowUpDay1Email(lead: TravelLead, course: AcademyCourse
       "",
       `${course.description}`,
       "",
-      "If you have any questions before you begin, just reply to this email — a real person reads every message.",
+      "If you have any questions before you begin, just reply to this email. A real person reads every message.",
       SIGN_OFF,
     ].join("\n"),
   };

@@ -5,10 +5,10 @@ export const ghanaWildAndBeautiful: ExperiencePackage = {
   slug: "ghana-wild-and-beautiful",
 
   title: "Ghana: Wild & Beautiful",
-  tagline: "Waterfalls, kingdoms, and elephants — Ghana's wildest side, connected.",
+  tagline: "Waterfalls, kingdoms, and elephants: Ghana's wildest side, connected.",
   shortDescription: "Volta's mountains, the Ashanti Kingdom's craft villages, and a Mole National Park safari, in one nature-forward circuit.",
   longDescription:
-    "This is Ghana for travelers who want the land as much as the history — the tallest waterfall in West Africa, the living kingdom of the Ashanti, and a savanna safari among the country's largest elephant population. A journey built for wonder as much as reflection.",
+    "This is Ghana for travelers who want the land as much as the history: the tallest waterfall in West Africa, the living kingdom of the Ashanti, and a savanna safari among the country's largest elephant population. A journey built for wonder as much as reflection.",
 
   region: "Multi-Region Journey",
   country: "Ghana",
@@ -35,7 +35,7 @@ export const ghanaWildAndBeautiful: ExperiencePackage = {
   ],
 
   whyThisExperience:
-    "Ghana's story isn't only told in castles and cities — it's written across waterfalls, forests, and savanna too. This route was built for travelers who want to feel the scale of the land itself, alongside the culture it has shaped.",
+    "Ghana's story isn't only told in castles and cities. It's written across waterfalls, forests, and savanna too. This route was built for travelers who want to feel the scale of the land itself, alongside the culture it has shaped.",
 
   itinerary: [
     {
@@ -71,7 +71,7 @@ export const ghanaWildAndBeautiful: ExperiencePackage = {
   ],
 
   culturalContext:
-    "This route connects three of Ghana's most ecologically significant regions — Volta's forested mountains, the Ashanti Kingdom's craft traditions, and the Savannah Region's protected wildlife — each shaped by centuries of coexistence between community and land.",
+    "This route connects three of Ghana's most ecologically significant regions: Volta's forested mountains, the Ashanti Kingdom's craft traditions, and the Savannah Region's protected wildlife, each shaped by centuries of coexistence between community and land.",
 
   included: [
     "Accommodation for the full 9-day itinerary",
@@ -83,7 +83,7 @@ export const ghanaWildAndBeautiful: ExperiencePackage = {
 
   practicalInformation: {
     bestTime: "December through March, outside the heaviest rains",
-    difficulty: "Moderate — includes waterfall hiking and walking safaris",
+    difficulty: "Moderate, including waterfall hiking and walking safaris",
     groupSize: "Private or small group (4–12 travelers)",
     recommendedFor: ["Adventure travelers", "Families", "Wildlife and nature travelers"],
   },

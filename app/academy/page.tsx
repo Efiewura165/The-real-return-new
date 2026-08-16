@@ -50,7 +50,7 @@ export default function AcademyPage() {
             <p className="text-[0.75rem] font-semibold uppercase tracking-[0.32em] text-gold">Courses</p>
             <h2 className="mt-4 font-serif text-4xl font-normal leading-tight sm:text-5xl">Start with Foundation & Orientation.</h2>
             <p className="mt-6 text-base leading-8 text-foreground/70">
-              Take a single course, or enroll in the Full Academy Membership for the complete path — every phase, plus ongoing 1:1 guidance.
+              Take a single course, or enroll in the Full Academy Membership for the complete path: every phase, plus ongoing 1:1 guidance.
             </p>
           </div>
           <div className="mt-14 grid gap-6 sm:grid-cols-2">

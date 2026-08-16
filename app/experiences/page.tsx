@@ -11,7 +11,7 @@ import { slugify } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "Experiences | The Real Return™",
-  description: "Explore The Real Return™'s curated Ghana experiences, organized by region — from the Ashanti Kingdom to the savannah north.",
+  description: "Explore The Real Return™'s curated Ghana experiences, organized by region, from the Ashanti Kingdom to the savannah north.",
 };
 
 export default function ExperiencesPage() {
@@ -38,7 +38,7 @@ export default function ExperiencesPage() {
             See Ghana. Understand Ghana. Experience Ghana.
           </h1>
           <p className="mt-6 max-w-xl text-base leading-8 text-background/75">
-            Every Real Return™ experience is a complete chapter — a region, a story, a way in. Explore by region below, or begin with one
+            Every Real Return™ experience is a complete chapter: a region, a story, a way in. Explore by region below, or begin with one
             of our flagship multi-region journeys.
           </p>
         </div>

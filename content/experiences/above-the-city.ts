@@ -8,7 +8,7 @@ export const aboveTheCity: ExperiencePackage = {
   tagline: "Breathe easier where the hills meet the clouds.",
   shortDescription: "A cool-air retreat into Aburi's botanical gardens and hillside craft villages, just above Accra.",
   longDescription:
-    "Twenty minutes from Accra, the road climbs into the Akwapim Hills and the air changes — cooler, quieter, greener. Aburi has been a retreat since colonial times, its botanical gardens home to towering trees planted over a century ago. This is a slower chapter: gardens, craft villages, and hillside views that put the whole journey in perspective.",
+    "Twenty minutes from Accra, the road climbs into the Akwapim Hills and the air changes: cooler, quieter, greener. Aburi has been a retreat since colonial times, its botanical gardens home to towering trees planted over a century ago. This is a slower chapter: gardens, craft villages, and hillside views that put the whole journey in perspective.",
 
   region: "Eastern Region",
   country: "Ghana",
@@ -34,7 +34,7 @@ export const aboveTheCity: ExperiencePackage = {
   ],
 
   whyThisExperience:
-    "Every journey needs a place to exhale. Aburi has served that purpose for generations — a hillside sanctuary above the heat and noise of the capital. For travelers, it's a chance to slow down between chapters, to sit with what Accra stirred up, before the deeper history of Cape Coast or the living kingdom of Kumasi.",
+    "Every journey needs a place to exhale. Aburi has served that purpose for generations, a hillside sanctuary above the heat and noise of the capital. For travelers, it's a chance to slow down between chapters, to sit with what Accra stirred up, before the deeper history of Cape Coast or the living kingdom of Kumasi.",
 
   itinerary: [
     {
@@ -65,7 +65,7 @@ export const aboveTheCity: ExperiencePackage = {
 
   practicalInformation: {
     bestTime: "Year-round; mornings are coolest and best for walking",
-    difficulty: "Easy — gentle walking, no strenuous activity",
+    difficulty: "Easy, with gentle walking and no strenuous activity",
     groupSize: "Private or small group (2–14 travelers)",
     recommendedFor: ["Families", "Wellness travelers", "Anyone pairing with a Greater Accra stay"],
   },

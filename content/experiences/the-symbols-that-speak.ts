@@ -8,7 +8,7 @@ export const theSymbolsThatSpeak: ExperiencePackage = {
   tagline: "A visual language older than the alphabet you're reading now.",
   shortDescription: "Learn to stamp Adinkra cloth by hand in Ntonso, where each symbol carries a proverb of its own.",
   longDescription:
-    "In Ntonso, near Kumasi, artisans still carve Adinkra stamps from calabash gourds and press them into cloth using ink boiled from tree bark — the same method used for centuries. Each symbol is a compressed proverb: Sankofa for learning from the past, Gye Nyame for the supremacy of God, dozens more, each a small philosophy pressed into fabric.",
+    "In Ntonso, near Kumasi, artisans still carve Adinkra stamps from calabash gourds and press them into cloth using ink boiled from tree bark, the same method used for centuries. Each symbol is a compressed proverb: Sankofa for learning from the past, Gye Nyame for the supremacy of God, dozens more, each a small philosophy pressed into fabric.",
 
   region: "Ashanti Region",
   country: "Ghana",
@@ -30,7 +30,7 @@ export const theSymbolsThatSpeak: ExperiencePackage = {
   ],
 
   whyThisExperience:
-    "Adinkra is a written language most visitors never learn to read — symbols that carry entire proverbs about wisdom, unity, and resilience. Making your own cloth, symbol by symbol, is a way of carrying that language home with you, understood rather than just admired.",
+    "Adinkra is a written language most visitors never learn to read: symbols that carry entire proverbs about wisdom, unity, and resilience. Making your own cloth, symbol by symbol, is a way of carrying that language home with you, understood rather than just admired.",
 
   itinerary: [
     {
@@ -54,7 +54,7 @@ export const theSymbolsThatSpeak: ExperiencePackage = {
 
   practicalInformation: {
     bestTime: "Year-round",
-    difficulty: "Easy — seated craft work",
+    difficulty: "Easy, seated craft work",
     groupSize: "Private or small group (2–10 travelers)",
     recommendedFor: ["Craft enthusiasts", "Anyone pairing with Enter the Kingdom", "Families"],
   },

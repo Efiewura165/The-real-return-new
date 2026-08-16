@@ -7,9 +7,9 @@ export const rememberReturnRebuild: ExperiencePackage = {
   title: "Remember. Return. Rebuild.™",
   tagline: "The complete Real Return™ journey, coast to savannah.",
   shortDescription:
-    "The definitive Real Return™ journey — Accra, Eastern Region, Central Region, Ashanti Kingdom, and the savannah north, woven into one extended homecoming.",
+    "The definitive Real Return™ journey: Accra, Eastern Region, Central Region, Ashanti Kingdom, and the savannah north, woven into one extended homecoming.",
   longDescription:
-    "This is the full arc of The Real Return™ — every stage of the framework, lived in sequence. Remember, at Cape Coast and Elmina. Return, in the living kingdom of Kumasi and the craft villages around it. Rebuild, in the savannah north where shea cooperatives and ancient mosques carry tradition into the future. Fourteen days, five regions, one continuous story.",
+    "This is the full arc of The Real Return™, every stage of the framework lived in sequence. Remember, at Cape Coast and Elmina. Return, in the living kingdom of Kumasi and the craft villages around it. Rebuild, in the savannah north where shea cooperatives and ancient mosques carry tradition into the future. Fourteen days, five regions, one continuous story.",
 
   region: "Multi-Region Journey",
   country: "Ghana",
@@ -36,32 +36,32 @@ export const rememberReturnRebuild: ExperiencePackage = {
   ],
 
   whyThisExperience:
-    "Some journeys need to be lived whole, not sampled. This is the complete Real Return™ — every chapter of memory, return, and rebuilding, connected into a single, continuous homecoming rather than a series of disconnected stops.",
+    "Some journeys need to be lived whole, not sampled. This is the complete Real Return™: every chapter of memory, return, and rebuilding, connected into a single, continuous homecoming rather than a series of disconnected stops.",
 
   itinerary: [
     {
       day: 1,
       title: "Remember: Accra & Aburi",
       location: "Greater Accra & Eastern Region",
-      description: "Arrival, orientation, and the opening chapters of The Soul of Ghana and Above the City — grounding the journey before its deeper history.",
+      description: "Arrival, orientation, and the opening chapters of The Soul of Ghana and Above the City, grounding the journey before its deeper history.",
     },
     {
       day: 4,
       title: "Remember: Cape Coast & Elmina",
       location: "Central Region",
-      description: "Return to the Beginning and Where History Meets the Atlantic — held with a steward trained to make space for grief, anger, and pride alike.",
+      description: "Return to the Beginning and Where History Meets the Atlantic, held with a steward trained to make space for grief, anger, and pride alike.",
     },
     {
       day: 7,
       title: "Return: The Ashanti Kingdom",
       location: "Ashanti Region",
-      description: "Enter the Kingdom, Threads of a Kingdom, and The Symbols That Speak — Manhyia Palace, Kente weaving, and Adinkra, the living heart of the journey.",
+      description: "Enter the Kingdom, Threads of a Kingdom, and The Symbols That Speak: Manhyia Palace, Kente weaving, and Adinkra, the living heart of the journey.",
     },
     {
       day: 11,
       title: "Rebuild: The Savannah North",
       location: "Savannah & Northern Region",
-      description: "The Ancient North and From Savannah to Shea — a walking safari, the centuries-old Larabanga Mosque, and the women's cooperatives building independence from the land.",
+      description: "The Ancient North and From Savannah to Shea: a walking safari, the centuries-old Larabanga Mosque, and the women's cooperatives building independence from the land.",
     },
     {
       day: 14,
@@ -72,7 +72,7 @@ export const rememberReturnRebuild: ExperiencePackage = {
   ],
 
   culturalContext:
-    "The Remember. Return. Rebuild.™ framework is the master structure behind every Real Return™ journey — memory honored, connection rebuilt, and legacy carried forward. This flagship experience is the framework lived in full, rather than in a single chapter.",
+    "The Remember. Return. Rebuild.™ framework is the master structure behind every Real Return™ journey: memory honored, connection rebuilt, and legacy carried forward. This flagship experience is the framework lived in full, rather than in a single chapter.",
 
   included: [
     "Accommodation for the full 14-day itinerary",
@@ -85,7 +85,7 @@ export const rememberReturnRebuild: ExperiencePackage = {
 
   practicalInformation: {
     bestTime: "November through March",
-    difficulty: "Easy to moderate — a mix of walking tours, a canopy walk, and a savanna safari",
+    difficulty: "Easy to moderate, a mix of walking tours, a canopy walk, and a savanna safari",
     groupSize: "Private or small group (4–12 travelers)",
     recommendedFor: ["Diaspora travelers ready for the complete journey", "Families", "Anyone with two weeks to give this fully"],
   },

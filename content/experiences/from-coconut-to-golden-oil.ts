@@ -8,7 +8,7 @@ export const fromCoconutToGoldenOil: ExperiencePackage = {
   tagline: "The coast's other harvest, pressed and boiled by hand.",
   shortDescription: "Coastal Western Region communities turning palm fruit and coconut into Ghana's traditional golden oil.",
   longDescription:
-    "Along Ghana's western coastline, palm and coconut groves feed a tradition as old as the villages themselves — fruit boiled, pounded, and pressed by hand into the deep golden oil that flavors nearly every Ghanaian kitchen. This experience puts you inside that process, alongside the women who do this work season after season.",
+    "Along Ghana's western coastline, palm and coconut groves feed a tradition as old as the villages themselves: fruit boiled, pounded, and pressed by hand into the deep golden oil that flavors nearly every Ghanaian kitchen. This experience puts you inside that process, alongside the women who do this work season after season.",
 
   region: "Western Region",
   country: "Ghana",
@@ -30,7 +30,7 @@ export const fromCoconutToGoldenOil: ExperiencePackage = {
   ],
 
   whyThisExperience:
-    "Golden oil touches nearly every meal in Ghana, yet the labor behind it — almost entirely women's work, almost entirely by hand — rarely gets seen. This is a chance to witness it directly, and to taste the difference it makes.",
+    "Golden oil touches nearly every meal in Ghana, yet the labor behind it (almost entirely women's work, almost entirely by hand) rarely gets seen. This is a chance to witness it directly, and to taste the difference it makes.",
 
   itinerary: [
     {
@@ -42,14 +42,14 @@ export const fromCoconutToGoldenOil: ExperiencePackage = {
   ],
 
   culturalContext:
-    "Palm oil production along Ghana's coast remains overwhelmingly women-led, often organized into cooperatives that provide steady income alongside the daily rhythm of farming and family life — a tradition passed down largely unchanged for generations.",
+    "Palm oil production along Ghana's coast remains overwhelmingly women-led, often organized into cooperatives that provide steady income alongside the daily rhythm of farming and family life, a tradition passed down largely unchanged for generations.",
 
   included: ["Guided cooperative visit and hands-on session", "Tasting session", "In-region transportation", "A dedicated steward for the day"],
   excluded: ["International flights", "Ghana visa fees", "Travel insurance", "Personal purchases"],
 
   practicalInformation: {
     bestTime: "Year-round; peak harvest is typically March through May",
-    difficulty: "Easy — hands-on craft work, some heat near boiling pots",
+    difficulty: "Easy, with hands-on craft work and some heat near boiling pots",
     groupSize: "Private or small group (2–10 travelers)",
     recommendedFor: ["Craft and agriculture enthusiasts", "Anyone pairing with The Atlantic Escape"],
   },

@@ -18,7 +18,7 @@ export async function POST() {
         intent: "CAPTURE",
         purchase_units: [
           {
-            description: "The Real Return™ — Journey Reservation Deposit",
+            description: "The Real Return™ Journey Reservation Deposit",
             amount: { currency_code: RESERVATION_DEPOSIT_CURRENCY, value: RESERVATION_DEPOSIT_AMOUNT },
           },
         ],

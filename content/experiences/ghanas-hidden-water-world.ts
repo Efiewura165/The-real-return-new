@@ -8,7 +8,7 @@ export const ghanasHiddenWaterWorld: ExperiencePackage = {
   tagline: "A village with no roads, no cars, and no need for either.",
   shortDescription: "Nzulezo, a UNESCO-listed stilt village built entirely on water in Ghana's Western Region.",
   longDescription:
-    "Reached only by a canoe ride across Lake Tadane, Nzulezo is a village of wooden homes, churches, and a school, all built on stilts above the water — no roads, no cars, no dry land beneath a single structure. It's one of the most singular places in West Africa, and a UNESCO World Heritage Tentative List site.",
+    "Reached only by a canoe ride across Lake Tadane, Nzulezo is a village of wooden homes, churches, and a school, all built on stilts above the water: no roads, no cars, no dry land beneath a single structure. It's one of the most singular places in West Africa, and a UNESCO World Heritage Tentative List site.",
 
   region: "Western Region",
   country: "Ghana",
@@ -25,12 +25,12 @@ export const ghanasHiddenWaterWorld: ExperiencePackage = {
     "A guided canoe ride across Lake Tadane to the village",
     "A walking tour of Nzulezo's stilt homes, church, and school",
     "The history of a community built entirely on water for generations",
-    "Wildlife spotting along the lake — birds, monkeys, and butterflies",
+    "Wildlife spotting along the lake: birds, monkeys, and butterflies",
     "An easy pairing with a Busua or Atlantic Escape stay",
   ],
 
   whyThisExperience:
-    "There's nowhere else quite like Nzulezo — a community that solved the question of where to live by simply building on the water itself, and has sustained that way of life for generations. It's a quiet, singular detour from Ghana's more familiar landmarks.",
+    "There's nowhere else quite like Nzulezo, a community that solved the question of where to live by simply building on the water itself, and has sustained that way of life for generations. It's a quiet, singular detour from Ghana's more familiar landmarks.",
 
   itinerary: [
     {
@@ -49,7 +49,7 @@ export const ghanasHiddenWaterWorld: ExperiencePackage = {
 
   practicalInformation: {
     bestTime: "November through March for calmer lake conditions",
-    difficulty: "Easy — seated canoe ride and short walking",
+    difficulty: "Easy, with a seated canoe ride and short walking",
     groupSize: "Private or small group (2–10 travelers)",
     recommendedFor: ["Nature travelers", "Anyone pairing with The Atlantic Escape"],
   },
