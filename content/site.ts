@@ -72,7 +72,7 @@ export const academyContent = {
     { title: "Linguistic Basics", description: "Survival phrases in Twi, Ga, and Ewe, everyday expressions, nonverbal communication, and the Akan proverbs that shape how people speak.", duration: "5 lessons" },
     { title: "Documentation", description: "Visa types, Right of Abode eligibility, the Ghana Card, customs rules, and the health requirements to sort out before you travel.", duration: "5 lessons" },
   ],
-  cta: { label: "Explore Academy Membership", href: "#" },
+  cta: { label: "Explore Academy Membership", href: "/academy" },
 };
 
 export const itineraryContent = {

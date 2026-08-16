@@ -7,7 +7,7 @@ const NAV_LINKS = [
   { href: "/#story", label: "Story" },
   { href: "/#pillars", label: "Pillars" },
   { href: "/experiences", label: "Experiences" },
-  { href: "/#academy", label: "Academy" },
+  { href: "/academy", label: "Academy" },
   { href: "/#journey", label: "Journey" },
   { href: "/#invest", label: "Invest" },
   { href: "/#community", label: "Community" },

@@ -3,6 +3,7 @@ import Image from "next/image";
 import { SiteHeader } from "@/components/home/SiteHeader";
 import { Hero } from "@/components/home/Hero";
 import { pillarsContent, founderContent, academyContent, itineraryContent, investmentContent, communityContent } from "@/content/site";
+import { slugify } from "@/lib/utils";
 
 export default function HomePage() {
   return (
@@ -67,7 +68,7 @@ export default function HomePage() {
               <Image src={academyContent.image.src} alt={academyContent.image.alt} fill sizes="(min-width:1024px) 45vw, 90vw" className="object-cover" />
             </div>
             <a
-              href="/reserve"
+              href={academyContent.cta.href}
               className="mt-8 inline-flex h-12 items-center justify-center rounded-sm bg-ink px-7 text-[0.8rem] font-semibold uppercase tracking-[0.18em] text-background transition-colors hover:bg-forest"
             >
               {academyContent.cta.label}
@@ -76,11 +77,18 @@ export default function HomePage() {
 
           <div className="grid gap-4">
             {academyContent.courses.map((course) => (
-              <div key={course.title} className="rounded-sm border border-border bg-background p-7">
+              <a
+                key={course.title}
+                href={`/academy?course=${slugify(course.title)}#enroll`}
+                className="group rounded-sm border border-border bg-background p-7 transition-colors hover:border-gold"
+              >
                 <p className="text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-gold">{course.duration}</p>
                 <h3 className="mt-3 font-serif text-xl font-normal">{course.title}</h3>
                 <p className="mt-2 text-sm leading-7 text-foreground/65">{course.description}</p>
-              </div>
+                <span className="mt-4 inline-flex items-center gap-1.5 text-[0.7rem] font-semibold uppercase tracking-[0.15em] text-gold transition-transform group-hover:translate-x-1">
+                  Enroll Now <span aria-hidden="true">→</span>
+                </span>
+              </a>
             ))}
           </div>
         </div>

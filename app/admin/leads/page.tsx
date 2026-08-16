@@ -4,6 +4,7 @@ import { logout } from "@/app/admin/login/actions";
 import { getLeads } from "@/lib/leads";
 import { isSupabaseConfigured } from "@/lib/supabase/client";
 import { experiencePackages, getExperienceBySlug } from "@/content/experiences";
+import { academyCourses } from "@/content/academy";
 import { LeadStatusSelect } from "@/components/admin/LeadStatusSelect";
 import { LeadNotes } from "@/components/admin/LeadNotes";
 
@@ -37,7 +38,7 @@ export default async function AdminLeadsPage({ searchParams }: { searchParams: P
 
   const leadsWithRegion = allLeads.map((lead) => ({
     ...lead,
-    region: getExperienceBySlug(lead.experienceId)?.region ?? "Unknown",
+    region: lead.experienceId.startsWith("academy-") ? "Academy" : getExperienceBySlug(lead.experienceId)?.region ?? "Unknown",
   }));
 
   const filtered = leadsWithRegion.filter((lead) => {
@@ -52,8 +53,8 @@ export default async function AdminLeadsPage({ searchParams }: { searchParams: P
     return true;
   });
 
-  const regions = Array.from(new Set(experiencePackages.map((p) => p.region))).sort();
-  const packageTitles = Array.from(new Set(experiencePackages.map((p) => p.title))).sort();
+  const regions = Array.from(new Set([...experiencePackages.map((p) => p.region), "Academy"])).sort();
+  const packageTitles = Array.from(new Set([...experiencePackages.map((p) => p.title), ...academyCourses.map((c) => c.title)])).sort();
   const countries = Array.from(new Set(allLeads.map((l) => l.country))).sort();
 
   const popularity = Object.entries(
