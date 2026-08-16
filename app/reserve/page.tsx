@@ -132,7 +132,7 @@ export default async function ReservePage({ searchParams }: { searchParams: Prom
               It&apos;s applied toward your journey. The balance is arranged directly with your steward.
             </p>
             <div className="mt-8 rounded-sm border border-border bg-background p-6 sm:p-8">
-              <DepositCheckout amount={RESERVATION_DEPOSIT_AMOUNT} currency={RESERVATION_DEPOSIT_CURRENCY} />
+              <DepositCheckout amount={RESERVATION_DEPOSIT_AMOUNT} currency={RESERVATION_DEPOSIT_CURRENCY} tier={tier} />
             </div>
           </div>
 

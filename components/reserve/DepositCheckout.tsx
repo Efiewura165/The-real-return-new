@@ -6,9 +6,10 @@ import { PayPalButtons, PayPalScriptProvider } from "@paypal/react-paypal-js";
 interface DepositCheckoutProps {
   amount: string;
   currency: string;
+  tier?: string;
 }
 
-export function DepositCheckout({ amount, currency }: DepositCheckoutProps) {
+export function DepositCheckout({ amount, currency, tier }: DepositCheckoutProps) {
   const clientId = process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID;
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
 
@@ -44,7 +45,7 @@ export function DepositCheckout({ amount, currency }: DepositCheckoutProps) {
             const response = await fetch("/api/paypal/capture-order", {
               method: "POST",
               headers: { "Content-Type": "application/json" },
-              body: JSON.stringify({ orderId: data.orderID }),
+              body: JSON.stringify({ orderId: data.orderID, tier }),
             });
             if (!response.ok) {
               setStatus("error");
