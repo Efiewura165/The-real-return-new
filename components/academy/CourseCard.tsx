@@ -31,7 +31,7 @@ export function CourseCard({ course }: CourseCardProps) {
         </p>
         <h3 className="mt-2 font-serif text-2xl font-normal leading-snug text-background">{course.title}</h3>
         <p className="mt-2 max-w-md text-sm leading-6 text-background/80">{course.tagline}</p>
-        <div className="mt-5 flex items-center justify-between gap-4">
+        <div className="relative z-30 mt-5 flex items-center justify-between gap-4">
           <p className="font-serif text-2xl font-normal text-background">
             ${course.price} <span className="text-sm text-background/60">{course.currency}</span>
           </p>
@@ -44,8 +44,8 @@ export function CourseCard({ course }: CourseCardProps) {
         </div>
       </div>
 
-      {/* Hover description popup */}
-      <div className="pointer-events-none absolute inset-0 z-20 flex flex-col overflow-hidden bg-ink/95 p-6 opacity-0 transition-opacity duration-300 group-hover:opacity-100 sm:p-7">
+      {/* Hover description popup — stays clear of the price/Enroll row above, which sits at z-30 */}
+      <div className="pointer-events-none absolute inset-0 z-20 flex flex-col overflow-hidden bg-ink/95 p-6 pb-24 opacity-0 transition-opacity duration-300 group-hover:opacity-100 sm:p-7 sm:pb-28">
         <p className="text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-gold-luxury">{course.title}</p>
         <p className="mt-3 text-sm leading-6 text-background/85">{course.description}</p>
         <ul className="mt-5 space-y-2 border-t border-background/10 pt-4">
