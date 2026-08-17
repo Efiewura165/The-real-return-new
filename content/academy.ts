@@ -6,7 +6,7 @@ export const academyHero = {
   description:
     "Every Real Return™ journey is stronger when it begins before the flight. The Academy is a self-paced learning path taught by our founder, with grounded, practical coursework that turns a trip into a homecoming.",
   facilitator: "Taught by Tarsha Lewis, Founder of The Real Return™",
-  image: { src: "/images/stock/academy-heritage-lesson.jpg", alt: "An educator writing on a whiteboard during a heritage studies lesson" },
+  image: { src: "/images/stock/tarsha-academy-session.jpg", alt: "Tarsha Lewis teaching a documentation session to a Real Return™ diaspora cohort" },
 };
 
 export const academyPhases: AcademyPhase[] = [

@@ -13,11 +13,11 @@ export const enterTheKingdom: ExperiencePackage = {
 
   region: "Ashanti Region",
   country: "Ghana",
-  locations: ["Kumasi"],
+  locations: ["Kumasi", "Lake Bosomtwe", "Praso"],
 
   category: ["HERITAGE", "CULTURE", "ROYAL HERITAGE", "DIASPORA", "CRAFT"],
 
-  duration: { days: 4, nights: 3 },
+  duration: { days: 6, nights: 5 },
 
   heroImage: { src: "/images/stock/manhyia.jpeg", alt: "The Akwaaba entrance sign to the Manhyia Palace Museum in Kumasi" },
   gallery: [
@@ -25,15 +25,20 @@ export const enterTheKingdom: ExperiencePackage = {
     { src: "/images/stock/gold.jpg", alt: "Ashanti royal gold regalia and ceremonial ornaments on display at Manhyia Palace Museum" },
     { src: "/images/stock/kente-weaving-loom.jpg", alt: "A craftsman weaving Kente cloth on a traditional loom" },
     { src: "/images/stock/kente-cloth-attire.jpg", alt: "A close-up of vibrant, hand-woven Kente cloth attire" },
+    { src: "/images/stock/lake-bosomtwe.jpg", alt: "The still waters of Lake Bosomtwe, a sacred crater lake near Kumasi" },
     { src: "/images/stock/academy-heritage-lesson.jpg", alt: "An educator sharing heritage knowledge in a study session" },
   ],
 
   highlights: [
     "A guided walk through Manhyia Palace Museum, seat of the Ashanti kings",
     "Royal Ashanti gold regalia and the stories behind them",
+    "The legendary Okomfo Anokye Sword, planted where it has stood for centuries",
+    "The Military Museum, housed in Kumasi's historic fort",
     "Hands-on time with master weavers in a working Kente loom house",
     "The meaning behind Adinkra symbols, painted and explained by a local artisan",
     "Kumasi's Central Market and Ashanti cuisine",
+    "A reflective visit to Lake Bosomtwe, sacred to the Ashanti people",
+    "The Last Bath in Praso, a quiet site along the Pra River carrying its own layer of the region's history",
     "A traditional cultural performance",
   ],
 
@@ -57,17 +62,31 @@ export const enterTheKingdom: ExperiencePackage = {
     },
     {
       day: 3,
+      title: "Okomfo Anokye Sword & the Military Museum",
+      location: "Kumasi",
+      description:
+        "Stand before the Okomfo Anokye Sword, planted by the legendary priest who helped found the Ashanti Empire and said to be immovable to this day. Continue to the Military Museum, housed in Kumasi's historic fort, for a look at the region's military history.",
+    },
+    {
+      day: 4,
       title: "Kente, Adinkra & Craft",
       location: "Bonwire & Kumasi",
       description:
         "Time in a working Kente loom house with master weavers, followed by an Adinkra symbol-painting session with a local artisan. Afternoon at Kumasi's Central Market and Ashanti cuisine.",
     },
     {
-      day: 4,
-      title: "Cultural Performance & Departure",
-      location: "Kumasi",
+      day: 5,
+      title: "Lake Bosomtwe",
+      location: "Lake Bosomtwe",
       description:
-        "A closing traditional performance of drumming and dance, a final reflection session, and departure, or an easy connection into a Central Region or Greater Accra experience.",
+        "A day at Lake Bosomtwe, Ghana's only natural lake and sacred to the Ashanti people, formed inside a meteorite crater. Time by the water for reflection, a lakeside meal, and stories of what this place has meant to generations of Ashanti families.",
+    },
+    {
+      day: 6,
+      title: "The Last Bath in Praso & Departure",
+      location: "Praso",
+      description:
+        "A visit to Praso and the site known as the Last Bath, a quiet stretch of the Pra River carrying its own layer of the region's history, shared by a local steward. A closing traditional performance of drumming and dance, a final reflection session, and departure, or an easy connection into a Central Region or Greater Accra experience.",
     },
   ],
 
@@ -77,7 +96,10 @@ export const enterTheKingdom: ExperiencePackage = {
   included: [
     "Accommodation for the full itinerary",
     "Manhyia Palace Museum guided entry",
+    "Okomfo Anokye Sword and Military Museum visits",
     "Kente loom house and Adinkra artisan sessions",
+    "Lake Bosomtwe day visit",
+    "The Last Bath in Praso, with a local steward",
     "Airport and in-Kumasi transportation",
     "A dedicated steward throughout the journey",
     "Welcome dinner and cultural performance",

@@ -66,7 +66,7 @@ export const academyContent = {
   description:
     "Membership begins with Foundation & Orientation: grounded, practical modules that prepare you before you ever set foot in Ghana. From there, deeper phases unlock: Cultural Deep Dive, Identity & Belonging, Practical Relocation, Economic Opportunity, and 1:1 Concierge guidance for those ready to go further.",
   facilitator: "Taught by Tarsha Lewis, Founder of The Real Return™",
-  image: { src: "/images/stock/academy-heritage-lesson.jpg", alt: "An educator writing on a whiteboard during a heritage studies lesson" },
+  image: { src: "/images/stock/tarsha-academy-session.jpg", alt: "Tarsha Lewis teaching a documentation session to a Real Return™ diaspora cohort" },
   courses: [
     { title: "Cultural Acclimatization", description: "Social hierarchy and respect norms, greetings and etiquette, Ghana Time, family structure, and the role of faith in daily life.", duration: "5 lessons" },
     { title: "Linguistic Basics", description: "Survival phrases in Twi, Ga, and Ewe, everyday expressions, nonverbal communication, and the Akan proverbs that shape how people speak.", duration: "5 lessons" },
