@@ -2,10 +2,13 @@ import Image from "next/image";
 
 import { SiteHeader } from "@/components/home/SiteHeader";
 import { Hero } from "@/components/home/Hero";
-import { pillarsContent, founderContent, academyContent, itineraryContent, investmentContent, communityContent } from "@/content/site";
-import { slugify } from "@/lib/utils";
+import { pillarsContent, founderContent, itineraryContent, investmentContent, communityContent } from "@/content/site";
+import { getAcademyHero, getAcademyCourses } from "@/lib/sanity/academy";
 
-export default function HomePage() {
+export default async function HomePage() {
+  const [academyHero, academyCourses] = await Promise.all([getAcademyHero(), getAcademyCourses()]);
+  const teaserCourses = academyCourses.filter((course) => !course.featured);
+
   return (
     <div className="min-h-screen bg-background font-sans text-foreground">
       <SiteHeader />
@@ -60,31 +63,33 @@ export default function HomePage() {
       <section id="academy" className="bg-muted py-24 sm:py-32">
         <div className="mx-auto grid w-full max-w-[1400px] gap-14 px-6 sm:px-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
           <div>
-            <p className="text-[0.75rem] font-semibold uppercase tracking-[0.32em] text-gold">{academyContent.eyebrow}</p>
-            <h2 className="mt-4 font-serif text-4xl font-normal leading-tight sm:text-5xl">{academyContent.title}</h2>
-            <p className="mt-6 max-w-md text-base leading-8 text-foreground/70">{academyContent.description}</p>
-            <p className="mt-4 text-sm font-medium uppercase tracking-[0.14em] text-foreground/50">{academyContent.facilitator}</p>
+            <p className="text-[0.75rem] font-semibold uppercase tracking-[0.32em] text-gold">{academyHero.eyebrow}</p>
+            <h2 className="mt-4 font-serif text-4xl font-normal leading-tight sm:text-5xl">{academyHero.title}</h2>
+            <p className="mt-6 max-w-md text-base leading-8 text-foreground/70">{academyHero.description}</p>
+            <p className="mt-4 text-sm font-medium uppercase tracking-[0.14em] text-foreground/50">{academyHero.facilitator}</p>
             <div className="relative mt-8 aspect-[4/3] w-full overflow-hidden rounded-sm">
-              <Image src={academyContent.image.src} alt={academyContent.image.alt} fill sizes="(min-width:1024px) 45vw, 90vw" className="object-cover" />
+              <Image src={academyHero.image.src} alt={academyHero.image.alt} fill sizes="(min-width:1024px) 45vw, 90vw" className="object-cover" />
             </div>
             <a
-              href={academyContent.cta.href}
+              href="/academy"
               className="mt-8 inline-flex h-12 items-center justify-center rounded-sm bg-ink px-7 text-[0.8rem] font-semibold uppercase tracking-[0.18em] text-background transition-colors hover:bg-forest"
             >
-              {academyContent.cta.label}
+              Explore Academy Membership
             </a>
           </div>
 
           <div className="grid gap-4">
-            {academyContent.courses.map((course) => (
+            {teaserCourses.map((course) => (
               <a
-                key={course.title}
-                href={`/academy?course=${slugify(course.title)}#enroll`}
+                key={course.slug}
+                href={`/academy?course=${course.slug}#enroll`}
                 className="group rounded-sm border border-border bg-background p-7 transition-colors hover:border-gold"
               >
-                <p className="text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-gold">{course.duration}</p>
+                <p className="text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-gold">
+                  {course.format} · {course.lessonCount} Lessons
+                </p>
                 <h3 className="mt-3 font-serif text-xl font-normal">{course.title}</h3>
-                <p className="mt-2 text-sm leading-7 text-foreground/65">{course.description}</p>
+                <p className="mt-2 text-sm leading-7 text-foreground/65">{course.tagline}</p>
                 <span className="mt-4 inline-flex items-center gap-1.5 text-[0.7rem] font-semibold uppercase tracking-[0.15em] text-gold transition-transform group-hover:translate-x-1">
                   Enroll Now <span aria-hidden="true">→</span>
                 </span>

@@ -5,14 +5,16 @@ import Image from "next/image";
 import { SiteHeader } from "@/components/home/SiteHeader";
 import { CourseCard } from "@/components/academy/CourseCard";
 import { EnrollmentForm } from "@/components/academy/EnrollmentForm";
-import { academyHero, academyPhases, academyCourses } from "@/content/academy";
+import { getAcademyHero, getAcademyPhases, getAcademyCourses } from "@/lib/sanity/academy";
 
 export const metadata: Metadata = {
   title: "Academy | The Real Return™",
   description: "Arrive prepared. Learn before you land. Self-paced courses in Ghanaian culture, language, and documentation, taught by Tarsha Lewis.",
 };
 
-export default function AcademyPage() {
+export default async function AcademyPage() {
+  const [academyHero, academyPhases, academyCourses] = await Promise.all([getAcademyHero(), getAcademyPhases(), getAcademyCourses()]);
+
   return (
     <div className="min-h-screen bg-background font-sans text-foreground">
       <SiteHeader />

@@ -4,7 +4,7 @@ import { logout } from "@/app/admin/login/actions";
 import { getLeads } from "@/lib/leads";
 import { isSupabaseConfigured } from "@/lib/supabase/client";
 import { experiencePackages, getExperienceBySlug } from "@/content/experiences";
-import { academyCourses } from "@/content/academy";
+import { getAcademyCourses } from "@/lib/sanity/academy";
 import { LeadStatusSelect } from "@/components/admin/LeadStatusSelect";
 import { LeadNotes } from "@/components/admin/LeadNotes";
 
@@ -34,7 +34,7 @@ export default async function AdminLeadsPage({ searchParams }: { searchParams: P
     );
   }
 
-  const allLeads = await getLeads();
+  const [allLeads, academyCourses] = await Promise.all([getLeads(), getAcademyCourses()]);
 
   const leadsWithRegion = allLeads.map((lead) => ({
     ...lead,

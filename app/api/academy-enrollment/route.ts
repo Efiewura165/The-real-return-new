@@ -2,7 +2,7 @@ import { randomUUID } from "crypto";
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 
-import { getCourseBySlug } from "@/content/academy";
+import { getAcademyCourseBySlug } from "@/lib/sanity/academy";
 import { saveLead } from "@/lib/leads";
 import { academyConfirmationEmail, academyFollowUpDay1Email, academyInternalNotificationEmail, daysFromNowISO } from "@/lib/academy-emails";
 import type { TravelLead } from "@/types/experience";
@@ -45,7 +45,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Name, email, country, and a selected course are required." }, { status: 400 });
   }
 
-  const course = getCourseBySlug(body.courseSlug);
+  const course = await getAcademyCourseBySlug(body.courseSlug);
   if (!course) {
     return NextResponse.json({ error: "That course could not be found." }, { status: 404 });
   }
