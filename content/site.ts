@@ -202,6 +202,13 @@ export const forBusinessContent = {
   ],
   closingLine: "Your business becomes part of the Return.",
   cta: { label: "Become a Return Partner", href: "/return-network#partner" },
+  images: [
+    { src: "/images/stock/business-modern-office.jpg", alt: "A busy modern office with a team working at their desks" },
+    { src: "/images/stock/business-harbor-shipping-containers.jpg", alt: "An aerial view of a busy commercial harbor with shipping containers and cranes" },
+    { src: "/images/stock/business-factory-floor.jpg", alt: "Workers on a busy factory production floor" },
+    { src: "/images/stock/business-plantation-aerial.jpg", alt: "An aerial view of a dense commercial palm plantation" },
+    { src: "/images/stock/business-oil-rig-sunset.jpg", alt: "An offshore oil rig silhouetted against a sunset" },
+  ],
 };
 
 export const comingSoonContent = {
