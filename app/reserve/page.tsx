@@ -2,9 +2,11 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 import { SiteHeader } from "@/components/home/SiteHeader";
+import { SiteFooter } from "@/components/layout/SiteFooter";
 import { DepositCheckout } from "@/components/reserve/DepositCheckout";
 import { InquiryForm } from "@/components/reserve/InquiryForm";
 import { PackageBanner } from "@/components/experiences/PackageBanner";
+import { DecemberPackageCard } from "@/components/experiences/DecemberPackageCard";
 import { investmentContent } from "@/content/site";
 import { getExperienceBySlug } from "@/content/experiences";
 import { RESERVATION_DEPOSIT_AMOUNT, RESERVATION_DEPOSIT_CURRENCY } from "@/lib/paypal";
@@ -16,6 +18,9 @@ export const metadata: Metadata = {
 
 export default async function ReservePage({ searchParams }: { searchParams: Promise<{ tier?: string }> }) {
   const { tier } = await searchParams;
+  const decemberPackages = ["the-real-return-detty-december", "the-signature-december-homecoming", "the-crown-december-experience"]
+    .map((slug) => getExperienceBySlug(slug))
+    .filter((pkg): pkg is NonNullable<typeof pkg> => Boolean(pkg));
   const featuredPackages = ["enter-the-kingdom", "return-to-the-beginning", "the-ghana-safari"]
     .map((slug) => getExperienceBySlug(slug))
     .filter((pkg): pkg is NonNullable<typeof pkg> => Boolean(pkg));
@@ -50,6 +55,23 @@ export default async function ReservePage({ searchParams }: { searchParams: Prom
           </p>
         </div>
       </section>
+
+      {/* December season packages */}
+      {decemberPackages.length > 0 ? (
+        <section className="border-b border-border bg-muted py-16 sm:py-20">
+          <div className="mx-auto w-full max-w-[1400px] px-6 sm:px-10">
+            <p className="text-[0.75rem] font-semibold uppercase tracking-[0.32em] text-gold">December Season</p>
+            <h2 className="mt-4 max-w-2xl font-serif text-3xl font-normal leading-tight text-foreground sm:text-4xl">
+              Traveling for Detty December? Start here.
+            </h2>
+            <div className="mt-10 grid gap-8">
+              {decemberPackages.map((pkg, i) => (
+                <DecemberPackageCard key={pkg.slug} package={pkg} featured={i === 1} />
+              ))}
+            </div>
+          </div>
+        </section>
+      ) : null}
 
       {/* Choose your experience */}
       {featuredPackages.length > 0 ? (
@@ -151,11 +173,7 @@ export default async function ReservePage({ searchParams }: { searchParams: Prom
         </div>
       </section>
 
-      <footer className="border-t border-border bg-background py-8">
-        <div className="mx-auto w-full max-w-[1400px] px-6 text-sm text-foreground/60 sm:px-10">
-          © 2026 The Real Return™. Reconnect with intention.
-        </div>
-      </footer>
+      <SiteFooter />
     </div>
   );
 }

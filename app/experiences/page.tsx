@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { SiteHeader } from "@/components/home/SiteHeader";
+import { SiteFooter } from "@/components/layout/SiteFooter";
 import { PackageCard } from "@/components/experiences/PackageCard";
 import { RegionAmbienceCard } from "@/components/experiences/RegionAmbienceCard";
 import { GhanaRegionMap } from "@/components/experiences/GhanaRegionMap";
@@ -10,8 +11,8 @@ import { getFlagshipJourneys, getPackagesByRegion } from "@/content/experiences"
 import { slugify } from "@/lib/utils";
 
 export const metadata: Metadata = {
-  title: "Experiences | The Real Return™",
-  description: "Explore The Real Return™'s curated Ghana experiences, organized by region, from the Ashanti Kingdom to the savannah north.",
+  title: "Return Experiences™ | The Real Return™",
+  description: "Experience Ghana differently. Curated cultural, historical, culinary, lifestyle, and community experiences, organized by region.",
 };
 
 export default function ExperiencesPage() {
@@ -33,13 +34,13 @@ export default function ExperiencesPage() {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/45 to-ink/15" />
         <div className="relative mx-auto w-full max-w-[1400px] px-6 sm:px-10">
-          <p className="text-[0.75rem] font-semibold uppercase tracking-[0.32em] text-gold-luxury">Experiences</p>
+          <p className="text-[0.75rem] font-semibold uppercase tracking-[0.32em] text-gold-luxury">Return Experiences™</p>
           <h1 className="mt-4 max-w-2xl font-serif text-4xl font-normal leading-tight text-background sm:text-5xl">
-            See Ghana. Understand Ghana. Experience Ghana.
+            Experience Ghana differently.
           </h1>
           <p className="mt-6 max-w-xl text-base leading-8 text-background/75">
-            Every Real Return™ experience is a complete chapter: a region, a story, a way in. Explore by region below, or begin with one
-            of our flagship multi-region journeys.
+            Curated cultural, historical, culinary, lifestyle, and community experiences designed to create meaningful connections. Explore
+            by region below, or begin with one of our flagship multi-region journeys.
           </p>
         </div>
       </section>
@@ -109,11 +110,7 @@ export default function ExperiencesPage() {
         </section>
       ))}
 
-      <footer className="border-t border-border bg-background py-8">
-        <div className="mx-auto w-full max-w-[1400px] px-6 text-sm text-foreground/60 sm:px-10">
-          © 2026 The Real Return™. Reconnect with intention.
-        </div>
-      </footer>
+      <SiteFooter />
     </div>
   );
 }
