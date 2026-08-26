@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 
 import { SiteHeader } from "@/components/home/SiteHeader";
 import { SiteFooter } from "@/components/layout/SiteFooter";
+import { BackgroundCarousel } from "@/components/home/BackgroundCarousel";
 import { InterestForm } from "@/components/ecosystem/InterestForm";
 import { trustedNetworkContent } from "@/content/site";
 
@@ -17,12 +18,14 @@ export default function ReturnNetworkPage() {
     <div className="min-h-screen bg-background font-sans text-foreground">
       <SiteHeader />
 
-      <section className="bg-ink pb-20 pt-40 sm:pb-28">
-        <div className="mx-auto w-full max-w-[1400px] px-6 sm:px-10">
+      <section className="relative overflow-hidden pb-20 pt-40 sm:pb-28">
+        <BackgroundCarousel images={partner.images} />
+        <div className="absolute inset-0 bg-gradient-to-b from-ink/78 via-ink/62 to-ink/78" />
+        <div className="relative mx-auto w-full max-w-[1400px] px-6 sm:px-10 [&_*]:[text-shadow:0_2px_12px_rgba(0,0,0,0.75)]">
           <p className="text-[0.75rem] font-semibold uppercase tracking-[0.32em] text-gold-luxury">{hero.eyebrow}</p>
           <h1 className="mt-4 max-w-3xl font-serif text-4xl font-normal leading-tight text-background sm:text-5xl">{hero.title}</h1>
           <p className="mt-4 text-sm font-semibold uppercase tracking-[0.18em] text-gold-luxury">{hero.tagline}</p>
-          <p className="mt-6 max-w-xl text-base leading-8 text-background/75">{hero.description}</p>
+          <p className="mt-6 max-w-xl text-base leading-8 text-background/90">{hero.description}</p>
         </div>
       </section>
 
@@ -101,22 +104,24 @@ export default function ReturnNetworkPage() {
       </section>
 
       {/* Become a Return Partner */}
-      <section id="partner" className="scroll-mt-20 bg-muted py-24 sm:py-32">
-        <div className="mx-auto grid w-full max-w-[1400px] gap-14 px-6 sm:px-10 lg:grid-cols-[0.9fr_1.1fr]">
-          <div>
-            <p className="text-[0.75rem] font-semibold uppercase tracking-[0.32em] text-gold">{partner.eyebrow}</p>
-            <h2 className="mt-4 font-serif text-3xl font-normal leading-tight sm:text-4xl">{partner.title}</h2>
-            <p className="mt-3 text-sm font-semibold uppercase tracking-[0.14em] text-foreground/50">{partner.subtitle}</p>
-            <p className="mt-6 max-w-md text-base leading-8 text-foreground/70">{partner.description}</p>
-            <p className="mt-8 text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-foreground/50">{partner.benefitsIntro}</p>
+      <section id="partner" className="relative scroll-mt-20 overflow-hidden py-24 sm:py-32">
+        <BackgroundCarousel images={partner.images} />
+        <div className="absolute inset-0 bg-gradient-to-b from-ink/75 via-ink/60 to-ink/75" />
+        <div className="relative mx-auto grid w-full max-w-[1400px] gap-14 px-6 sm:px-10 lg:grid-cols-[0.9fr_1.1fr]">
+          <div className="[&_*]:[text-shadow:0_2px_12px_rgba(0,0,0,0.75)]">
+            <p className="text-[0.75rem] font-semibold uppercase tracking-[0.32em] text-gold-luxury">{partner.eyebrow}</p>
+            <h2 className="mt-4 font-serif text-3xl font-normal leading-tight text-background sm:text-4xl">{partner.title}</h2>
+            <p className="mt-3 text-sm font-semibold uppercase tracking-[0.14em] text-background/80">{partner.subtitle}</p>
+            <p className="mt-6 max-w-md text-base leading-8 text-background/90">{partner.description}</p>
+            <p className="mt-8 text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-background/80">{partner.benefitsIntro}</p>
             <ul className="mt-4 grid grid-cols-1 gap-2 sm:grid-cols-2">
               {partner.benefits.map((item) => (
-                <li key={item} className="text-sm leading-6 text-foreground/65">
+                <li key={item} className="text-sm leading-6 text-background/90">
                   · {item}
                 </li>
               ))}
             </ul>
-            <p className="mt-8 font-serif text-lg italic text-foreground">{partner.closingLine}</p>
+            <p className="mt-8 font-serif text-lg italic text-background">{partner.closingLine}</p>
           </div>
 
           <div className="rounded-sm border border-border bg-background p-6 sm:p-8">

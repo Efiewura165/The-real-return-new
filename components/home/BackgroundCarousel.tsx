@@ -32,7 +32,16 @@ export function BackgroundCarousel({ images, intervalMs = 5500 }: BackgroundCaro
           className="absolute inset-0 transition-opacity duration-[1400ms] ease-out"
           style={{ opacity: i === index ? 1 : 0 }}
         >
-          <Image src={image.src} alt={image.alt} fill priority={i === 0} loading={i === 0 ? undefined : "eager"} sizes="100vw" className="object-cover" />
+          <Image
+            src={image.src}
+            alt={image.alt}
+            fill
+            priority={i === 0}
+            loading={i === 0 ? undefined : "eager"}
+            sizes="100vw"
+            className="object-cover"
+            style={{ filter: "brightness(1.25) saturate(1.1) contrast(1.02)" }}
+          />
         </div>
       ))}
     </div>

@@ -189,16 +189,16 @@ export default async function HomePage() {
       {/* For Businesses */}
       <section id="business" className="relative scroll-mt-20 overflow-hidden py-24 sm:py-32">
         <BackgroundCarousel images={forBusinessContent.images} />
-        <div className="absolute inset-0 bg-gradient-to-b from-ink/85 via-ink/75 to-ink/85" />
-        <div className="relative mx-auto w-full max-w-[1000px] px-6 text-center sm:px-10">
+        <div className="absolute inset-0 bg-gradient-to-b from-ink/75 via-ink/60 to-ink/75" />
+        <div className="relative mx-auto w-full max-w-[1000px] px-6 text-center sm:px-10 [&_*]:[text-shadow:0_2px_12px_rgba(0,0,0,0.75)]">
           <p className="text-[0.75rem] font-semibold uppercase tracking-[0.32em] text-gold-luxury">{forBusinessContent.eyebrow}</p>
           <h2 className="mt-4 font-serif text-3xl font-normal leading-tight text-background sm:text-4xl">{forBusinessContent.title}</h2>
-          <p className="mt-3 text-sm font-semibold uppercase tracking-[0.14em] text-background/60">{forBusinessContent.subtitle}</p>
-          <p className="mx-auto mt-6 max-w-xl text-base leading-8 text-background/80">{forBusinessContent.description}</p>
-          <p className="mt-8 text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-background/60">{forBusinessContent.benefitsIntro}</p>
+          <p className="mt-3 text-sm font-semibold uppercase tracking-[0.14em] text-background/80">{forBusinessContent.subtitle}</p>
+          <p className="mx-auto mt-6 max-w-xl text-base leading-8 text-background/90">{forBusinessContent.description}</p>
+          <p className="mt-8 text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-background/80">{forBusinessContent.benefitsIntro}</p>
           <ul className="mx-auto mt-4 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-2 text-left sm:grid-cols-2">
             {forBusinessContent.benefits.map((item) => (
-              <li key={item} className="text-sm leading-6 text-background/75">
+              <li key={item} className="text-sm leading-6 text-background/90">
                 · {item}
               </li>
             ))}
