@@ -3,6 +3,7 @@ import { Suspense } from "react";
 import Image from "next/image";
 
 import { SiteHeader } from "@/components/home/SiteHeader";
+import { SiteFooter } from "@/components/layout/SiteFooter";
 import { CourseCard } from "@/components/academy/CourseCard";
 import { EnrollmentForm } from "@/components/academy/EnrollmentForm";
 import { getAcademyHero, getAcademyPhases, getAcademyCourses } from "@/lib/sanity/academy";
@@ -110,9 +111,7 @@ export default async function AcademyPage() {
         </div>
       </section>
 
-      <footer className="border-t border-border bg-background py-8">
-        <div className="mx-auto w-full max-w-[1400px] px-6 text-sm text-foreground/60 sm:px-10">© 2026 The Real Return™. Reconnect with intention.</div>
-      </footer>
+      <SiteFooter />
     </div>
   );
 }

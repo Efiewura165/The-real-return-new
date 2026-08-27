@@ -89,7 +89,7 @@ export const itineraryContent = {
 };
 
 export const investmentContent = {
-  eyebrow: "Investment",
+  eyebrow: "Ghana Journey Tiers",
   title: "Journeys built for where you are, right now.",
   description: "Every tier is a considered experience, not a package. Accommodation is included at every level, not sold separately.",
   tiers: [
@@ -117,9 +117,289 @@ export const investmentContent = {
   ],
 };
 
-export const communityContent = {
-  eyebrow: "Community Invitation",
-  title: "This is a return no one makes alone.",
-  description: "Join families, stewards, and returning travelers already walking this path: stories, cultural conversations, and gatherings that continue long after a journey ends.",
-  buttonLabel: "Join The Real Return™ Community",
+// — The Real Return™ Ecosystem —
+
+export const ecosystemContent = {
+  eyebrow: "The Real Return™ Ecosystem",
+  title: "Connecting Returners with Ghana.",
+  pillars: [
+    {
+      key: "guide",
+      name: "Return Guide™",
+      tagline: "Know Before You Go.",
+      description:
+        "Your trusted resource for navigating Ghana. Find practical information, recommendations, resources, and insights to help you prepare for your Return.",
+      cta: "Explore the Return Guide",
+      href: "/return-guide",
+    },
+    {
+      key: "network",
+      name: "Return Network™",
+      tagline: "Know Who to Trust.",
+      description:
+        "Connect with trusted Ghanaian businesses, professionals, and service providers. From transportation and hospitality to beauty, healthcare, real estate, banking, legal services, fashion, dining, and more.",
+      cta: "Explore the Return Network",
+      href: "/return-network",
+    },
+    {
+      key: "experiences",
+      name: "Return Experiences™",
+      tagline: "Experience Ghana Differently.",
+      description: "Discover curated cultural, historical, culinary, lifestyle, and community experiences designed to create meaningful connections.",
+      cta: "Explore Experiences",
+      href: "/experiences",
+    },
+    {
+      key: "community",
+      name: "Return Community™",
+      tagline: "Don't Just Visit. Connect.",
+      description:
+        "Meet other Returners, entrepreneurs, creatives, families, professionals, and communities across Ghana. Join gatherings, events, conversations, and experiences that turn a trip into a relationship.",
+      cta: "Join the Community",
+      href: "/return-community",
+    },
+    {
+      key: "invest",
+      name: "Return Invest™",
+      tagline: "Your Return Can Build Something.",
+      description:
+        "Explore opportunities to move from visiting Ghana to building in Ghana. Discover connections related to entrepreneurship, real estate, agriculture, investment, and economic opportunity.",
+      cta: "Explore Return Invest",
+      href: "/return-invest",
+    },
+  ],
+};
+
+export const ghanaJourneyContent = {
+  eyebrow: "The Ghana Journey™",
+  title: "Your First Return Starts Here.",
+  description:
+    "A curated Ghana experience designed for people ready to go deeper. Travel beyond the typical tourist itinerary and experience Ghana through heritage, culture, food, craftsmanship, community, and connection.",
+  signature: {
+    eyebrow: "The Ghana Legacy Journey™",
+    title: "Remember. Return. Rebuild.",
+    description: "A signature experience created for the African Diaspora seeking a deeper connection to Ghana.",
+    cta: { label: "Explore the Ghana Journey", href: "/experiences" },
+  },
+};
+
+export const forBusinessContent = {
+  eyebrow: "For Businesses",
+  title: "Become a Return Partner™",
+  subtitle: "Get Discovered by the People Returning to Ghana.",
+  description:
+    "The Real Return™ connects Ghanaian businesses with an expanding community of people coming to Ghana to experience, relocate, build, and invest.",
+  benefitsIntro: "Return Partners can gain visibility through:",
+  benefits: [
+    "Return Network listings",
+    "Featured business placement",
+    "Return Guide advertising",
+    "Sponsored experiences",
+    "Community events",
+    "Strategic partnerships",
+    "Special offers for Returners",
+    "Future Return campaigns",
+  ],
+  closingLine: "Your business becomes part of the Return.",
+  cta: { label: "Become a Return Partner", href: "/return-network#partner" },
+  images: [
+    { src: "/images/stock/business-modern-office.jpg", alt: "A busy modern office with a team working at their desks" },
+    { src: "/images/stock/business-harbor-shipping-containers.jpg", alt: "An aerial view of a busy commercial harbor with shipping containers and cranes" },
+    { src: "/images/stock/business-factory-floor.jpg", alt: "Workers on a busy factory production floor" },
+    { src: "/images/stock/business-plantation-aerial.jpg", alt: "An aerial view of a dense commercial palm plantation" },
+    { src: "/images/stock/business-oil-rig-sunset.jpg", alt: "An offshore oil rig silhouetted against a sunset" },
+    { src: "/images/stock/business-entrepreneur-laptop.jpg", alt: "An entrepreneur managing an online store from a laptop" },
+    { src: "/images/stock/business-palm-plantation-ground.jpg", alt: "A ground-level view of a dense coconut palm plantation" },
+    { src: "/images/stock/business-investment-growth.jpg", alt: "A seedling sprouting from a pile of coins, symbolizing investment growth" },
+    { src: "/images/stock/business-plantation-road-aerial.jpg", alt: "An aerial view of a road cutting through a vast palm plantation" },
+  ],
+};
+
+export const comingSoonContent = {
+  eyebrow: "Coming Soon",
+  items: [
+    {
+      key: "market",
+      name: "The Return Market™",
+      tagline: "Discover Ghana. Support Ghana.",
+      description: "Explore products, brands, artisans, makers, designers, farmers, and entrepreneurs creating the future of Ghana.",
+      href: "/return-market",
+    },
+    {
+      key: "rewards",
+      name: "Return Rewards™",
+      tagline: "Return. Discover. Connect. Earn.",
+      description: "A future loyalty program connecting Returners with participating Ghanaian businesses and experiences.",
+      href: "/return-rewards",
+    },
+  ],
+};
+
+export const whyRealReturnContent = {
+  eyebrow: "Why The Real Return™",
+  title: "Because coming to Ghana can be more than a vacation.",
+  items: ["A connection.", "A discovery.", "A homecoming.", "A business opportunity.", "A new relationship.", "A new beginning."],
+  closingLine: "The Real Return™ creates the bridge between the people returning and the communities welcoming them home.",
+};
+
+export const diasporaGhanaContent = {
+  diaspora: {
+    eyebrow: "For the Diaspora",
+    title: "Coming Back?",
+    description:
+      "Whether you're coming for a week, a month, or something much longer, we're building the resources and relationships to help you navigate your Return.",
+    cta: { label: "Start Your Return", href: "/return-guide" },
+  },
+  ghana: {
+    eyebrow: "For Ghana",
+    title: "Your Community. Your Businesses. Your Future.",
+    description:
+      "The Real Return™ is committed to creating meaningful connections between Ghanaian communities and the global African Diaspora. We believe tourism can create relationships, relationships can create commerce, and commerce can create opportunities to build.",
+    closingLine: "Remember. Return. Rebuild.™",
+    cta: { label: "Become a Return Partner", href: "/return-network#partner" },
+  },
+};
+
+export const joinTheReturnContent = {
+  eyebrow: "Join The Return",
+  title: "Stay Connected to The Real Return™",
+  description: "Be the first to know about:",
+  items: [
+    "Ghana Journeys",
+    "New Return Experiences",
+    "Community events",
+    "Trusted Return Partners",
+    "Business opportunities",
+    "Investment opportunities",
+    "New resources",
+  ],
+  cta: { label: "Join The Return" },
+};
+
+export const trustedNetworkContent = {
+  hero: {
+    eyebrow: "The Real Return™ Trusted Network",
+    title: "The Trusted Network for Returning to Ghana",
+    tagline: "Remember. Return. Rebuild.™",
+    description: "Come to Ghana. Know where to go. Know who to trust. Build relationships. Spend locally. Invest intentionally.",
+  },
+  ecosystem: [
+    { name: "Return Guide™", description: "Know what to do before you arrive." },
+    { name: "Return Network™", description: "Find verified businesses and trusted service providers." },
+    { name: "Return Experiences™", description: "Discover culture, food, fashion, wellness, entertainment, and unique experiences." },
+    { name: "Return Community™", description: "Meet people, families, entrepreneurs, professionals, and other Returners." },
+    { name: "Return Invest™", description: "Discover legitimate opportunities to build, invest, purchase property, and create businesses." },
+  ],
+  trust: {
+    eyebrow: "The Critical Differentiator",
+    title: "Trust.",
+    description: "This is a major part of the brand. Businesses earn their position inside the ecosystem, rather than simply paying for a listing.",
+    tiers: [
+      { name: "Real Return Verified™", description: "Basic verification." },
+      { name: "Real Return Preferred™", description: "Higher standards, plus preferred placement." },
+      { name: "Real Return Partner™", description: "Strategic businesses that provide special benefits to Returners." },
+    ],
+  },
+  marketplace: {
+    eyebrow: "A Two-Sided Marketplace",
+    title: "Built for Returners and Ghanaian businesses alike.",
+    returners: {
+      title: "Returners",
+      subtitle: "They get:",
+      items: [
+        "Trusted businesses",
+        "Special offers",
+        "Local recommendations",
+        "Experiences",
+        "Transportation",
+        "Relocation resources",
+        "Property resources",
+        "Business connections",
+        "Investment opportunities",
+        "Community",
+      ],
+    },
+    businesses: {
+      title: "Ghanaian Businesses",
+      subtitle: "They get:",
+      items: ["Qualified customers", "Diaspora customers", "Travelers", "Relocators", "Entrepreneurs", "Investors", "Visibility", "Sponsorship opportunities", "Lead generation"],
+    },
+  },
+  revenue: {
+    eyebrow: "The Real Return™",
+    title: "We earn through:",
+    items: ["Memberships", "Verified listings", "Featured placement", "Sponsorships", "Referrals", "Marketplace commissions", "Experiences", "Corporate partnerships"],
+  },
+  partner: forBusinessContent,
+};
+
+export const returnGuideContent = {
+  hero: {
+    eyebrow: "Return Guide™",
+    title: "Know Before You Go.",
+    description:
+      "Your trusted resource for navigating Ghana. Find practical information, recommendations, resources, and insights to help you prepare for your Return.",
+  },
+  categories: [
+    { title: "Before You Go", description: "Visas, vaccinations, what to pack, and the timeline to plan around." },
+    { title: "Money & Documents", description: "Currency, cards vs. cash, the Ghana Card, and the paperwork worth sorting out early." },
+    { title: "Getting Around", description: "Flights, ride apps, tro-tros, and getting between regions safely and comfortably." },
+    { title: "Safety & Health", description: "Health precautions, insurance, and practical safety guidance for first-time and returning travelers." },
+    { title: "Culture & Etiquette", description: "Greetings, respect norms, dress, and the everyday customs that help you arrive like you belong." },
+    { title: "Connectivity", description: "SIM cards, data, and staying connected to home while you're on the ground." },
+  ],
+  academyCta: {
+    eyebrow: "Want to go deeper?",
+    title: "The Real Return™ Academy",
+    description: "Structured, self-paced coursework taught by our founder — for travelers who want more than a checklist.",
+    cta: { label: "Explore Academy Membership", href: "/academy" },
+  },
+};
+
+export const returnCommunityContent = {
+  hero: {
+    eyebrow: "Return Community™",
+    title: "Don't Just Visit. Connect.",
+    description:
+      "Meet other Returners, entrepreneurs, creatives, families, professionals, and communities across Ghana. Join gatherings, events, conversations, and experiences that turn a trip into a relationship.",
+  },
+  closing: {
+    eyebrow: "Community Invitation",
+    title: "This is a return no one makes alone.",
+    description:
+      "Join families, stewards, and returning travelers already walking this path: stories, cultural conversations, and gatherings that continue long after a journey ends.",
+  },
+};
+
+export const returnInvestContent = {
+  hero: {
+    eyebrow: "Return Invest™",
+    title: "Your Return Can Build Something.",
+    description:
+      "Explore opportunities to move from visiting Ghana to building in Ghana. Discover connections related to entrepreneurship, real estate, agriculture, investment, and economic opportunity.",
+  },
+  categories: [
+    { title: "Entrepreneurship", description: "Business formation, local partnerships, and what it takes to build in Ghana." },
+    { title: "Real Estate", description: "Land, property, and the relationships that make buying or building possible." },
+    { title: "Agriculture", description: "Land use, cooperatives, and agricultural opportunity across Ghana's regions." },
+    { title: "Investment & Economic Opportunity", description: "Pathways for the diaspora to invest intentionally, not just spend while visiting." },
+  ],
+};
+
+export const returnMarketContent = {
+  hero: {
+    eyebrow: "Return Market™",
+    title: "Discover Ghana. Support Ghana.",
+    description: "Explore products, brands, artisans, makers, designers, farmers, and entrepreneurs creating the future of Ghana.",
+    status: "Coming Soon",
+  },
+};
+
+export const returnRewardsContent = {
+  hero: {
+    eyebrow: "Return Rewards™",
+    title: "Return. Discover. Connect. Earn.",
+    description: "A future loyalty program connecting Returners with participating Ghanaian businesses and experiences.",
+    status: "Coming Soon",
+  },
 };

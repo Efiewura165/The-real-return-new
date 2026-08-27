@@ -24,10 +24,16 @@ import { rememberReturnRebuild } from "./remember-return-rebuild";
 import { theKingdomAndTheGoldCoast } from "./the-kingdom-and-the-gold-coast";
 import { ghanaWildAndBeautiful } from "./ghana-wild-and-beautiful";
 import { theGhanaianCraftsman } from "./the-ghanaian-craftsman";
+import { theRealReturnDettyDecember } from "./the-real-return-detty-december";
+import { theSignatureDecemberHomecoming } from "./the-signature-december-homecoming";
+import { theCrownDecemberExperience } from "./the-crown-december-experience";
 
 export const FLAGSHIP_REGION = "Multi-Region Journey";
 
 export const experiencePackages: ExperiencePackage[] = [
+  theRealReturnDettyDecember,
+  theSignatureDecemberHomecoming,
+  theCrownDecemberExperience,
   enterTheKingdom,
   theSoulOfGhana,
   aboveTheCity,

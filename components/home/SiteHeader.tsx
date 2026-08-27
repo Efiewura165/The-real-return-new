@@ -1,21 +1,40 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { Menu, X } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { ChevronDown, Menu, X } from "lucide-react";
 
-const NAV_LINKS = [
-  { href: "/#story", label: "Story" },
-  { href: "/#pillars", label: "Pillars" },
-  { href: "/experiences", label: "Experiences" },
+const JOURNEY_LINK = { href: "/reserve", label: "Ghana Journey" };
+
+const ECOSYSTEM_LINKS = [
+  { href: "/return-guide", label: "Return Guide™", description: "Know before you go." },
+  { href: "/return-network", label: "Return Network™", description: "Know who to trust." },
+  { href: "/experiences", label: "Return Experiences™", description: "Experience Ghana differently." },
+  { href: "/return-community", label: "Return Community™", description: "Don't just visit. Connect." },
+  { href: "/return-invest", label: "Return Invest™", description: "Build something in Ghana." },
+];
+
+const COMING_SOON_LINKS = [
+  { href: "/return-market", label: "Return Market™" },
+  { href: "/return-rewards", label: "Return Rewards™" },
+];
+
+const SECONDARY_LINKS = [
   { href: "/academy", label: "Academy" },
-  { href: "/#journey", label: "Journey" },
-  { href: "/#invest", label: "Invest" },
-  { href: "/#community", label: "Community" },
+  { href: "/return-network#partner", label: "For Businesses" },
+];
+
+const MOBILE_LINKS = [
+  JOURNEY_LINK,
+  ...ECOSYSTEM_LINKS.map(({ href, label }) => ({ href, label })),
+  ...COMING_SOON_LINKS,
+  ...SECONDARY_LINKS,
 ];
 
 export function SiteHeader() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [ecosystemOpen, setEcosystemOpen] = useState(false);
+  const ecosystemRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -31,6 +50,26 @@ export function SiteHeader() {
       document.body.style.overflow = "";
     };
   }, [menuOpen]);
+
+  useEffect(() => {
+    if (!ecosystemOpen) return;
+
+    function onClickOutside(event: MouseEvent) {
+      if (ecosystemRef.current && !ecosystemRef.current.contains(event.target as Node)) {
+        setEcosystemOpen(false);
+      }
+    }
+    function onKeyDown(event: KeyboardEvent) {
+      if (event.key === "Escape") setEcosystemOpen(false);
+    }
+
+    document.addEventListener("mousedown", onClickOutside);
+    document.addEventListener("keydown", onKeyDown);
+    return () => {
+      document.removeEventListener("mousedown", onClickOutside);
+      document.removeEventListener("keydown", onKeyDown);
+    };
+  }, [ecosystemOpen]);
 
   return (
     <header
@@ -48,8 +87,57 @@ export function SiteHeader() {
           <span className="font-sans text-lg font-extrabold uppercase tracking-[0.08em]">The Real Return™</span>
         </a>
 
-        <nav className="hidden items-center gap-8 lg:flex">
-          {NAV_LINKS.map((link) => (
+        <nav aria-label="Primary" className="hidden items-center gap-8 lg:flex">
+          <a
+            href={JOURNEY_LINK.href}
+            className="text-[0.8rem] font-medium uppercase tracking-[0.18em] text-background/80 transition-colors hover:text-gold-luxury"
+          >
+            {JOURNEY_LINK.label}
+          </a>
+
+          <div ref={ecosystemRef} className="relative">
+            <button
+              type="button"
+              aria-expanded={ecosystemOpen}
+              aria-haspopup="true"
+              onClick={() => setEcosystemOpen((open) => !open)}
+              className="flex items-center gap-1.5 text-[0.8rem] font-medium uppercase tracking-[0.18em] text-background/80 transition-colors hover:text-gold-luxury"
+            >
+              The Ecosystem
+              <ChevronDown className={`h-3.5 w-3.5 transition-transform ${ecosystemOpen ? "rotate-180" : ""}`} aria-hidden="true" />
+            </button>
+
+            {ecosystemOpen ? (
+              <div className="absolute left-1/2 top-full mt-4 w-[22rem] -translate-x-1/2 rounded-sm border border-background/10 bg-ink p-3 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.5)]">
+                {ECOSYSTEM_LINKS.map((link) => (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    onClick={() => setEcosystemOpen(false)}
+                    className="block rounded-sm px-4 py-3 transition-colors hover:bg-background/5"
+                  >
+                    <span className="block text-sm font-semibold uppercase tracking-[0.1em] text-background">{link.label}</span>
+                    <span className="mt-0.5 block text-[0.75rem] text-background/55">{link.description}</span>
+                  </a>
+                ))}
+                <div className="mt-1 border-t border-background/10 pt-2">
+                  {COMING_SOON_LINKS.map((link) => (
+                    <a
+                      key={link.href}
+                      href={link.href}
+                      onClick={() => setEcosystemOpen(false)}
+                      className="flex items-center justify-between rounded-sm px-4 py-2.5 text-sm text-background/50 transition-colors hover:bg-background/5 hover:text-background/80"
+                    >
+                      {link.label}
+                      <span className="text-[0.6rem] font-semibold uppercase tracking-[0.16em] text-gold-luxury/70">Coming Soon</span>
+                    </a>
+                  ))}
+                </div>
+              </div>
+            ) : null}
+          </div>
+
+          {SECONDARY_LINKS.map((link) => (
             <a
               key={link.href}
               href={link.href}
@@ -80,9 +168,9 @@ export function SiteHeader() {
       </div>
 
       {menuOpen ? (
-        <nav className="border-t border-background/10 bg-ink px-6 py-6 lg:hidden">
+        <nav className="max-h-[calc(100svh-5rem)] overflow-y-auto border-t border-background/10 bg-ink px-6 py-6 lg:hidden">
           <ul className="flex flex-col gap-1">
-            {NAV_LINKS.map((link) => (
+            {MOBILE_LINKS.map((link) => (
               <li key={link.href}>
                 <a
                   href={link.href}
