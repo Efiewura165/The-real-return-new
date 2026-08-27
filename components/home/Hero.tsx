@@ -3,7 +3,6 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
-import { heroSlides } from "@/content/site";
 import { LUXURY_AMBIENCE_VIDEOS, LUXURY_AMBIENCE_CAPTIONS } from "@/lib/luxury-videos";
 import { VideoCarousel } from "@/components/experiences/VideoCarousel";
 
@@ -11,7 +10,17 @@ const AUTO_ADVANCE_MS = 6500;
 const VIDEO_SLIDE_MS = 5000;
 const VIDEO_INTRO_MS = VIDEO_SLIDE_MS * LUXURY_AMBIENCE_VIDEOS.length;
 
-export function Hero() {
+interface HeroSlide {
+  src: string;
+  alt: string;
+  caption: string;
+}
+
+interface HeroProps {
+  heroSlides: HeroSlide[];
+}
+
+export function Hero({ heroSlides }: HeroProps) {
   const [index, setIndex] = useState(0);
   const [videoIndex, setVideoIndex] = useState(0);
   const [showVideo, setShowVideo] = useState(true);
