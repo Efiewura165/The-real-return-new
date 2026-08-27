@@ -208,6 +208,10 @@ export const forBusinessContent = {
     { src: "/images/stock/business-factory-floor.jpg", alt: "Workers on a busy factory production floor" },
     { src: "/images/stock/business-plantation-aerial.jpg", alt: "An aerial view of a dense commercial palm plantation" },
     { src: "/images/stock/business-oil-rig-sunset.jpg", alt: "An offshore oil rig silhouetted against a sunset" },
+    { src: "/images/stock/business-entrepreneur-laptop.jpg", alt: "An entrepreneur managing an online store from a laptop" },
+    { src: "/images/stock/business-palm-plantation-ground.jpg", alt: "A ground-level view of a dense coconut palm plantation" },
+    { src: "/images/stock/business-investment-growth.jpg", alt: "A seedling sprouting from a pile of coins, symbolizing investment growth" },
+    { src: "/images/stock/business-plantation-road-aerial.jpg", alt: "An aerial view of a road cutting through a vast palm plantation" },
   ],
 };
 
