@@ -3,19 +3,20 @@ import { notFound } from "next/navigation";
 
 import { SiteHeader } from "@/components/home/SiteHeader";
 import { PackageDetail } from "@/components/experiences/PackageDetail";
-import { experiencePackages, getExperienceBySlug } from "@/content/experiences";
+import { getExperiencePackages, getExperienceBySlug } from "@/lib/sanity/experiences";
 
 interface ExperiencePageProps {
   params: Promise<{ slug: string }>;
 }
 
-export function generateStaticParams() {
+export async function generateStaticParams() {
+  const experiencePackages = await getExperiencePackages();
   return experiencePackages.map((pkg) => ({ slug: pkg.slug }));
 }
 
 export async function generateMetadata({ params }: ExperiencePageProps): Promise<Metadata> {
   const { slug } = await params;
-  const pkg = getExperienceBySlug(slug);
+  const pkg = await getExperienceBySlug(slug);
   if (!pkg) return {};
 
   return {
@@ -32,7 +33,7 @@ export async function generateMetadata({ params }: ExperiencePageProps): Promise
 
 export default async function ExperiencePage({ params }: ExperiencePageProps) {
   const { slug } = await params;
-  const pkg = getExperienceBySlug(slug);
+  const pkg = await getExperienceBySlug(slug);
 
   if (!pkg) {
     notFound();
