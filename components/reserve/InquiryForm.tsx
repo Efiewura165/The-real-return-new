@@ -2,15 +2,14 @@
 
 import { useState } from "react";
 
-import { investmentContent } from "@/content/site";
-
 interface InquiryFormProps {
   defaultTier?: string;
+  tierNames: string[];
 }
 
 type Status = "idle" | "submitting" | "success" | "error";
 
-export function InquiryForm({ defaultTier }: InquiryFormProps) {
+export function InquiryForm({ defaultTier, tierNames }: InquiryFormProps) {
   const [status, setStatus] = useState<Status>("idle");
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
@@ -105,9 +104,9 @@ export function InquiryForm({ defaultTier }: InquiryFormProps) {
             <option value="" disabled>
               Select a tier
             </option>
-            {investmentContent.tiers.map((tier) => (
-              <option key={tier.name} value={tier.name}>
-                {tier.name}
+            {tierNames.map((name) => (
+              <option key={name} value={name}>
+                {name}
               </option>
             ))}
           </select>

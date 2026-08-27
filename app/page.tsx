@@ -2,17 +2,34 @@ import Image from "next/image";
 
 import { SiteHeader } from "@/components/home/SiteHeader";
 import { Hero } from "@/components/home/Hero";
-import { pillarsContent, founderContent, itineraryContent, investmentContent, communityContent } from "@/content/site";
 import { getAcademyHero, getAcademyCourses } from "@/lib/sanity/academy";
+import {
+  getCommunityContent,
+  getFounderContent,
+  getHeroSlides,
+  getInvestmentContent,
+  getItineraryContent,
+  getPillarsContent,
+} from "@/lib/sanity/site";
 
 export default async function HomePage() {
-  const [academyHero, academyCourses] = await Promise.all([getAcademyHero(), getAcademyCourses()]);
+  const [academyHero, academyCourses, heroSlides, pillarsContent, founderContent, itineraryContent, investmentContent, communityContent] =
+    await Promise.all([
+      getAcademyHero(),
+      getAcademyCourses(),
+      getHeroSlides(),
+      getPillarsContent(),
+      getFounderContent(),
+      getItineraryContent(),
+      getInvestmentContent(),
+      getCommunityContent(),
+    ]);
   const teaserCourses = academyCourses.filter((course) => !course.featured);
 
   return (
     <div className="min-h-screen bg-background font-sans text-foreground">
       <SiteHeader />
-      <Hero />
+      <Hero heroSlides={heroSlides} />
 
       {/* Story / founder quote */}
       <section id="story" className="bg-ink py-24 sm:py-32">
