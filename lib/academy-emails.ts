@@ -1,3 +1,4 @@
+import { getEmailTemplate, renderTemplate } from "@/lib/sanity/email-templates";
 import type { AcademyCourse } from "@/types/academy";
 import type { TravelLead } from "@/types/experience";
 
@@ -9,8 +10,20 @@ interface EmailContent {
 const SIGN_OFF = "\n\nWarmly,\nThe Real Return™\nRemember. Return. Rebuild.™";
 
 /** Sent immediately to the customer on enrollment. */
-export function academyConfirmationEmail(lead: TravelLead, course: AcademyCourse): EmailContent {
+export async function academyConfirmationEmail(lead: TravelLead, course: AcademyCourse): Promise<EmailContent> {
   const firstName = lead.name.split(" ")[0];
+  const vars = {
+    firstName,
+    courseTitle: course.title,
+    courseFormat: course.format,
+    lessonCount: String(course.lessonCount),
+    price: String(course.price),
+    currency: course.currency,
+  };
+
+  const template = await getEmailTemplate("academy-confirmation");
+  if (template) return { subject: renderTemplate(template.subject, vars), text: renderTemplate(template.body, vars) };
+
   return {
     subject: `You're Enrolled in ${course.title} | The Real Return™ Academy`,
     text: [
@@ -52,8 +65,13 @@ export function academyInternalNotificationEmail(lead: TravelLead, course: Acade
 }
 
 /** Day 1 follow-up. */
-export function academyFollowUpDay1Email(lead: TravelLead, course: AcademyCourse): EmailContent {
+export async function academyFollowUpDay1Email(lead: TravelLead, course: AcademyCourse): Promise<EmailContent> {
   const firstName = lead.name.split(" ")[0];
+  const vars = { firstName, courseTitle: course.title, courseDescription: course.description };
+
+  const template = await getEmailTemplate("academy-followup-day1");
+  if (template) return { subject: renderTemplate(template.subject, vars), text: renderTemplate(template.body, vars) };
+
   return {
     subject: `Getting Started With ${course.title}`,
     text: [

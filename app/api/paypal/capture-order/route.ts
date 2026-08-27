@@ -113,7 +113,7 @@ async function recordDeposit(capture: PaypalCapture, tier: string | undefined) {
   }
 
   const resend = new Resend(apiKey);
-  const confirmation = depositConfirmationEmail(lead, amount, currency);
+  const confirmation = await depositConfirmationEmail(lead, amount, currency);
   const internal = depositInternalNotificationEmail(lead, amount, currency, captureId);
 
   await Promise.all([

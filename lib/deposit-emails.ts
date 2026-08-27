@@ -1,3 +1,4 @@
+import { getEmailTemplate, renderTemplate } from "@/lib/sanity/email-templates";
 import type { TravelLead } from "@/types/experience";
 
 interface EmailContent {
@@ -8,8 +9,13 @@ interface EmailContent {
 const SIGN_OFF = "\n\nWarmly,\nThe Real Return™\nRemember. Return. Rebuild.™";
 
 /** Sent immediately to the customer once a deposit payment is captured. */
-export function depositConfirmationEmail(lead: TravelLead, amount: string, currency: string): EmailContent {
+export async function depositConfirmationEmail(lead: TravelLead, amount: string, currency: string): Promise<EmailContent> {
   const firstName = lead.name.split(" ")[0];
+  const vars = { firstName, amount, currency, tierName: lead.experienceTitle };
+
+  const template = await getEmailTemplate("deposit-confirmation");
+  if (template) return { subject: renderTemplate(template.subject, vars), text: renderTemplate(template.body, vars) };
+
   return {
     subject: "Deposit Received: Your Journey Is Held | The Real Return™",
     text: [

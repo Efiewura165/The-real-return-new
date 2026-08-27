@@ -105,7 +105,7 @@ export async function POST(request: Request) {
 
   try {
     const resend = new Resend(apiKey);
-    const confirmation = customerConfirmationEmail(lead, pkg);
+    const confirmation = await customerConfirmationEmail(lead, pkg);
     const internal = internalLeadNotificationEmail(lead, pkg);
 
     await Promise.all([
@@ -121,8 +121,8 @@ export async function POST(request: Request) {
     ];
 
     await Promise.all(
-      followUps.map(({ template, days }) => {
-        const { subject, text } = template(lead, pkg);
+      followUps.map(async ({ template, days }) => {
+        const { subject, text } = await template(lead, pkg);
         return resend.emails.send({
           from: "The Real Return™ <onboarding@resend.dev>",
           to: lead.email,
