@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { getRelatedExperiences } from "@/content/experiences";
+import { getRelatedExperiences } from "@/lib/sanity/experiences";
 import type { ExperiencePackage } from "@/types/experience";
 import { RegistrationForm } from "./RegistrationForm";
 
@@ -9,8 +9,8 @@ interface PackageDetailProps {
   package: ExperiencePackage;
 }
 
-export function PackageDetail({ package: pkg }: PackageDetailProps) {
-  const related = getRelatedExperiences(pkg).slice(0, 4);
+export async function PackageDetail({ package: pkg }: PackageDetailProps) {
+  const related = (await getRelatedExperiences(pkg)).slice(0, 4);
 
   return (
     <div className="bg-background">

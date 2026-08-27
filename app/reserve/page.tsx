@@ -6,7 +6,7 @@ import { DepositCheckout } from "@/components/reserve/DepositCheckout";
 import { InquiryForm } from "@/components/reserve/InquiryForm";
 import { PackageBanner } from "@/components/experiences/PackageBanner";
 import { investmentContent } from "@/content/site";
-import { getExperienceBySlug } from "@/content/experiences";
+import { getExperienceBySlug } from "@/lib/sanity/experiences";
 import { RESERVATION_DEPOSIT_AMOUNT, RESERVATION_DEPOSIT_CURRENCY } from "@/lib/paypal";
 
 export const metadata: Metadata = {
@@ -16,9 +16,9 @@ export const metadata: Metadata = {
 
 export default async function ReservePage({ searchParams }: { searchParams: Promise<{ tier?: string }> }) {
   const { tier } = await searchParams;
-  const featuredPackages = ["enter-the-kingdom", "return-to-the-beginning", "the-ghana-safari"]
-    .map((slug) => getExperienceBySlug(slug))
-    .filter((pkg): pkg is NonNullable<typeof pkg> => Boolean(pkg));
+  const featuredPackages = (
+    await Promise.all(["enter-the-kingdom", "return-to-the-beginning", "the-ghana-safari"].map((slug) => getExperienceBySlug(slug)))
+  ).filter((pkg): pkg is NonNullable<typeof pkg> => Boolean(pkg));
 
   return (
     <div className="min-h-screen bg-background font-sans text-foreground">
