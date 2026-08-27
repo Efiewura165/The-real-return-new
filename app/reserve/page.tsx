@@ -5,8 +5,8 @@ import { SiteHeader } from "@/components/home/SiteHeader";
 import { DepositCheckout } from "@/components/reserve/DepositCheckout";
 import { InquiryForm } from "@/components/reserve/InquiryForm";
 import { PackageBanner } from "@/components/experiences/PackageBanner";
-import { investmentContent } from "@/content/site";
-import { getExperienceBySlug } from "@/content/experiences";
+import { getExperienceBySlug } from "@/lib/sanity/experiences";
+import { getInvestmentContent } from "@/lib/sanity/site";
 import { RESERVATION_DEPOSIT_AMOUNT, RESERVATION_DEPOSIT_CURRENCY } from "@/lib/paypal";
 
 export const metadata: Metadata = {
@@ -16,9 +16,10 @@ export const metadata: Metadata = {
 
 export default async function ReservePage({ searchParams }: { searchParams: Promise<{ tier?: string }> }) {
   const { tier } = await searchParams;
-  const featuredPackages = ["enter-the-kingdom", "return-to-the-beginning", "the-ghana-safari"]
-    .map((slug) => getExperienceBySlug(slug))
-    .filter((pkg): pkg is NonNullable<typeof pkg> => Boolean(pkg));
+  const investmentContent = await getInvestmentContent();
+  const featuredPackages = (
+    await Promise.all(["enter-the-kingdom", "return-to-the-beginning", "the-ghana-safari"].map((slug) => getExperienceBySlug(slug)))
+  ).filter((pkg): pkg is NonNullable<typeof pkg> => Boolean(pkg));
 
   return (
     <div className="min-h-screen bg-background font-sans text-foreground">
@@ -145,7 +146,7 @@ export default async function ReservePage({ searchParams }: { searchParams: Prom
               Tell us a bit about your family and dates. A steward will reach out to walk through tiers, availability, and next steps.
             </p>
             <div className="mt-8 rounded-sm border border-border bg-background p-6 sm:p-8">
-              <InquiryForm defaultTier={tier} />
+              <InquiryForm defaultTier={tier} tierNames={investmentContent.tiers.map((t) => t.name)} />
             </div>
           </div>
         </div>

@@ -2,7 +2,7 @@ import { randomUUID } from "crypto";
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 
-import { getExperienceBySlug } from "@/content/experiences";
+import { getExperienceBySlug } from "@/lib/sanity/experiences";
 import { saveLead } from "@/lib/leads";
 import {
   customerConfirmationEmail,
@@ -69,7 +69,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Name, email, country, and traveler count are required." }, { status: 400 });
   }
 
-  const pkg = getExperienceBySlug(body.experienceSlug);
+  const pkg = await getExperienceBySlug(body.experienceSlug);
   if (!pkg) {
     return NextResponse.json({ error: "That experience could not be found." }, { status: 404 });
   }

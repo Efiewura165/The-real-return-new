@@ -6,7 +6,7 @@ import { SiteHeader } from "@/components/home/SiteHeader";
 import { PackageCard } from "@/components/experiences/PackageCard";
 import { RegionAmbienceCard } from "@/components/experiences/RegionAmbienceCard";
 import { GhanaRegionMap } from "@/components/experiences/GhanaRegionMap";
-import { getFlagshipJourneys, getPackagesByRegion } from "@/content/experiences";
+import { getFlagshipJourneys, getPackagesByRegion } from "@/lib/sanity/experiences";
 import { slugify } from "@/lib/utils";
 
 export const metadata: Metadata = {
@@ -14,9 +14,8 @@ export const metadata: Metadata = {
   description: "Explore The Real Return™'s curated Ghana experiences, organized by region, from the Ashanti Kingdom to the savannah north.",
 };
 
-export default function ExperiencesPage() {
-  const flagships = getFlagshipJourneys();
-  const regions = getPackagesByRegion();
+export default async function ExperiencesPage() {
+  const [flagships, regions] = await Promise.all([getFlagshipJourneys(), getPackagesByRegion()]);
 
   return (
     <div className="min-h-screen bg-background font-sans text-foreground">

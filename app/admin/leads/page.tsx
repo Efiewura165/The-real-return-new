@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { logout } from "@/app/admin/login/actions";
 import { getLeads } from "@/lib/leads";
 import { isSupabaseConfigured } from "@/lib/supabase/client";
-import { experiencePackages, getExperienceBySlug } from "@/content/experiences";
+import { getExperiencePackages } from "@/lib/sanity/experiences";
 import { getAcademyCourses } from "@/lib/sanity/academy";
 import { LeadStatusSelect } from "@/components/admin/LeadStatusSelect";
 import { LeadNotes } from "@/components/admin/LeadNotes";
@@ -34,11 +34,12 @@ export default async function AdminLeadsPage({ searchParams }: { searchParams: P
     );
   }
 
-  const [allLeads, academyCourses] = await Promise.all([getLeads(), getAcademyCourses()]);
+  const [allLeads, academyCourses, experiencePackages] = await Promise.all([getLeads(), getAcademyCourses(), getExperiencePackages()]);
+  const packageById = new Map(experiencePackages.map((pkg) => [pkg.id, pkg]));
 
   const leadsWithRegion = allLeads.map((lead) => ({
     ...lead,
-    region: lead.experienceId.startsWith("academy-") ? "Academy" : getExperienceBySlug(lead.experienceId)?.region ?? "Unknown",
+    region: lead.experienceId.startsWith("academy-") ? "Academy" : packageById.get(lead.experienceId)?.region ?? "Unknown",
   }));
 
   const filtered = leadsWithRegion.filter((lead) => {
