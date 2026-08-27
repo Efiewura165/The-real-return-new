@@ -1,3 +1,4 @@
+import { getEmailTemplate, renderTemplate } from "@/lib/sanity/email-templates";
 import type { ExperiencePackage, TravelLead } from "@/types/experience";
 
 interface EmailContent {
@@ -7,9 +8,26 @@ interface EmailContent {
 
 const SIGN_OFF = "\n\nWarmly,\nThe Real Return™\nRemember. Return. Rebuild.™";
 
+function detailsBlock(lead: TravelLead, pkg: ExperiencePackage): string {
+  return [
+    `- Experience: ${pkg.title}`,
+    `- Region: ${pkg.region}`,
+    lead.preferredTravelDate ? `- Preferred dates: ${lead.preferredTravelDate}${lead.flexibleDates ? " (flexible)" : ""}` : null,
+    `- Travelers: ${lead.travellers.adults} adult(s)${lead.travellers.children ? `, ${lead.travellers.children} child(ren)` : ""}`,
+    lead.interests.length ? `- Interests: ${lead.interests.join(", ")}` : null,
+  ]
+    .filter(Boolean)
+    .join("\n");
+}
+
 /** Sent immediately to the customer on submission. */
-export function customerConfirmationEmail(lead: TravelLead, pkg: ExperiencePackage): EmailContent {
+export async function customerConfirmationEmail(lead: TravelLead, pkg: ExperiencePackage): Promise<EmailContent> {
   const firstName = lead.name.split(" ")[0];
+  const vars = { firstName, packageTitle: pkg.title, region: pkg.region, detailsBlock: detailsBlock(lead, pkg) };
+
+  const template = await getEmailTemplate("experience-confirmation");
+  if (template) return { subject: renderTemplate(template.subject, vars), text: renderTemplate(template.body, vars) };
+
   return {
     subject: "Your Ghana Journey Starts Here | The Real Return™",
     text: [
@@ -18,17 +36,11 @@ export function customerConfirmationEmail(lead: TravelLead, pkg: ExperiencePacka
       `Thank you for choosing The Real Return™. We've received your journey request for ${pkg.title} (${pkg.region}), and we're genuinely excited to help shape this for you.`,
       "",
       "Here's what you shared with us:",
-      `- Experience: ${pkg.title}`,
-      `- Region: ${pkg.region}`,
-      lead.preferredTravelDate ? `- Preferred dates: ${lead.preferredTravelDate}${lead.flexibleDates ? " (flexible)" : ""}` : null,
-      `- Travelers: ${lead.travellers.adults} adult(s)${lead.travellers.children ? `, ${lead.travellers.children} child(ren)` : ""}`,
-      lead.interests.length ? `- Interests: ${lead.interests.join(", ")}` : null,
+      vars.detailsBlock,
       "",
       "A steward will personally review your preferences and reach out within 48 hours to begin shaping your Ghana experience. No automated back-and-forth, just a real conversation about what you're hoping to feel on this journey.",
       SIGN_OFF,
-    ]
-      .filter(Boolean)
-      .join("\n"),
+    ].join("\n"),
   };
 }
 
@@ -59,8 +71,13 @@ export function internalLeadNotificationEmail(lead: TravelLead, pkg: ExperienceP
 }
 
 /** Day 1 follow-up. */
-export function followUpDay1Email(lead: TravelLead, pkg: ExperiencePackage): EmailContent {
+export async function followUpDay1Email(lead: TravelLead, pkg: ExperiencePackage): Promise<EmailContent> {
   const firstName = lead.name.split(" ")[0];
+  const vars = { firstName, packageTitle: pkg.title, whyThisExperience: pkg.whyThisExperience };
+
+  const template = await getEmailTemplate("experience-followup-day1");
+  if (template) return { subject: renderTemplate(template.subject, vars), text: renderTemplate(template.body, vars) };
+
   return {
     subject: `Why ${pkg.title} Matters`,
     text: `Dear ${firstName},\n\n${pkg.whyThisExperience}${SIGN_OFF}`,
@@ -68,14 +85,24 @@ export function followUpDay1Email(lead: TravelLead, pkg: ExperiencePackage): Ema
 }
 
 /** Day 3 follow-up. */
-export function followUpDay3Email(lead: TravelLead, pkg: ExperiencePackage): EmailContent {
+export async function followUpDay3Email(lead: TravelLead, pkg: ExperiencePackage): Promise<EmailContent> {
   const firstName = lead.name.split(" ")[0];
+  const vars = {
+    firstName,
+    packageTitle: pkg.title,
+    highlight1: pkg.highlights[0]?.toLowerCase() ?? "the first morning of your journey",
+    highlight2: pkg.highlights[1]?.toLowerCase() ?? "an afternoon you didn't expect to move you this much",
+  };
+
+  const template = await getEmailTemplate("experience-followup-day3");
+  if (template) return { subject: renderTemplate(template.subject, vars), text: renderTemplate(template.body, vars) };
+
   return {
     subject: "Imagine Yourself in Ghana",
     text: [
       `Dear ${firstName},`,
       "",
-      `Picture this: ${pkg.highlights[0]?.toLowerCase() ?? "the first morning of your journey"}. Then ${pkg.highlights[1]?.toLowerCase() ?? "an afternoon you didn't expect to move you this much"}.`,
+      `Picture this: ${vars.highlight1}. Then ${vars.highlight2}.`,
       "",
       `${pkg.title} isn't a checklist. It's built from moments like these, a story you walk into.`,
       SIGN_OFF,
@@ -84,8 +111,13 @@ export function followUpDay3Email(lead: TravelLead, pkg: ExperiencePackage): Ema
 }
 
 /** Day 5 follow-up. */
-export function followUpDay5Email(lead: TravelLead, pkg: ExperiencePackage): EmailContent {
+export async function followUpDay5Email(lead: TravelLead, pkg: ExperiencePackage): Promise<EmailContent> {
   const firstName = lead.name.split(" ")[0];
+  const vars = { firstName, packageTitle: pkg.title };
+
+  const template = await getEmailTemplate("experience-followup-day5");
+  if (template) return { subject: renderTemplate(template.subject, vars), text: renderTemplate(template.body, vars) };
+
   return {
     subject: "Make Your Journey Your Own",
     text: [
@@ -100,8 +132,13 @@ export function followUpDay5Email(lead: TravelLead, pkg: ExperiencePackage): Ema
 }
 
 /** Day 7 follow-up. */
-export function followUpDay7Email(lead: TravelLead, pkg: ExperiencePackage): EmailContent {
+export async function followUpDay7Email(lead: TravelLead, pkg: ExperiencePackage): Promise<EmailContent> {
   const firstName = lead.name.split(" ")[0];
+  const vars = { firstName, packageTitle: pkg.title };
+
+  const template = await getEmailTemplate("experience-followup-day7");
+  if (template) return { subject: renderTemplate(template.subject, vars), text: renderTemplate(template.body, vars) };
+
   return {
     subject: "Ready to Begin Your Return?",
     text: [

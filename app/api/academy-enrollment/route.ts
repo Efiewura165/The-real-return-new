@@ -78,7 +78,7 @@ export async function POST(request: Request) {
 
   try {
     const resend = new Resend(apiKey);
-    const confirmation = academyConfirmationEmail(lead, course);
+    const confirmation = await academyConfirmationEmail(lead, course);
     const internal = academyInternalNotificationEmail(lead, course);
 
     await Promise.all([
@@ -86,7 +86,7 @@ export async function POST(request: Request) {
       resend.emails.send({ from: "The Real Return™ <onboarding@resend.dev>", to: NOTIFY_EMAIL, replyTo: lead.email, subject: internal.subject, text: internal.text }),
     ]);
 
-    const followUp = academyFollowUpDay1Email(lead, course);
+    const followUp = await academyFollowUpDay1Email(lead, course);
     await resend.emails.send({
       from: "The Real Return™ <onboarding@resend.dev>",
       to: lead.email,

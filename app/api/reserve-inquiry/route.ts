@@ -3,11 +3,11 @@ import { NextResponse } from "next/server";
 import { Resend } from "resend";
 
 import { saveLead } from "@/lib/leads";
+import { inquiryConfirmationEmail, inquiryInternalNotificationEmail } from "@/lib/inquiry-emails";
 import { slugify } from "@/lib/utils";
 import type { TravelLead } from "@/types/experience";
 
 const NOTIFY_EMAIL = process.env.RESERVE_NOTIFY_EMAIL ?? "efiewura89@gmail.com";
-const SIGN_OFF = "\n\nWarmly,\nThe Real Return™\nRemember. Return. Rebuild.™";
 
 interface InquiryPayload {
   name: string;
@@ -67,41 +67,12 @@ export async function POST(request: Request) {
 
   try {
     const resend = new Resend(apiKey);
-    const firstName = name.split(" ")[0];
+    const confirmation = await inquiryConfirmationEmail(name, tier, preferredDates);
+    const internal = inquiryInternalNotificationEmail(lead.id, name, email, tier, phone, preferredDates, message);
 
     await Promise.all([
-      resend.emails.send({
-        from: "The Real Return™ <onboarding@resend.dev>",
-        to: email,
-        subject: "We've Received Your Inquiry | The Real Return™",
-        text: [
-          `Dear ${firstName},`,
-          "",
-          `Thank you for reaching out about the ${tier} tier. A steward will personally review your inquiry and reach out within 48 hours to walk through availability and next steps.`,
-          "",
-          preferredDates ? `Preferred dates: ${preferredDates}` : null,
-          SIGN_OFF,
-        ]
-          .filter(Boolean)
-          .join("\n"),
-      }),
-      resend.emails.send({
-        from: "The Real Return™ <onboarding@resend.dev>",
-        to: NOTIFY_EMAIL,
-        replyTo: email,
-        subject: `New Journey Inquiry: ${name} (${tier})`,
-        text: [
-          `Lead ID: ${lead.id}`,
-          `Name: ${name}`,
-          `Email: ${email}`,
-          phone ? `Phone: ${phone}` : null,
-          `Journey tier: ${tier}`,
-          preferredDates ? `Preferred dates: ${preferredDates}` : null,
-          message ? `\nMessage:\n${message}` : null,
-        ]
-          .filter(Boolean)
-          .join("\n"),
-      }),
+      resend.emails.send({ from: "The Real Return™ <onboarding@resend.dev>", to: email, subject: confirmation.subject, text: confirmation.text }),
+      resend.emails.send({ from: "The Real Return™ <onboarding@resend.dev>", to: NOTIFY_EMAIL, replyTo: email, subject: internal.subject, text: internal.text }),
     ]);
 
     return NextResponse.json({ ok: true, leadId: lead.id, delivered: true });
