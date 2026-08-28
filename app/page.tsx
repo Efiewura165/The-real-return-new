@@ -12,6 +12,8 @@ import {
   getPillarsContent,
 } from "@/lib/sanity/site";
 
+export const revalidate = 60;
+
 export default async function HomePage() {
   const [academyHero, academyCourses, heroSlides, pillarsContent, founderContent, itineraryContent, investmentContent, communityContent] =
     await Promise.all([

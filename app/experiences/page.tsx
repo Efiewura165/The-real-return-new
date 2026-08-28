@@ -14,6 +14,8 @@ export const metadata: Metadata = {
   description: "Explore The Real Return™'s curated Ghana experiences, organized by region, from the Ashanti Kingdom to the savannah north.",
 };
 
+export const revalidate = 60;
+
 export default async function ExperiencesPage() {
   const [flagships, regions] = await Promise.all([getFlagshipJourneys(), getPackagesByRegion()]);
 

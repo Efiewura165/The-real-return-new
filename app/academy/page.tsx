@@ -12,6 +12,8 @@ export const metadata: Metadata = {
   description: "Arrive prepared. Learn before you land. Self-paced courses in Ghanaian culture, language, and documentation, taught by Tarsha Lewis.",
 };
 
+export const revalidate = 60;
+
 export default async function AcademyPage() {
   const [academyHero, academyPhases, academyCourses] = await Promise.all([getAcademyHero(), getAcademyPhases(), getAcademyCourses()]);
 

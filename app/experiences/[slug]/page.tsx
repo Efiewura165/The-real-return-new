@@ -9,6 +9,8 @@ interface ExperiencePageProps {
   params: Promise<{ slug: string }>;
 }
 
+export const revalidate = 60;
+
 export async function generateStaticParams() {
   const experiencePackages = await getExperiencePackages();
   return experiencePackages.map((pkg) => ({ slug: pkg.slug }));
