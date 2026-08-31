@@ -7,12 +7,14 @@ import { investmentSection } from "./investmentSection";
 import { itinerarySection } from "./itinerarySection";
 import { pillarsSection } from "./pillarsSection";
 import { siteSettings } from "./siteSettings";
+import { testimonial } from "./testimonial";
 
 export const schemaTypes = [
   academyCourse,
   academySettings,
   emailTemplate,
   experiencePackage,
+  testimonial,
   siteSettings,
   pillarsSection,
   founderSection,
