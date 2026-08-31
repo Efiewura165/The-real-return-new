@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { track } from "@vercel/analytics";
 
 interface InquiryFormProps {
   defaultTier?: string;
@@ -34,6 +35,7 @@ export function InquiryForm({ defaultTier, tierNames }: InquiryFormProps) {
         body: JSON.stringify(payload),
       });
       if (!response.ok) throw new Error("Request failed");
+      track("Reserve Inquiry Submitted", { tier: payload.tier });
       setStatus("success");
       form.reset();
     } catch {

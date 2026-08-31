@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: ExperiencePageProps): Promise
   if (!pkg) return {};
 
   return {
-    title: `${pkg.title} | The Real Return™`,
+    title: pkg.title,
     description: pkg.shortDescription,
     alternates: { canonical: `/experiences/${pkg.slug}` },
     openGraph: {

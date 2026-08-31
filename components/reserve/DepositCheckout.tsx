@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { PayPalButtons, PayPalScriptProvider } from "@paypal/react-paypal-js";
+import { track } from "@vercel/analytics";
 
 interface DepositCheckoutProps {
   amount: string;
@@ -51,6 +52,7 @@ export function DepositCheckout({ amount, currency, tier }: DepositCheckoutProps
               setStatus("error");
               return;
             }
+            track("Deposit Paid", { amount, currency, tier: tier ?? "unspecified" });
             setStatus("success");
           }}
           onError={() => setStatus("error")}

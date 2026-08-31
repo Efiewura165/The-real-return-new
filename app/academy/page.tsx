@@ -8,7 +8,7 @@ import { EnrollmentForm } from "@/components/academy/EnrollmentForm";
 import { getAcademyHero, getAcademyPhases, getAcademyCourses } from "@/lib/sanity/academy";
 
 export const metadata: Metadata = {
-  title: "Academy | The Real Return™",
+  title: "Academy",
   description: "Arrive prepared. Learn before you land. Self-paced courses in Ghanaian culture, language, and documentation, taught by Tarsha Lewis.",
 };
 
