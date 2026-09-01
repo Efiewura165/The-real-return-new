@@ -3,7 +3,8 @@ import { Cormorant_Garamond, Inter } from "next/font/google";
 
 import "./globals.css";
 
-import { BookingCTAPopup } from "@/components/home/BookingCTAPopup";
+import { PopupBannerHost } from "@/components/home/PopupBannerHost";
+import { getPopupBanners } from "@/lib/sanity/popups";
 
 const inter = Inter({
   variable: "--font-sans",
@@ -24,12 +25,16 @@ export const metadata: Metadata = {
     "The Real Return™ is a heritage and legacy platform for the African diaspora, built for those returning to Ghana not as tourists, but as family coming home.",
 };
 
-export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+export const revalidate = 60;
+
+export default async function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+  const popupBanners = await getPopupBanners();
+
   return (
     <html lang="en" className={`${inter.variable} ${cormorant.variable}`}>
       <body className="min-h-screen bg-background text-foreground antialiased">
         {children}
-        <BookingCTAPopup />
+        <PopupBannerHost banners={popupBanners} />
       </body>
     </html>
   );

@@ -6,6 +6,7 @@ import { founderSection } from "./founderSection";
 import { investmentSection } from "./investmentSection";
 import { itinerarySection } from "./itinerarySection";
 import { pillarsSection } from "./pillarsSection";
+import { popupBanner } from "./popupBanner";
 import { siteSettings } from "./siteSettings";
 
 export const schemaTypes = [
@@ -13,6 +14,7 @@ export const schemaTypes = [
   academySettings,
   emailTemplate,
   experiencePackage,
+  popupBanner,
   siteSettings,
   pillarsSection,
   founderSection,
