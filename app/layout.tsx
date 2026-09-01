@@ -4,7 +4,8 @@ import { Analytics } from "@vercel/analytics/next";
 
 import "./globals.css";
 
-import { BookingCTAPopup } from "@/components/home/BookingCTAPopup";
+import { PopupBannerHost } from "@/components/home/PopupBannerHost";
+import { getPopupBanners } from "@/lib/sanity/popups";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://the-real-return-new.vercel.app";
 
@@ -46,12 +47,16 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+export const revalidate = 60;
+
+export default async function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+  const popupBanners = await getPopupBanners();
+
   return (
     <html lang="en" className={`${inter.variable} ${cormorant.variable}`}>
       <body className="min-h-screen bg-background text-foreground antialiased">
         {children}
-        <BookingCTAPopup />
+        <PopupBannerHost banners={popupBanners} />
         <Analytics />
       </body>
     </html>
