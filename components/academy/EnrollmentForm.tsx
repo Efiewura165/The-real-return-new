@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useSearchParams } from "next/navigation";
+import { track } from "@vercel/analytics";
 
 import type { AcademyCourse } from "@/types/academy";
 
@@ -49,6 +50,7 @@ export function EnrollmentForm({ courses }: EnrollmentFormProps) {
         body: JSON.stringify({ name, email, phone: phone || undefined, country, courseSlug, message: message || undefined }),
       });
       if (!response.ok) throw new Error("Request failed");
+      track("Academy Enrollment Submitted", { course: selectedCourse?.title ?? courseSlug });
       setStatus("success");
     } catch {
       setStatus("error");

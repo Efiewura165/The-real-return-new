@@ -8,12 +8,14 @@ import { itinerarySection } from "./itinerarySection";
 import { pillarsSection } from "./pillarsSection";
 import { popupBanner } from "./popupBanner";
 import { siteSettings } from "./siteSettings";
+import { testimonial } from "./testimonial";
 
 export const schemaTypes = [
   academyCourse,
   academySettings,
   emailTemplate,
   experiencePackage,
+  testimonial,
   popupBanner,
   siteSettings,
   pillarsSection,

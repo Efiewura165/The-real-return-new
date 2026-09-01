@@ -10,7 +10,7 @@ import { getInvestmentContent } from "@/lib/sanity/site";
 import { RESERVATION_DEPOSIT_AMOUNT, RESERVATION_DEPOSIT_CURRENCY } from "@/lib/paypal";
 
 export const metadata: Metadata = {
-  title: "Reserve Your Journey | The Real Return™",
+  title: "Reserve Your Journey",
   description: "Reserve your Ghana Legacy Journey with The Real Return™. Choose a tier, hold your spot with a deposit, or send an inquiry.",
 };
 

@@ -8,7 +8,7 @@ import { getAcademyCourses } from "@/lib/sanity/academy";
 import { LeadStatusSelect } from "@/components/admin/LeadStatusSelect";
 import { LeadNotes } from "@/components/admin/LeadNotes";
 
-export const metadata: Metadata = { title: "Leads | The Real Return™ Admin", robots: { index: false, follow: false } };
+export const metadata: Metadata = { title: "Leads · Admin", robots: { index: false, follow: false } };
 
 interface SearchParams {
   q?: string;

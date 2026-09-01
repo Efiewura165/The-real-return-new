@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { track } from "@vercel/analytics";
 
 const INTERESTS = [
   "Heritage",
@@ -146,6 +147,7 @@ export function RegistrationForm({ experienceSlug, experienceTitle }: Registrati
         }),
       });
       if (!response.ok) throw new Error("Request failed");
+      track("Experience Registration Submitted", { experienceSlug, experienceTitle });
       setStatus("success");
     } catch {
       setStatus("error");

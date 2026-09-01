@@ -2,7 +2,9 @@ import Image from "next/image";
 
 import { SiteHeader } from "@/components/home/SiteHeader";
 import { Hero } from "@/components/home/Hero";
+import { Testimonials } from "@/components/home/Testimonials";
 import { getAcademyHero, getAcademyCourses } from "@/lib/sanity/academy";
+import { getTestimonials } from "@/lib/sanity/testimonials";
 import {
   getCommunityContent,
   getFounderContent,
@@ -15,17 +17,27 @@ import {
 export const revalidate = 60;
 
 export default async function HomePage() {
-  const [academyHero, academyCourses, heroSlides, pillarsContent, founderContent, itineraryContent, investmentContent, communityContent] =
-    await Promise.all([
-      getAcademyHero(),
-      getAcademyCourses(),
-      getHeroSlides(),
-      getPillarsContent(),
-      getFounderContent(),
-      getItineraryContent(),
-      getInvestmentContent(),
-      getCommunityContent(),
-    ]);
+  const [
+    academyHero,
+    academyCourses,
+    heroSlides,
+    pillarsContent,
+    founderContent,
+    itineraryContent,
+    investmentContent,
+    communityContent,
+    testimonials,
+  ] = await Promise.all([
+    getAcademyHero(),
+    getAcademyCourses(),
+    getHeroSlides(),
+    getPillarsContent(),
+    getFounderContent(),
+    getItineraryContent(),
+    getInvestmentContent(),
+    getCommunityContent(),
+    getTestimonials(),
+  ]);
   const teaserCourses = academyCourses.filter((course) => !course.featured);
 
   return (
@@ -147,6 +159,8 @@ export default async function HomePage() {
           </a>
         </div>
       </section>
+
+      <Testimonials testimonials={testimonials} />
 
       {/* Investment */}
       <section id="invest" className="bg-ink py-24 sm:py-32">
