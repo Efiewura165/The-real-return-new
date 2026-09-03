@@ -5,7 +5,7 @@ export interface HeaderNavChild {
 
 export interface HeaderNavParent {
   label: string;
-  /** Empty array = placeholder shell, content TBD (Academy, Explore). */
+  /** Empty array = placeholder shell, content TBD (currently just Explore). */
   items: HeaderNavChild[];
 }
 
@@ -14,11 +14,25 @@ export interface HeaderNavParent {
  * "Begin Your Journey" is deliberately not included here — it's the
  * primary CTA button (see headerCtas), not a nav dropdown.
  *
+ * Academy's items link to the site's existing, already-built Academy
+ * feature (real Sanity-backed courses) rather than being another
+ * placeholder — Explore is still an empty shell since no equivalent
+ * feature exists yet.
+ *
  * Routes are invented slugs except where noted — the brief specified
  * labels and ™ placement only, not URLs.
  */
 export const headerNav: HeaderNavParent[] = [
-  { label: "Academy", items: [] },
+  {
+    label: "Academy",
+    items: [
+      { label: "All Courses", href: "/academy" },
+      { label: "Cultural Acclimatization", href: "/academy?course=cultural-acclimatization#enroll" },
+      { label: "Linguistic Basics", href: "/academy?course=linguistic-basics#enroll" },
+      { label: "Documentation", href: "/academy?course=documentation#enroll" },
+      { label: "Full Academy Membership", href: "/academy?course=full-membership#enroll" },
+    ],
+  },
   { label: "Explore", items: [] },
   {
     label: "Journeys",
