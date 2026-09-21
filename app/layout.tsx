@@ -4,6 +4,7 @@ import { Cormorant_Garamond, Inter } from "next/font/google";
 import "./globals.css";
 
 import { PopupBannerHost } from "@/components/home/PopupBannerHost";
+import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
 import { getPopupBanners } from "@/lib/sanity/popups";
 
 const inter = Inter({
@@ -35,6 +36,7 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
       <body className="min-h-screen bg-background text-foreground antialiased">
         {children}
         <PopupBannerHost banners={popupBanners} />
+        <WhatsAppButton />
       </body>
     </html>
   );

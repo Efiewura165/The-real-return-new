@@ -1,6 +1,7 @@
 import Image from "next/image";
 
 import { SiteHeader } from "@/components/home/SiteHeader";
+import { SiteFooter } from "@/components/layout/SiteFooter";
 import { Hero } from "@/components/home/Hero";
 import { getAcademyHero, getAcademyCourses } from "@/lib/sanity/academy";
 import {
@@ -194,7 +195,7 @@ export default async function HomePage() {
           <h2 className="mt-5 font-serif text-3xl font-normal leading-tight text-background sm:text-4xl">{communityContent.title}</h2>
           <p className="mt-5 max-w-xl text-base leading-8 text-background/75">{communityContent.description}</p>
           <a
-            href="#"
+            href="/reserve#inquire"
             className="mt-8 inline-flex h-12 items-center justify-center rounded-sm border border-background/50 px-7 text-[0.8rem] font-semibold uppercase tracking-[0.18em] text-background transition-colors hover:bg-background hover:text-forest"
           >
             {communityContent.buttonLabel}
@@ -202,11 +203,7 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <footer className="border-t border-border bg-background py-8">
-        <div className="mx-auto w-full max-w-[1400px] px-6 text-sm text-foreground/60 sm:px-10">
-          © 2026 The Real Return™. Reconnect with intention.
-        </div>
-      </footer>
+      <SiteFooter />
     </div>
   );
 }

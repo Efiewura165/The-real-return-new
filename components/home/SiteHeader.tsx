@@ -48,6 +48,7 @@ export function SiteHeader() {
   }
 
   return (
+    <>
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-colors duration-500 ${
         scrolled || menuOpen ? "bg-ink/95 backdrop-blur shadow-[0_10px_40px_rgba(0,0,0,0.25)]" : "bg-gradient-to-b from-ink/55 to-transparent"
@@ -63,7 +64,7 @@ export function SiteHeader() {
           <span className="font-sans text-lg font-extrabold uppercase tracking-[0.08em]">The Real Return™</span>
         </a>
 
-        <nav aria-label="Primary" className="hidden items-center gap-8 lg:flex">
+        <nav aria-label="Primary" className="hidden items-center gap-6 min-[1560px]:flex">
           {headerNav.map((parent) => (
             <NavDropdown
               key={parent.label}
@@ -75,22 +76,22 @@ export function SiteHeader() {
           ))}
         </nav>
 
-        <div className="flex items-center gap-2 sm:gap-3">
+        <div className="flex shrink-0 items-center gap-2 sm:gap-3">
           <a
             href={headerCtas.account.href}
-            className="hidden text-[0.72rem] font-medium uppercase tracking-[0.15em] text-background/60 transition-colors hover:text-background sm:inline-block"
+            className="hidden whitespace-nowrap text-[0.72rem] font-medium uppercase tracking-[0.15em] text-background/60 transition-colors hover:text-background min-[1560px]:inline-block"
           >
             {headerCtas.account.label}
           </a>
           <a
             href={headerCtas.secondary.href}
-            className="hidden h-11 items-center justify-center rounded-sm border border-gold-luxury/70 bg-transparent px-5 text-[0.75rem] font-semibold uppercase tracking-[0.18em] text-background transition-colors hover:bg-gold-luxury hover:text-ink md:inline-flex"
+            className="hidden h-11 items-center justify-center whitespace-nowrap rounded-sm border border-gold-luxury/70 bg-transparent px-5 text-[0.75rem] font-semibold uppercase tracking-[0.18em] text-background transition-colors hover:bg-gold-luxury hover:text-ink min-[1560px]:inline-flex"
           >
             {headerCtas.secondary.label}
           </a>
           <a
             href={headerCtas.primary.href}
-            className="inline-flex h-11 items-center justify-center rounded-sm bg-gold-luxury px-5 text-[0.75rem] font-semibold uppercase tracking-[0.18em] text-ink transition-transform hover:scale-[1.02] sm:px-6"
+            className="inline-flex h-11 shrink-0 items-center justify-center whitespace-nowrap rounded-sm bg-gold-luxury px-5 text-[0.75rem] font-semibold uppercase tracking-[0.18em] text-ink transition-transform hover:scale-[1.02] sm:px-6"
           >
             {headerCtas.primary.label}
           </a>
@@ -99,19 +100,20 @@ export function SiteHeader() {
             aria-label={menuOpen ? "Close menu" : "Open menu"}
             aria-expanded={menuOpen}
             onClick={() => setMenuOpen((open) => !open)}
-            className="inline-flex h-11 w-11 items-center justify-center rounded-sm border border-background/30 text-background lg:hidden"
+            className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-sm border border-background/30 text-background min-[1560px]:hidden"
           >
             {menuOpen ? <X className="h-5 w-5" aria-hidden="true" /> : <Menu className="h-5 w-5" aria-hidden="true" />}
           </button>
         </div>
       </div>
+    </header>
 
       {menuOpen ? (
         <div
           role="dialog"
           aria-modal="true"
           aria-label="Site navigation"
-          className="fixed inset-0 z-[60] flex flex-col overflow-y-auto bg-ink lg:hidden"
+          className="fixed inset-0 z-[60] flex flex-col overflow-y-auto bg-ink min-[1560px]:hidden"
         >
           <div className="flex h-20 w-full shrink-0 items-center justify-between px-6 sm:px-10">
             <a href="/" onClick={() => setMenuOpen(false)} className="flex items-center gap-3 leading-none text-background">
@@ -198,6 +200,6 @@ export function SiteHeader() {
           </nav>
         </div>
       ) : null}
-    </header>
+    </>
   );
 }

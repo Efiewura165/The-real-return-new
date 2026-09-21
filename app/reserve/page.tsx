@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 import { SiteHeader } from "@/components/home/SiteHeader";
+import { SiteFooter } from "@/components/layout/SiteFooter";
 import { DepositCheckout } from "@/components/reserve/DepositCheckout";
 import { InquiryForm } from "@/components/reserve/InquiryForm";
 import { PackageBanner } from "@/components/experiences/PackageBanner";
@@ -152,11 +153,7 @@ export default async function ReservePage({ searchParams }: { searchParams: Prom
         </div>
       </section>
 
-      <footer className="border-t border-border bg-background py-8">
-        <div className="mx-auto w-full max-w-[1400px] px-6 text-sm text-foreground/60 sm:px-10">
-          © 2026 The Real Return™. Reconnect with intention.
-        </div>
-      </footer>
+      <SiteFooter />
     </div>
   );
 }

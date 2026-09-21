@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { SiteHeader } from "@/components/home/SiteHeader";
+import { SiteFooter } from "@/components/layout/SiteFooter";
 import { PackageCard } from "@/components/experiences/PackageCard";
 import { RegionAmbienceCard } from "@/components/experiences/RegionAmbienceCard";
 import { GhanaRegionMap } from "@/components/experiences/GhanaRegionMap";
@@ -110,11 +111,7 @@ export default async function ExperiencesPage() {
         </section>
       ))}
 
-      <footer className="border-t border-border bg-background py-8">
-        <div className="mx-auto w-full max-w-[1400px] px-6 text-sm text-foreground/60 sm:px-10">
-          © 2026 The Real Return™. Reconnect with intention.
-        </div>
-      </footer>
+      <SiteFooter />
     </div>
   );
 }

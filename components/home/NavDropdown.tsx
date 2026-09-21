@@ -72,7 +72,7 @@ export function NavDropdown({ parent, isOpen, onOpen, onClose }: NavDropdownProp
   }
 
   return (
-    <div ref={wrapperRef} className="relative">
+    <div ref={wrapperRef} className="relative shrink-0">
       <button
         ref={triggerRef}
         type="button"
@@ -82,7 +82,7 @@ export function NavDropdown({ parent, isOpen, onOpen, onClose }: NavDropdownProp
         onClick={() => (isOpen ? onClose() : onOpen())}
         onKeyDown={handleTriggerKeyDown}
         className={cn(
-          "flex items-center gap-1 text-[0.8rem] font-medium uppercase tracking-[0.18em] text-background/80 transition-colors hover:text-gold-luxury",
+          "flex items-center gap-1 whitespace-nowrap text-[0.8rem] font-medium uppercase tracking-[0.18em] text-background/80 transition-colors hover:text-gold-luxury",
           isOpen && "text-gold-luxury",
         )}
       >
