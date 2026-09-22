@@ -51,6 +51,25 @@ body {
   }
 }
 
+@keyframes zoom-in-right-hold {
+  0% {
+    opacity: 0;
+    transform: translateX(140px) scale(0.75);
+  }
+  5% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+  95% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(0) scale(1);
+  }
+}
+
 @keyframes caption-splash {
   0% {
     opacity: 0;
