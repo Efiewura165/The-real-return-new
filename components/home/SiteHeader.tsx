@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import { ChevronDown, Menu, X } from "lucide-react";
 
 import { NavDropdown } from "@/components/home/NavDropdown";
@@ -55,7 +56,7 @@ export function SiteHeader() {
       }`}
     >
       <div className="mx-auto flex h-20 w-full max-w-[1600px] items-center justify-between px-6 sm:px-10">
-        <a href="/" className="flex items-center gap-3 leading-none text-background min-[1150px]:shrink-0">
+        <Link href="/" className="flex items-center gap-3 leading-none text-background min-[1150px]:shrink-0">
           <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-purple-luxury/70 bg-ink/40">
             <svg viewBox="0 0 24 24" className="h-5 w-5 fill-purple-luxury" aria-hidden="true">
               <path d="M12 0 L14.5 9.5 L24 12 L14.5 14.5 L12 24 L9.5 14.5 L0 12 L9.5 9.5 Z" />
@@ -64,7 +65,7 @@ export function SiteHeader() {
           <span className="font-sans text-sm font-extrabold uppercase tracking-[0.04em] sm:text-lg sm:tracking-[0.08em] min-[1150px]:whitespace-nowrap">
             The Real Return™
           </span>
-        </a>
+        </Link>
 
         <nav aria-label="Primary" className="hidden items-center gap-4 min-[1150px]:flex">
           {headerNav.map((parent) => (
@@ -106,14 +107,14 @@ export function SiteHeader() {
           className="fixed inset-0 z-[60] flex flex-col overflow-y-auto bg-ink min-[1150px]:hidden"
         >
           <div className="flex h-20 w-full shrink-0 items-center justify-between px-6 sm:px-10">
-            <a href="/" onClick={() => setMenuOpen(false)} className="flex items-center gap-3 leading-none text-background">
+            <Link href="/" onClick={() => setMenuOpen(false)} className="flex items-center gap-3 leading-none text-background">
               <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-purple-luxury/70 bg-ink/40">
                 <svg viewBox="0 0 24 24" className="h-5 w-5 fill-purple-luxury" aria-hidden="true">
                   <path d="M12 0 L14.5 9.5 L24 12 L14.5 14.5 L12 24 L9.5 14.5 L0 12 L9.5 9.5 Z" />
                 </svg>
               </span>
               <span className="font-sans text-lg font-extrabold uppercase tracking-[0.08em]">The Real Return™</span>
-            </a>
+            </Link>
             <button
               type="button"
               aria-label="Close menu"

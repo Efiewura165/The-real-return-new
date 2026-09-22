@@ -36,7 +36,6 @@ export function PopupBannerHost({ banners }: PopupBannerHostProps) {
     dismissedRef.current = false;
 
     if (matchingBanners.length === 0) {
-      setVisible(false);
       return;
     }
 

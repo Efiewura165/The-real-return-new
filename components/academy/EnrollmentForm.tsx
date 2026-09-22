@@ -60,7 +60,7 @@ export function EnrollmentForm({ courses }: EnrollmentFormProps) {
       <div className="rounded-sm border border-purple-luxury/40 bg-ink p-10 text-center">
         <p className="font-serif text-3xl font-normal leading-tight text-background sm:text-4xl">You&apos;re Enrolled.</p>
         <p className="mx-auto mt-5 max-w-xl text-base leading-8 text-background/75">
-          Thank you for joining The Real Return™ Academy. A member of our team will reach out within 48 hours to confirm your enrollment and share
+          Thank you for joining The Real Return™ Academy. A steward will reach out within 48 hours to confirm your enrollment and share
           your course materials.
         </p>
       </div>

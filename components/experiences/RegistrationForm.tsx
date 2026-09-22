@@ -157,7 +157,7 @@ export function RegistrationForm({ experienceSlug, experienceTitle }: Registrati
       <div className="rounded-sm border border-purple-luxury/40 bg-ink p-10 text-center">
         <p className="font-serif text-3xl font-normal leading-tight text-background sm:text-4xl">Your Return Begins Here.</p>
         <p className="mx-auto mt-5 max-w-xl text-base leading-8 text-background/75">
-          Thank you for choosing The Real Return™. We&apos;ve received your journey request. Our team will review your preferences and
+          Thank you for choosing The Real Return™. We&apos;ve received your journey request. A steward will review your preferences and
           contact you to begin shaping your Ghana experience.
         </p>
         <div className="mt-8 flex flex-wrap justify-center gap-3">

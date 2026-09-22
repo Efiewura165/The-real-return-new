@@ -7,14 +7,23 @@ const MESSAGE_DURATION_MS = 11200;
 
 type Stage = "welcome" | "detty" | "done";
 
+interface WelcomeIntroProps {
+  /** Fired whenever the intro's on-screen/off-screen state changes, so a parent can hide anything that would overlap it underneath. */
+  onActiveChange?: (active: boolean) => void;
+}
+
 /**
  * A full-screen, two-beat intro that plays once per homepage visit: a bold
  * welcome line, then a Detty December call-to-action. Each zooms in from the
  * right, holds centered for ~10s, then fades — background stays transparent
  * so the hero shows through underneath.
  */
-export function WelcomeIntro() {
+export function WelcomeIntro({ onActiveChange }: WelcomeIntroProps) {
   const [stage, setStage] = useState<Stage>("welcome");
+
+  useEffect(() => {
+    onActiveChange?.(stage !== "done");
+  }, [stage, onActiveChange]);
 
   useEffect(() => {
     if (stage === "done") return;

@@ -2,8 +2,7 @@ import Image from "next/image";
 
 import { SiteHeader } from "@/components/home/SiteHeader";
 import { SiteFooter } from "@/components/layout/SiteFooter";
-import { Hero } from "@/components/home/Hero";
-import { WelcomeIntro } from "@/components/home/WelcomeIntro";
+import { HomeIntroHero } from "@/components/home/HomeIntroHero";
 import { getAcademyHero, getAcademyCourses } from "@/lib/sanity/academy";
 import {
   getCommunityContent,
@@ -32,9 +31,9 @@ export default async function HomePage() {
 
   return (
     <div className="min-h-screen bg-background font-sans text-foreground">
-      <WelcomeIntro />
-      <SiteHeader />
-      <Hero heroSlides={heroSlides} />
+      <HomeIntroHero heroSlides={heroSlides}>
+        <SiteHeader />
+      </HomeIntroHero>
 
       {/* Story / founder quote */}
       <section id="story" className="bg-ink py-24 sm:py-32">
