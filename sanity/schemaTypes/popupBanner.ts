@@ -28,12 +28,18 @@ export const popupBanner = defineType({
         "Which pages this should appear on, e.g. \"/\" for the homepage, \"/academy\", \"/experiences\". Leave empty to show on every page. (It never shows on /reserve or the admin dashboard, regardless of what's listed here.) If more than one banner matches the same page, only the first one in this list is shown.",
     }),
     defineField({
-      name: "image",
-      title: "Image",
-      type: "image",
-      options: { hotspot: true },
-      fields: [defineField({ name: "alt", title: "Alt text", type: "string", validation: (Rule) => Rule.required() })],
-      validation: (Rule) => Rule.required(),
+      name: "images",
+      title: "Images",
+      type: "array",
+      of: [
+        {
+          type: "image",
+          options: { hotspot: true },
+          fields: [defineField({ name: "alt", title: "Alt text", type: "string", validation: (Rule) => Rule.required() })],
+        },
+      ],
+      description: "Add more than one to have this banner show a different picture each time it appears, cycling in order.",
+      validation: (Rule) => Rule.required().min(1),
     }),
     defineField({ name: "eyebrow", title: "Eyebrow", type: "string", validation: (Rule) => Rule.required() }),
     defineField({ name: "message", title: "Message", type: "text", rows: 2, validation: (Rule) => Rule.required() }),
@@ -68,7 +74,7 @@ export const popupBanner = defineType({
     }),
   ],
   preview: {
-    select: { title: "internalName", subtitle: "message", media: "image", enabled: "enabled" },
+    select: { title: "internalName", subtitle: "message", media: "images.0", enabled: "enabled" },
     prepare({ title, subtitle, media, enabled }) {
       return { title: enabled === false ? `${title} (off)` : title, subtitle, media };
     },

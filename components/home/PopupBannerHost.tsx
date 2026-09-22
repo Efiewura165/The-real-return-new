@@ -20,7 +20,12 @@ export function PopupBannerHost({ banners }: PopupBannerHostProps) {
   const pathname = usePathname() ?? "/";
   const [visible, setVisible] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
+  const [activeImage, setActiveImage] = useState<{ src: string; alt: string } | null>(null);
   const dismissedRef = useRef(false);
+  // Tracks which image each banner showed last, so a banner with several
+  // images cycles through them (a different one each time it appears)
+  // instead of always showing the first.
+  const imageRotationRef = useRef<Record<string, number>>({});
 
   // Never show over checkout or the internal admin dashboard, regardless of what a banner's own page list says.
   const hardExcluded = pathname.startsWith("/reserve") || pathname.startsWith("/admin");
@@ -44,12 +49,17 @@ export function PopupBannerHost({ banners }: PopupBannerHostProps) {
     const showThenHide = () => {
       if (dismissedRef.current) return;
       const index = rotation % matchingBanners.length;
+      const current = matchingBanners[index];
+      const imageIndex = (imageRotationRef.current[current.id] ?? 0) % current.images.length;
+      imageRotationRef.current[current.id] = imageIndex + 1;
+
       setActiveIndex(index);
+      setActiveImage(current.images[imageIndex]);
       setVisible(true);
       hideTimer = setTimeout(() => {
         setVisible(false);
         rotation += 1;
-      }, matchingBanners[index].visibleDurationMs);
+      }, current.visibleDurationMs);
     };
 
     const first = matchingBanners[0];
@@ -67,7 +77,7 @@ export function PopupBannerHost({ banners }: PopupBannerHostProps) {
   }, [matchingIds, pathname]);
 
   const banner = matchingBanners[activeIndex];
-  if (!banner || !visible) return null;
+  if (!banner || !visible || !activeImage) return null;
 
   function dismiss() {
     dismissedRef.current = true;
@@ -85,7 +95,7 @@ export function PopupBannerHost({ banners }: PopupBannerHostProps) {
         ×
       </button>
       <div className="relative h-56 w-full">
-        <Image src={banner.image.src} alt={banner.image.alt} fill sizes="384px" className="object-cover object-top" />
+        <Image src={activeImage.src} alt={activeImage.alt} fill sizes="384px" className="object-cover object-top" />
         <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/15 to-transparent" />
       </div>
       <div className="p-5">
