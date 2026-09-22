@@ -7,7 +7,7 @@ import { inquiryConfirmationEmail, inquiryInternalNotificationEmail } from "@/li
 import { slugify } from "@/lib/utils";
 import type { TravelLead } from "@/types/experience";
 
-const NOTIFY_EMAIL = process.env.RESERVE_NOTIFY_EMAIL ?? "efiewura89@gmail.com";
+const NOTIFY_EMAIL = process.env.RESERVE_NOTIFY_EMAIL ?? "tarshalewis@therealreturngh.com";
 
 interface InquiryPayload {
   name: string;

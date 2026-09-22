@@ -15,7 +15,7 @@ import {
 } from "@/lib/experience-emails";
 import type { TravelLead } from "@/types/experience";
 
-const NOTIFY_EMAIL = process.env.RESERVE_NOTIFY_EMAIL ?? "efiewura89@gmail.com";
+const NOTIFY_EMAIL = process.env.RESERVE_NOTIFY_EMAIL ?? "tarshalewis@therealreturngh.com";
 
 interface RegistrationPayload {
   name: string;
