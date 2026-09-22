@@ -13,9 +13,11 @@ import {
   followUpDay7Email,
   internalLeadNotificationEmail,
 } from "@/lib/experience-emails";
+import { getClientIp, isRateLimited } from "@/lib/rate-limit";
 import type { TravelLead } from "@/types/experience";
 
 const NOTIFY_EMAIL = process.env.RESERVE_NOTIFY_EMAIL ?? "tarshalewis@therealreturngh.com";
+const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 interface RegistrationPayload {
   name: string;
@@ -36,6 +38,8 @@ interface RegistrationPayload {
   travelStyle: string[];
 
   message?: string;
+  /** Honeypot: a real visitor never fills this hidden field. */
+  company?: string;
 }
 
 function isValidPayload(value: unknown): value is RegistrationPayload {
@@ -45,7 +49,7 @@ function isValidPayload(value: unknown): value is RegistrationPayload {
     typeof v.name === "string" &&
     v.name.trim().length > 0 &&
     typeof v.email === "string" &&
-    v.email.trim().length > 0 &&
+    EMAIL_PATTERN.test(v.email.trim()) &&
     typeof v.country === "string" &&
     v.country.trim().length > 0 &&
     typeof v.experienceSlug === "string" &&
@@ -58,6 +62,10 @@ function isValidPayload(value: unknown): value is RegistrationPayload {
 }
 
 export async function POST(request: Request) {
+  if (isRateLimited(`experience-registration:${getClientIp(request)}`)) {
+    return NextResponse.json({ error: "Too many requests. Please try again in a minute." }, { status: 429 });
+  }
+
   let body: unknown;
   try {
     body = await request.json();
@@ -66,7 +74,11 @@ export async function POST(request: Request) {
   }
 
   if (!isValidPayload(body)) {
-    return NextResponse.json({ error: "Name, email, country, and traveler count are required." }, { status: 400 });
+    return NextResponse.json({ error: "Name, a valid email, country, and traveler count are required." }, { status: 400 });
+  }
+
+  if (body.company) {
+    return NextResponse.json({ ok: true, leadId: randomUUID(), delivered: true });
   }
 
   const pkg = await getExperienceBySlug(body.experienceSlug);

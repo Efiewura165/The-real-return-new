@@ -25,6 +25,7 @@ export function InquiryForm({ defaultTier, tierNames }: InquiryFormProps) {
       tier: String(data.get("tier") ?? ""),
       preferredDates: String(data.get("preferredDates") ?? ""),
       message: String(data.get("message") ?? ""),
+      company: String(data.get("company") ?? ""),
     };
 
     try {
@@ -51,6 +52,14 @@ export function InquiryForm({ defaultTier, tierNames }: InquiryFormProps) {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-5">
+      <input
+        type="text"
+        name="company"
+        tabIndex={-1}
+        autoComplete="off"
+        aria-hidden="true"
+        className="absolute left-[-9999px] h-0 w-0 opacity-0"
+      />
       <div className="grid gap-5 sm:grid-cols-2">
         <div className="space-y-2">
           <label htmlFor="name" className="text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-foreground/60">

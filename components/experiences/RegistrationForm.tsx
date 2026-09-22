@@ -68,6 +68,7 @@ const STEP_LABELS = ["About You", "Your Journey", "Your Interests", "Travel Styl
 export function RegistrationForm({ experienceSlug, experienceTitle }: RegistrationFormProps) {
   const [step, setStep] = useState(1);
   const [form, setForm] = useState<FormState>(INITIAL_STATE);
+  const [company, setCompany] = useState("");
   const [errors, setErrors] = useState<string[]>([]);
   const [status, setStatus] = useState<Status>("idle");
 
@@ -143,6 +144,7 @@ export function RegistrationForm({ experienceSlug, experienceTitle }: Registrati
           interests: form.interests,
           travelStyle: form.travelStyle,
           message: form.message || undefined,
+          company,
         }),
       });
       if (!response.ok) throw new Error("Request failed");
@@ -180,6 +182,15 @@ export function RegistrationForm({ experienceSlug, experienceTitle }: Registrati
 
   return (
     <div className="rounded-sm border border-border bg-background p-6 sm:p-8">
+      <input
+        type="text"
+        tabIndex={-1}
+        autoComplete="off"
+        aria-hidden="true"
+        value={company}
+        onChange={(e) => setCompany(e.target.value)}
+        className="absolute left-[-9999px] h-0 w-0 opacity-0"
+      />
       <div className="flex items-center gap-2">
         {STEP_LABELS.map((label, index) => (
           <div key={label} className="flex flex-1 items-center gap-2">

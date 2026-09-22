@@ -5,9 +5,11 @@ import { Resend } from "resend";
 import { getAcademyCourseBySlug } from "@/lib/sanity/academy";
 import { saveLead } from "@/lib/leads";
 import { academyConfirmationEmail, academyFollowUpDay1Email, academyInternalNotificationEmail, daysFromNowISO } from "@/lib/academy-emails";
+import { getClientIp, isRateLimited } from "@/lib/rate-limit";
 import type { TravelLead } from "@/types/experience";
 
 const NOTIFY_EMAIL = process.env.RESERVE_NOTIFY_EMAIL ?? "tarshalewis@therealreturngh.com";
+const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 interface EnrollmentPayload {
   name: string;
@@ -16,6 +18,8 @@ interface EnrollmentPayload {
   country: string;
   courseSlug: string;
   message?: string;
+  /** Honeypot: a real visitor never fills this hidden field. */
+  company?: string;
 }
 
 function isValidPayload(value: unknown): value is EnrollmentPayload {
@@ -25,7 +29,7 @@ function isValidPayload(value: unknown): value is EnrollmentPayload {
     typeof v.name === "string" &&
     v.name.trim().length > 0 &&
     typeof v.email === "string" &&
-    v.email.trim().length > 0 &&
+    EMAIL_PATTERN.test(v.email.trim()) &&
     typeof v.country === "string" &&
     v.country.trim().length > 0 &&
     typeof v.courseSlug === "string" &&
@@ -34,6 +38,10 @@ function isValidPayload(value: unknown): value is EnrollmentPayload {
 }
 
 export async function POST(request: Request) {
+  if (isRateLimited(`academy-enrollment:${getClientIp(request)}`)) {
+    return NextResponse.json({ error: "Too many requests. Please try again in a minute." }, { status: 429 });
+  }
+
   let body: unknown;
   try {
     body = await request.json();
@@ -42,7 +50,11 @@ export async function POST(request: Request) {
   }
 
   if (!isValidPayload(body)) {
-    return NextResponse.json({ error: "Name, email, country, and a selected course are required." }, { status: 400 });
+    return NextResponse.json({ error: "Name, a valid email, country, and a selected course are required." }, { status: 400 });
+  }
+
+  if (body.company) {
+    return NextResponse.json({ ok: true, leadId: randomUUID(), delivered: true });
   }
 
   const course = await getAcademyCourseBySlug(body.courseSlug);

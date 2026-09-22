@@ -24,6 +24,7 @@ export function EnrollmentForm({ courses }: EnrollmentFormProps) {
   const [country, setCountry] = useState("");
   const [courseSlug, setCourseSlug] = useState(defaultSlug);
   const [message, setMessage] = useState("");
+  const [company, setCompany] = useState("");
   const [errors, setErrors] = useState<string[]>([]);
   const [status, setStatus] = useState<Status>("idle");
 
@@ -46,7 +47,7 @@ export function EnrollmentForm({ courses }: EnrollmentFormProps) {
       const response = await fetch("/api/academy-enrollment", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, phone: phone || undefined, country, courseSlug, message: message || undefined }),
+        body: JSON.stringify({ name, email, phone: phone || undefined, country, courseSlug, message: message || undefined, company }),
       });
       if (!response.ok) throw new Error("Request failed");
       setStatus("success");
@@ -69,6 +70,15 @@ export function EnrollmentForm({ courses }: EnrollmentFormProps) {
 
   return (
     <form onSubmit={handleSubmit} className="rounded-sm border border-border bg-background p-6 sm:p-8">
+      <input
+        type="text"
+        tabIndex={-1}
+        autoComplete="off"
+        aria-hidden="true"
+        value={company}
+        onChange={(e) => setCompany(e.target.value)}
+        className="absolute left-[-9999px] h-0 w-0 opacity-0"
+      />
       <div className="grid gap-5 sm:grid-cols-2">
         <Field label="Full Name">
           <input value={name} onChange={(e) => setName(e.target.value)} className={inputClass} />

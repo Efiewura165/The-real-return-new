@@ -5,9 +5,11 @@ import { Resend } from "resend";
 import { saveLead } from "@/lib/leads";
 import { inquiryConfirmationEmail, inquiryInternalNotificationEmail } from "@/lib/inquiry-emails";
 import { slugify } from "@/lib/utils";
+import { getClientIp, isRateLimited } from "@/lib/rate-limit";
 import type { TravelLead } from "@/types/experience";
 
 const NOTIFY_EMAIL = process.env.RESERVE_NOTIFY_EMAIL ?? "tarshalewis@therealreturngh.com";
+const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 interface InquiryPayload {
   name: string;
@@ -16,15 +18,28 @@ interface InquiryPayload {
   tier: string;
   preferredDates?: string;
   message?: string;
+  /** Honeypot: a real visitor never fills this hidden field. */
+  company?: string;
 }
 
 function isValidPayload(value: unknown): value is InquiryPayload {
   if (!value || typeof value !== "object") return false;
   const v = value as Record<string, unknown>;
-  return typeof v.name === "string" && v.name.trim().length > 0 && typeof v.email === "string" && v.email.trim().length > 0 && typeof v.tier === "string";
+  return (
+    typeof v.name === "string" &&
+    v.name.trim().length > 0 &&
+    typeof v.email === "string" &&
+    EMAIL_PATTERN.test(v.email.trim()) &&
+    typeof v.tier === "string" &&
+    v.tier.trim().length > 0
+  );
 }
 
 export async function POST(request: Request) {
+  if (isRateLimited(`reserve-inquiry:${getClientIp(request)}`)) {
+    return NextResponse.json({ error: "Too many requests. Please try again in a minute." }, { status: 429 });
+  }
+
   let body: unknown;
   try {
     body = await request.json();
@@ -33,7 +48,12 @@ export async function POST(request: Request) {
   }
 
   if (!isValidPayload(body)) {
-    return NextResponse.json({ error: "Name, email, and journey tier are required." }, { status: 400 });
+    return NextResponse.json({ error: "Name, a valid email, and a journey tier are required." }, { status: 400 });
+  }
+
+  if (body.company) {
+    // Honeypot tripped — pretend success so the bot doesn't learn it was caught, but do nothing.
+    return NextResponse.json({ ok: true, leadId: randomUUID(), delivered: true });
   }
 
   const { name, email, phone, tier, preferredDates, message } = body;

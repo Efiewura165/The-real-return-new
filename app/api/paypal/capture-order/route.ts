@@ -5,6 +5,7 @@ import { Resend } from "resend";
 import { PAYPAL_API_BASE, getPaypalAccessToken, isPaypalConfigured } from "@/lib/paypal";
 import { saveLead } from "@/lib/leads";
 import { depositConfirmationEmail, depositInternalNotificationEmail } from "@/lib/deposit-emails";
+import { getClientIp, isRateLimited } from "@/lib/rate-limit";
 import type { TravelLead } from "@/types/experience";
 
 const NOTIFY_EMAIL = process.env.RESERVE_NOTIFY_EMAIL ?? "tarshalewis@therealreturngh.com";
@@ -24,6 +25,10 @@ interface PaypalCapture {
 }
 
 export async function POST(request: Request) {
+  if (isRateLimited(`paypal-capture-order:${getClientIp(request)}`, 10)) {
+    return NextResponse.json({ error: "Too many requests. Please try again in a minute." }, { status: 429 });
+  }
+
   if (!isPaypalConfigured()) {
     return NextResponse.json({ error: "Payments aren't configured yet." }, { status: 503 });
   }

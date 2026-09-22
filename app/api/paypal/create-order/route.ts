@@ -1,7 +1,12 @@
 import { NextResponse } from "next/server";
 import { PAYPAL_API_BASE, RESERVATION_DEPOSIT_AMOUNT, RESERVATION_DEPOSIT_CURRENCY, getPaypalAccessToken, isPaypalConfigured } from "@/lib/paypal";
+import { getClientIp, isRateLimited } from "@/lib/rate-limit";
 
-export async function POST() {
+export async function POST(request: Request) {
+  if (isRateLimited(`paypal-create-order:${getClientIp(request)}`, 10)) {
+    return NextResponse.json({ error: "Too many requests. Please try again in a minute." }, { status: 429 });
+  }
+
   if (!isPaypalConfigured()) {
     return NextResponse.json({ error: "Payments aren't configured yet." }, { status: 503 });
   }
