@@ -19,41 +19,54 @@ function matchesPage(banner: PopupBanner, pathname: string): boolean {
 export function PopupBannerHost({ banners }: PopupBannerHostProps) {
   const pathname = usePathname() ?? "/";
   const [visible, setVisible] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(0);
   const dismissedRef = useRef(false);
 
   // Never show over checkout or the internal admin dashboard, regardless of what a banner's own page list says.
   const hardExcluded = pathname.startsWith("/reserve") || pathname.startsWith("/admin");
-  const banner = hardExcluded ? undefined : banners.find((b) => matchesPage(b, pathname));
+  const matchingBanners = hardExcluded ? [] : banners.filter((b) => matchesPage(b, pathname));
+  const matchingIds = matchingBanners.map((b) => b.id).join(",");
 
   useEffect(() => {
     dismissedRef.current = false;
 
-    if (!banner) {
+    if (matchingBanners.length === 0) {
       setVisible(false);
       return;
     }
 
+    // Rotates through every banner that matches this page, one at a time,
+    // instead of only ever showing the first match.
+    let rotation = 0;
     let hideTimer: ReturnType<typeof setTimeout>;
     let cycleTimer: ReturnType<typeof setInterval>;
 
     const showThenHide = () => {
       if (dismissedRef.current) return;
+      const index = rotation % matchingBanners.length;
+      setActiveIndex(index);
       setVisible(true);
-      hideTimer = setTimeout(() => setVisible(false), banner.visibleDurationMs);
+      hideTimer = setTimeout(() => {
+        setVisible(false);
+        rotation += 1;
+      }, matchingBanners[index].visibleDurationMs);
     };
 
+    const first = matchingBanners[0];
     const showTimer = setTimeout(() => {
       showThenHide();
-      cycleTimer = setInterval(showThenHide, banner.reappearIntervalMs);
-    }, banner.firstShowDelayMs);
+      cycleTimer = setInterval(showThenHide, first.reappearIntervalMs);
+    }, first.firstShowDelayMs);
 
     return () => {
       clearTimeout(showTimer);
       clearTimeout(hideTimer);
       clearInterval(cycleTimer);
     };
-  }, [banner?.id, pathname]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [matchingIds, pathname]);
 
+  const banner = matchingBanners[activeIndex];
   if (!banner || !visible) return null;
 
   function dismiss() {
@@ -71,8 +84,8 @@ export function PopupBannerHost({ banners }: PopupBannerHostProps) {
       >
         ×
       </button>
-      <div className="relative h-36 w-full">
-        <Image src={banner.image.src} alt={banner.image.alt} fill sizes="384px" className="object-cover" />
+      <div className="relative h-56 w-full">
+        <Image src={banner.image.src} alt={banner.image.alt} fill sizes="384px" className="object-cover object-top" />
         <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/15 to-transparent" />
       </div>
       <div className="p-5">
