@@ -21,12 +21,12 @@ export function CourseCard({ course }: CourseCardProps) {
       />
       <div className="absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/35 to-transparent" />
       {course.featured ? (
-        <span className="absolute right-5 top-5 z-10 rounded-full bg-gold-luxury px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-ink">
+        <span className="absolute right-5 top-5 z-10 rounded-full bg-purple-luxury px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-ink">
           Best Value
         </span>
       ) : null}
       <div className="relative mt-auto p-6 sm:p-7">
-        <p className="text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-gold-luxury">
+        <p className="text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-purple-luxury">
           {course.format} · {course.lessonCount} Lessons
         </p>
         <h3 className="mt-2 font-serif text-2xl font-normal leading-snug text-background">{course.title}</h3>
@@ -37,7 +37,7 @@ export function CourseCard({ course }: CourseCardProps) {
           </p>
           <Link
             href={`/academy?course=${course.slug}#enroll`}
-            className="inline-flex h-11 shrink-0 items-center justify-center rounded-sm bg-gold-luxury px-5 text-[0.7rem] font-semibold uppercase tracking-[0.15em] text-ink transition-transform hover:scale-[1.02]"
+            className="inline-flex h-11 shrink-0 items-center justify-center rounded-sm bg-purple-luxury px-5 text-[0.7rem] font-semibold uppercase tracking-[0.15em] text-ink transition-transform hover:scale-[1.02]"
           >
             Enroll Now →
           </Link>
@@ -46,12 +46,12 @@ export function CourseCard({ course }: CourseCardProps) {
 
       {/* Hover description popup — stays clear of the price/Enroll row above, which sits at z-30 */}
       <div className="pointer-events-none absolute inset-0 z-20 flex flex-col overflow-hidden bg-ink/95 p-6 pb-24 opacity-0 transition-opacity duration-300 group-hover:opacity-100 sm:p-7 sm:pb-28">
-        <p className="text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-gold-luxury">{course.title}</p>
+        <p className="text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-purple-luxury">{course.title}</p>
         <p className="mt-3 text-sm leading-6 text-background/85">{course.description}</p>
         <ul className="mt-5 space-y-2 border-t border-background/10 pt-4">
           {course.curriculum.map((lesson, index) => (
             <li key={lesson.title} className="text-xs leading-5 text-background/70">
-              <span className="font-semibold text-gold-luxury">{index + 1}.</span> {lesson.title}
+              <span className="font-semibold text-purple-luxury">{index + 1}.</span> {lesson.title}
             </li>
           ))}
         </ul>

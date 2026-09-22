@@ -61,7 +61,7 @@ export function InquiryForm({ defaultTier, tierNames }: InquiryFormProps) {
             name="name"
             type="text"
             required
-            className="h-12 w-full rounded-sm border border-border bg-background px-4 text-sm text-foreground outline-none focus:border-gold"
+            className="h-12 w-full rounded-sm border border-border bg-background px-4 text-sm text-foreground outline-none focus:border-purple"
           />
         </div>
         <div className="space-y-2">
@@ -73,7 +73,7 @@ export function InquiryForm({ defaultTier, tierNames }: InquiryFormProps) {
             name="email"
             type="email"
             required
-            className="h-12 w-full rounded-sm border border-border bg-background px-4 text-sm text-foreground outline-none focus:border-gold"
+            className="h-12 w-full rounded-sm border border-border bg-background px-4 text-sm text-foreground outline-none focus:border-purple"
           />
         </div>
       </div>
@@ -87,7 +87,7 @@ export function InquiryForm({ defaultTier, tierNames }: InquiryFormProps) {
             id="phone"
             name="phone"
             type="tel"
-            className="h-12 w-full rounded-sm border border-border bg-background px-4 text-sm text-foreground outline-none focus:border-gold"
+            className="h-12 w-full rounded-sm border border-border bg-background px-4 text-sm text-foreground outline-none focus:border-purple"
           />
         </div>
         <div className="space-y-2">
@@ -99,7 +99,7 @@ export function InquiryForm({ defaultTier, tierNames }: InquiryFormProps) {
             name="tier"
             required
             defaultValue={defaultTier ?? ""}
-            className="h-12 w-full rounded-sm border border-border bg-background px-4 text-sm text-foreground outline-none focus:border-gold"
+            className="h-12 w-full rounded-sm border border-border bg-background px-4 text-sm text-foreground outline-none focus:border-purple"
           >
             <option value="" disabled>
               Select a tier
@@ -122,7 +122,7 @@ export function InquiryForm({ defaultTier, tierNames }: InquiryFormProps) {
           name="preferredDates"
           type="text"
           placeholder="e.g. December 2026, or flexible"
-          className="h-12 w-full rounded-sm border border-border bg-background px-4 text-sm text-foreground outline-none focus:border-gold"
+          className="h-12 w-full rounded-sm border border-border bg-background px-4 text-sm text-foreground outline-none focus:border-purple"
         />
       </div>
 
@@ -134,7 +134,7 @@ export function InquiryForm({ defaultTier, tierNames }: InquiryFormProps) {
           id="message"
           name="message"
           rows={4}
-          className="w-full rounded-sm border border-border bg-background px-4 py-3 text-sm text-foreground outline-none focus:border-gold"
+          className="w-full rounded-sm border border-border bg-background px-4 py-3 text-sm text-foreground outline-none focus:border-purple"
         />
       </div>
 
@@ -143,7 +143,7 @@ export function InquiryForm({ defaultTier, tierNames }: InquiryFormProps) {
       <button
         type="submit"
         disabled={status === "submitting"}
-        className="inline-flex h-12 items-center justify-center rounded-sm bg-gold-luxury px-7 text-[0.8rem] font-semibold uppercase tracking-[0.18em] text-ink transition-transform hover:scale-[1.02] disabled:pointer-events-none disabled:opacity-60"
+        className="inline-flex h-12 items-center justify-center rounded-sm bg-purple-luxury px-7 text-[0.8rem] font-semibold uppercase tracking-[0.18em] text-ink transition-transform hover:scale-[1.02] disabled:pointer-events-none disabled:opacity-60"
       >
         {status === "submitting" ? "Sending…" : "Send Inquiry"}
       </button>

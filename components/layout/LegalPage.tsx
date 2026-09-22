@@ -17,7 +17,7 @@ export function LegalPage({ title, updated, children }: LegalPageProps) {
 
       <section className="border-b border-border pb-12 pt-40 sm:pb-16">
         <div className="mx-auto w-full max-w-[820px] px-6 sm:px-10">
-          <p className="text-[0.75rem] font-semibold uppercase tracking-[0.32em] text-gold">The Real Return™</p>
+          <p className="text-[0.75rem] font-semibold uppercase tracking-[0.32em] text-purple">The Real Return™</p>
           <h1 className="mt-4 font-serif text-4xl font-normal leading-tight text-foreground sm:text-5xl">{title}</h1>
           <p className="mt-4 text-sm text-foreground/50">Last updated {updated}</p>
         </div>
@@ -25,7 +25,7 @@ export function LegalPage({ title, updated, children }: LegalPageProps) {
 
       <section className="py-14 sm:py-20">
         <div className="mx-auto w-full max-w-[820px] px-6 sm:px-10">
-          <div className="rounded-sm border border-gold/30 bg-gold/5 p-5 text-sm leading-6 text-foreground/70">
+          <div className="rounded-sm border border-purple/30 bg-purple/5 p-5 text-sm leading-6 text-foreground/70">
             <strong className="font-semibold text-foreground">Draft, pending legal review.</strong> This page describes what the site
             actually collects and does today. Sections in brackets mark decisions (legal entity name, governing state, refund policy)
             that still need sign-off from counsel and the business before this page is treated as final.

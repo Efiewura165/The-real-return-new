@@ -79,7 +79,7 @@ export function Hero({ heroSlides }: HeroProps) {
         <div className="mt-8 flex flex-wrap items-center gap-4">
           <a
             href="/reserve"
-            className="inline-flex h-12 items-center justify-center rounded-sm bg-gold-luxury px-7 text-[0.8rem] font-semibold uppercase tracking-[0.18em] text-ink transition-transform hover:scale-[1.02]"
+            className="inline-flex h-12 items-center justify-center rounded-sm bg-purple-luxury px-7 text-[0.8rem] font-semibold uppercase tracking-[0.18em] text-ink transition-transform hover:scale-[1.02]"
           >
             Begin Your Journey
           </a>
@@ -103,7 +103,7 @@ export function Hero({ heroSlides }: HeroProps) {
             aria-label={`Show slide ${i + 1}`}
             aria-current={i === index}
             onClick={() => setIndex(i)}
-            className={`h-1.5 rounded-full transition-all ${i === index ? "w-8 bg-gold-luxury" : "w-1.5 bg-white/40 hover:bg-white/70"}`}
+            className={`h-1.5 rounded-full transition-all ${i === index ? "w-8 bg-purple-luxury" : "w-1.5 bg-white/40 hover:bg-white/70"}`}
           />
         ))}
       </div>

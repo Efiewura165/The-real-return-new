@@ -55,16 +55,18 @@ export function SiteHeader() {
       }`}
     >
       <div className="mx-auto flex h-20 w-full max-w-[1600px] items-center justify-between px-6 sm:px-10">
-        <a href="/" className="flex items-center gap-3 leading-none text-background">
-          <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-gold-luxury/70 bg-ink/40">
-            <svg viewBox="0 0 24 24" className="h-5 w-5 fill-gold-luxury" aria-hidden="true">
+        <a href="/" className="flex items-center gap-3 leading-none text-background min-[1150px]:shrink-0">
+          <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-purple-luxury/70 bg-ink/40">
+            <svg viewBox="0 0 24 24" className="h-5 w-5 fill-purple-luxury" aria-hidden="true">
               <path d="M12 0 L14.5 9.5 L24 12 L14.5 14.5 L12 24 L9.5 14.5 L0 12 L9.5 9.5 Z" />
             </svg>
           </span>
-          <span className="font-sans text-lg font-extrabold uppercase tracking-[0.08em]">The Real Return™</span>
+          <span className="font-sans text-sm font-extrabold uppercase tracking-[0.04em] sm:text-lg sm:tracking-[0.08em] min-[1150px]:whitespace-nowrap">
+            The Real Return™
+          </span>
         </a>
 
-        <nav aria-label="Primary" className="hidden items-center gap-6 min-[1560px]:flex">
+        <nav aria-label="Primary" className="hidden items-center gap-4 min-[1150px]:flex">
           {headerNav.map((parent) => (
             <NavDropdown
               key={parent.label}
@@ -76,22 +78,10 @@ export function SiteHeader() {
           ))}
         </nav>
 
-        <div className="flex shrink-0 items-center gap-2 sm:gap-3">
-          <a
-            href={headerCtas.account.href}
-            className="hidden whitespace-nowrap text-[0.72rem] font-medium uppercase tracking-[0.15em] text-background/60 transition-colors hover:text-background min-[1560px]:inline-block"
-          >
-            {headerCtas.account.label}
-          </a>
-          <a
-            href={headerCtas.secondary.href}
-            className="hidden h-11 items-center justify-center whitespace-nowrap rounded-sm border border-gold-luxury/70 bg-transparent px-5 text-[0.75rem] font-semibold uppercase tracking-[0.18em] text-background transition-colors hover:bg-gold-luxury hover:text-ink min-[1560px]:inline-flex"
-          >
-            {headerCtas.secondary.label}
-          </a>
+        <div className="flex shrink-0 items-center gap-2">
           <a
             href={headerCtas.primary.href}
-            className="inline-flex h-11 shrink-0 items-center justify-center whitespace-nowrap rounded-sm bg-gold-luxury px-5 text-[0.75rem] font-semibold uppercase tracking-[0.18em] text-ink transition-transform hover:scale-[1.02] sm:px-6"
+            className="inline-flex h-11 shrink-0 items-center justify-center whitespace-nowrap rounded-sm bg-purple-luxury px-4 text-[0.75rem] font-semibold uppercase tracking-[0.1em] text-ink transition-transform hover:scale-[1.02] sm:px-5"
           >
             {headerCtas.primary.label}
           </a>
@@ -100,7 +90,7 @@ export function SiteHeader() {
             aria-label={menuOpen ? "Close menu" : "Open menu"}
             aria-expanded={menuOpen}
             onClick={() => setMenuOpen((open) => !open)}
-            className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-sm border border-background/30 text-background min-[1560px]:hidden"
+            className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-sm border border-background/30 text-background min-[1150px]:hidden"
           >
             {menuOpen ? <X className="h-5 w-5" aria-hidden="true" /> : <Menu className="h-5 w-5" aria-hidden="true" />}
           </button>
@@ -113,12 +103,12 @@ export function SiteHeader() {
           role="dialog"
           aria-modal="true"
           aria-label="Site navigation"
-          className="fixed inset-0 z-[60] flex flex-col overflow-y-auto bg-ink min-[1560px]:hidden"
+          className="fixed inset-0 z-[60] flex flex-col overflow-y-auto bg-ink min-[1150px]:hidden"
         >
           <div className="flex h-20 w-full shrink-0 items-center justify-between px-6 sm:px-10">
             <a href="/" onClick={() => setMenuOpen(false)} className="flex items-center gap-3 leading-none text-background">
-              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-gold-luxury/70 bg-ink/40">
-                <svg viewBox="0 0 24 24" className="h-5 w-5 fill-gold-luxury" aria-hidden="true">
+              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-purple-luxury/70 bg-ink/40">
+                <svg viewBox="0 0 24 24" className="h-5 w-5 fill-purple-luxury" aria-hidden="true">
                   <path d="M12 0 L14.5 9.5 L24 12 L14.5 14.5 L12 24 L9.5 14.5 L0 12 L9.5 9.5 Z" />
                 </svg>
               </span>
@@ -146,7 +136,7 @@ export function SiteHeader() {
                     type="button"
                     aria-expanded={isExpanded}
                     onClick={() => toggleMobileSection(parent.label)}
-                    className="flex w-full items-center justify-between py-3 text-left text-sm font-medium uppercase tracking-[0.18em] text-background/80 transition-colors hover:text-gold-luxury"
+                    className="flex w-full items-center justify-between py-3 text-left text-sm font-medium uppercase tracking-[0.18em] text-background/80 transition-colors hover:text-purple-luxury"
                   >
                     {parent.label}
                     <ChevronDown className={cn("h-4 w-4 transition-transform duration-200", isExpanded && "rotate-180")} aria-hidden="true" />
@@ -161,7 +151,7 @@ export function SiteHeader() {
                             key={item.href}
                             href={item.href}
                             onClick={() => setMenuOpen(false)}
-                            className="py-1.5 text-sm text-background/65 transition-colors hover:text-gold-luxury"
+                            className="py-1.5 text-sm text-background/65 transition-colors hover:text-purple-luxury"
                           >
                             {item.label}
                           </a>
@@ -178,14 +168,14 @@ export function SiteHeader() {
             <a
               href={headerCtas.primary.href}
               onClick={() => setMenuOpen(false)}
-              className="inline-flex h-12 w-full items-center justify-center rounded-sm bg-gold-luxury px-5 text-[0.75rem] font-semibold uppercase tracking-[0.18em] text-ink"
+              className="inline-flex h-12 w-full items-center justify-center rounded-sm bg-purple-luxury px-5 text-[0.75rem] font-semibold uppercase tracking-[0.18em] text-ink"
             >
               {headerCtas.primary.label}
             </a>
             <a
               href={headerCtas.secondary.href}
               onClick={() => setMenuOpen(false)}
-              className="inline-flex h-12 w-full items-center justify-center rounded-sm border border-gold-luxury/70 px-5 text-[0.75rem] font-semibold uppercase tracking-[0.18em] text-background"
+              className="inline-flex h-12 w-full items-center justify-center rounded-sm border border-purple-luxury/70 px-5 text-[0.75rem] font-semibold uppercase tracking-[0.18em] text-background"
             >
               {headerCtas.secondary.label}
             </a>

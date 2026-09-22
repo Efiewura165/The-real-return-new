@@ -115,7 +115,7 @@ export default function PrivacyPolicyPage() {
         <h2>Contact us</h2>
         <p>
           Questions about this policy, or requests about your information, can be sent to{" "}
-          <a href="mailto:efiewura89@gmail.com" className="text-gold underline underline-offset-2">
+          <a href="mailto:efiewura89@gmail.com" className="text-purple underline underline-offset-2">
             efiewura89@gmail.com
           </a>
           .

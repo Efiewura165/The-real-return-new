@@ -16,12 +16,12 @@ export function ComingSoonPage({ eyebrow, title, body, ctaLabel, ctaHref }: Comi
       <SiteHeader />
 
       <section className="flex min-h-[70vh] flex-col items-center justify-center px-6 pt-32 text-center sm:px-10">
-        <p className="text-[0.75rem] font-semibold uppercase tracking-[0.32em] text-gold-luxury">{eyebrow}</p>
+        <p className="text-[0.75rem] font-semibold uppercase tracking-[0.32em] text-purple-luxury">{eyebrow}</p>
         <h1 className="mt-4 max-w-2xl font-serif text-4xl font-normal leading-tight text-foreground sm:text-5xl">{title}</h1>
         <p className="mt-6 max-w-xl text-base leading-8 text-foreground/65">{body}</p>
         <a
           href={ctaHref}
-          className="mt-8 inline-flex h-12 items-center justify-center rounded-sm bg-gold-luxury px-7 text-[0.8rem] font-semibold uppercase tracking-[0.18em] text-ink transition-transform hover:scale-[1.02]"
+          className="mt-8 inline-flex h-12 items-center justify-center rounded-sm bg-purple-luxury px-7 text-[0.8rem] font-semibold uppercase tracking-[0.18em] text-ink transition-transform hover:scale-[1.02]"
         >
           {ctaLabel}
         </a>

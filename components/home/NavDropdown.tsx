@@ -82,8 +82,8 @@ export function NavDropdown({ parent, isOpen, onOpen, onClose }: NavDropdownProp
         onClick={() => (isOpen ? onClose() : onOpen())}
         onKeyDown={handleTriggerKeyDown}
         className={cn(
-          "flex items-center gap-1 whitespace-nowrap text-[0.8rem] font-medium uppercase tracking-[0.18em] text-background/80 transition-colors hover:text-gold-luxury",
-          isOpen && "text-gold-luxury",
+          "flex items-center gap-1 whitespace-nowrap text-[0.8rem] font-medium uppercase tracking-[0.1em] text-background/80 transition-colors hover:text-purple-luxury",
+          isOpen && "text-purple-luxury",
         )}
       >
         {parent.label}
@@ -110,7 +110,7 @@ export function NavDropdown({ parent, isOpen, onOpen, onClose }: NavDropdownProp
                 role="menuitem"
                 onClick={onClose}
                 onKeyDown={(event) => handleItemKeyDown(event, index)}
-                className="block whitespace-nowrap rounded-sm px-3 py-2 text-sm text-background/75 transition-colors hover:bg-background/10 hover:text-gold-luxury"
+                className="block whitespace-nowrap rounded-sm px-3 py-2 text-sm text-background/75 transition-colors hover:bg-background/10 hover:text-purple-luxury"
               >
                 {item.label}
               </a>
