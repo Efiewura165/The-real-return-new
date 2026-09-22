@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
+import { redirect } from "next/navigation";
 
 import { logout } from "@/app/admin/login/actions";
 import { getLeads } from "@/lib/leads";
 import { isSupabaseConfigured } from "@/lib/supabase/client";
+import { createClient } from "@/lib/supabase/server";
 import { getExperiencePackages } from "@/lib/sanity/experiences";
 import { getAcademyCourses } from "@/lib/sanity/academy";
 import { LeadStatusSelect } from "@/components/admin/LeadStatusSelect";
@@ -33,6 +35,12 @@ export default async function AdminLeadsPage({ searchParams }: { searchParams: P
       </div>
     );
   }
+
+  const supabase = await createClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+  if (!user) redirect("/admin/login");
 
   const [allLeads, academyCourses, experiencePackages] = await Promise.all([getLeads(), getAcademyCourses(), getExperiencePackages()]);
   const packageById = new Map(experiencePackages.map((pkg) => [pkg.id, pkg]));
