@@ -58,9 +58,9 @@ export function WelcomeIntro() {
         <p
           key="welcome"
           style={{ animation: `zoom-in-right-hold ${MESSAGE_DURATION_MS}ms ease-out forwards` }}
-          className="max-w-3xl font-serif text-5xl font-medium italic leading-tight text-white [text-shadow:0_6px_30px_rgba(0,0,0,0.6)] sm:text-7xl"
+          className="max-w-4xl font-serif text-2xl font-medium italic leading-snug text-white [text-shadow:0_6px_30px_rgba(0,0,0,0.6)] sm:text-4xl lg:text-5xl"
         >
-          Akwaaba. You&apos;re Home.
+          Welcome, You Just Arrived On Time. Join Our Next Trip To Amazing Destination, Akwaaba.
         </p>
       ) : (
         <div
@@ -71,7 +71,7 @@ export function WelcomeIntro() {
           <p className="font-serif text-4xl font-medium italic leading-tight text-white [text-shadow:0_6px_30px_rgba(0,0,0,0.6)] sm:text-6xl">
             Ghana Comes Alive This December.
           </p>
-          <p className="mt-5 text-[0.75rem] font-semibold uppercase tracking-[0.32em] text-purple-luxury [text-shadow:0_2px_10px_rgba(0,0,0,0.6)]">
+          <p className="mt-5 text-[0.75rem] font-semibold uppercase tracking-[0.32em] text-amber-300 [text-shadow:0_2px_10px_rgba(0,0,0,0.6)]">
             Beaches · Beats · Homecoming
           </p>
           <Link
