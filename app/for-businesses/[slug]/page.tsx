@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 import { ComingSoonPage } from "@/components/layout/ComingSoonPage";
+import { forBusinessContent } from "@/lib/comingSoonContent";
 import { headerNav } from "@/lib/nav";
 
 const forBusinesses = headerNav.find((parent) => parent.label === "For Businesses")?.items ?? [];
@@ -25,14 +26,17 @@ export default async function ForBusinessesPage({ params }: ForBusinessesPagePro
   const { slug } = await params;
   const item = forBusinesses.find((i) => i.href === `/for-businesses/${slug}`);
   if (!item) notFound();
+  const content = forBusinessContent[slug];
+  if (!content) notFound();
 
   return (
     <ComingSoonPage
       eyebrow="For Businesses"
       title={item.label}
-      body="This partnership program is still being finalized. Reach out and a member of our team will follow up directly."
-      ctaLabel="Get In Touch"
-      ctaHref="/reserve"
+      body={content.body}
+      ctaLabel={content.ctaLabel}
+      ctaHref={content.ctaHref}
+      image={content.image}
     />
   );
 }

@@ -11,7 +11,8 @@ export default function LoginPage() {
       title="Accounts Are On Their Way"
       body="A dedicated Returner account, to track your journey, documents, and itinerary, is coming soon. For now, a steward can help you directly."
       ctaLabel="Begin Your Journey"
-      ctaHref="/reserve"
+      ctaHref="/reserve#inquire"
+      image={{ src: "/images/stock/villa-pool-reflection.jpg", alt: "A private villa pool reflecting the Ghanaian sky" }}
     />
   );
 }
