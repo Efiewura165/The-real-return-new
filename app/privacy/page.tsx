@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 
 import { LegalPage } from "@/components/layout/LegalPage";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Privacy Policy | The Real Return™",
+export const metadata: Metadata = pageMetadata({
+  title: "Privacy Policy",
   description: "How The Real Return™ collects, uses, and protects your information.",
-};
+  path: "/privacy",
+});
 
 export default function PrivacyPolicyPage() {
   return (

@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 
 import { LegalPage } from "@/components/layout/LegalPage";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Terms of Service | The Real Return™",
+export const metadata: Metadata = pageMetadata({
+  title: "Terms of Service",
   description: "The terms that govern your use of The Real Return™ and the journeys, Academy, and experiences it offers.",
-};
+  path: "/terms",
+});
 
 export default function TermsOfServicePage() {
   return (

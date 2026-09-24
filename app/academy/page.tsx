@@ -7,19 +7,42 @@ import { SiteFooter } from "@/components/layout/SiteFooter";
 import { CourseCard } from "@/components/academy/CourseCard";
 import { EnrollmentForm } from "@/components/academy/EnrollmentForm";
 import { getAcademyHero, getAcademyPhases, getAcademyCourses } from "@/lib/sanity/academy";
+import { absoluteUrl, jsonLdScript, organizationRef, pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Academy | The Real Return™",
+export const metadata: Metadata = pageMetadata({
+  title: "Academy",
   description: "Arrive prepared. Learn before you land. Self-paced courses in Ghanaian culture, language, and documentation, taught by Tarsha Lewis.",
-};
+  path: "/academy",
+  image: { src: "/images/stock/tarsha-academy-session.jpg", alt: "Tarsha Lewis leading a Real Return Academy session" },
+});
 
 export const revalidate = 60;
 
 export default async function AcademyPage() {
   const [academyHero, academyPhases, academyCourses] = await Promise.all([getAcademyHero(), getAcademyPhases(), getAcademyCourses()]);
 
+  const coursesJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    itemListElement: academyCourses.map((course, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      item: {
+        "@type": "Course",
+        name: course.title,
+        description: course.description,
+        url: absoluteUrl(`/academy?course=${course.slug}#enroll`),
+        image: absoluteUrl(course.image.src),
+        provider: organizationRef,
+        offers: { "@type": "Offer", category: "Paid", price: course.price, priceCurrency: course.currency },
+        hasCourseInstance: { "@type": "CourseInstance", courseMode: "Online" },
+      },
+    })),
+  };
+
   return (
     <div className="min-h-screen bg-background font-sans text-foreground">
+      <script type="application/ld+json" dangerouslySetInnerHTML={jsonLdScript(coursesJsonLd)} />
       <SiteHeader />
 
       {/* Hero */}

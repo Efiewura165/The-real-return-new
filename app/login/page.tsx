@@ -1,8 +1,15 @@
 import type { Metadata } from "next";
 
 import { ComingSoonPage } from "@/components/layout/ComingSoonPage";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = { title: "Returner Login | The Real Return™" };
+// Placeholder until Returner accounts exist, so keep it out of search results.
+export const metadata: Metadata = pageMetadata({
+  title: "Returner Login",
+  description: "Returner accounts are coming soon. For now, a steward can help you directly.",
+  path: "/login",
+  noIndex: true,
+});
 
 export default function LoginPage() {
   return (

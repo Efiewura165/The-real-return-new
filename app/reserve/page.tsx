@@ -9,11 +9,13 @@ import { PackageBanner } from "@/components/experiences/PackageBanner";
 import { getExperienceBySlug } from "@/lib/sanity/experiences";
 import { getInvestmentContent } from "@/lib/sanity/site";
 import { RESERVATION_DEPOSIT_AMOUNT, RESERVATION_DEPOSIT_CURRENCY } from "@/lib/paypal";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Reserve Your Journey | The Real Return™",
+export const metadata: Metadata = pageMetadata({
+  title: "Reserve Your Journey",
   description: "Reserve your Ghana Legacy Journey with The Real Return™. Choose a tier, hold your spot with a deposit, or send an inquiry.",
-};
+  path: "/reserve",
+});
 
 export default async function ReservePage({ searchParams }: { searchParams: Promise<{ tier?: string }> }) {
   const { tier } = await searchParams;

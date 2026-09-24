@@ -9,11 +9,13 @@ import { RegionAmbienceCard } from "@/components/experiences/RegionAmbienceCard"
 import { GhanaRegionMap } from "@/components/experiences/GhanaRegionMap";
 import { getFlagshipJourneys, getPackagesByRegion } from "@/lib/sanity/experiences";
 import { slugify } from "@/lib/utils";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Experiences | The Real Return™",
+export const metadata: Metadata = pageMetadata({
+  title: "Experiences",
   description: "Explore The Real Return™'s curated Ghana experiences, organized by region, from the Ashanti Kingdom to the savannah north.",
-};
+  path: "/experiences",
+});
 
 export const revalidate = 60;
 
