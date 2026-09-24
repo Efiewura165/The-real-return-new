@@ -34,7 +34,7 @@ export function DepositCheckout({ amount, currency, tier }: DepositCheckoutProps
     <div className="space-y-3">
       <PayPalScriptProvider options={{ clientId, currency }}>
         <PayPalButtons
-          style={{ layout: "vertical", color: "gold", label: "pay" }}
+          style={{ layout: "vertical", color: "black", label: "pay" }}
           createOrder={async () => {
             const response = await fetch("/api/paypal/create-order", { method: "POST" });
             if (!response.ok) throw new Error("Could not start checkout.");

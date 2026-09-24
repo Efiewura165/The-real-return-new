@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { SiteHeader } from "@/components/home/SiteHeader";
+import { SiteFooter } from "@/components/layout/SiteFooter";
 import { PackageCard } from "@/components/experiences/PackageCard";
 import { RegionAmbienceCard } from "@/components/experiences/RegionAmbienceCard";
 import { GhanaRegionMap } from "@/components/experiences/GhanaRegionMap";
@@ -34,7 +35,7 @@ export default async function ExperiencesPage() {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/45 to-ink/15" />
         <div className="relative mx-auto w-full max-w-[1400px] px-6 sm:px-10">
-          <p className="text-[0.75rem] font-semibold uppercase tracking-[0.32em] text-gold-luxury">Experiences</p>
+          <p className="text-[0.75rem] font-semibold uppercase tracking-[0.32em] text-purple-luxury">Experiences</p>
           <h1 className="mt-4 max-w-2xl font-serif text-4xl font-normal leading-tight text-background sm:text-5xl">
             See Ghana. Understand Ghana. Experience Ghana.
           </h1>
@@ -48,7 +49,7 @@ export default async function ExperiencesPage() {
       {/* Flagship journeys */}
       <section className="border-b border-border py-16 sm:py-20">
         <div className="mx-auto w-full max-w-[1400px] px-6 sm:px-10">
-          <p className="text-[0.75rem] font-semibold uppercase tracking-[0.32em] text-gold">Flagship Journeys</p>
+          <p className="text-[0.75rem] font-semibold uppercase tracking-[0.32em] text-purple">Flagship Journeys</p>
           <h2 className="mt-4 max-w-2xl font-serif text-3xl font-normal leading-tight sm:text-4xl">
             Extended journeys, built for the complete story.
           </h2>
@@ -69,7 +70,7 @@ export default async function ExperiencesPage() {
                   />
                 </div>
                 <div className="flex flex-col justify-center p-6 sm:p-8">
-                  <p className="text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-gold">
+                  <p className="text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-purple">
                     {pkg.duration.days} Days &nbsp;·&nbsp; {pkg.locations.length} Stops
                   </p>
                   <h3 className="mt-3 font-serif text-2xl font-normal leading-snug text-foreground">{pkg.title}</h3>
@@ -84,7 +85,7 @@ export default async function ExperiencesPage() {
       {/* Region map */}
       <section className="border-b border-border py-16 sm:py-20">
         <div className="mx-auto w-full max-w-[1400px] px-6 sm:px-10">
-          <p className="text-[0.75rem] font-semibold uppercase tracking-[0.32em] text-gold">Browse By Region</p>
+          <p className="text-[0.75rem] font-semibold uppercase tracking-[0.32em] text-purple">Browse By Region</p>
           <h2 className="mt-4 max-w-2xl font-serif text-3xl font-normal leading-tight sm:text-4xl">Find your way in.</h2>
           <p className="mt-4 max-w-xl text-base leading-7 text-foreground/65">
             Select a region on the map to jump straight to its experiences.
@@ -110,11 +111,7 @@ export default async function ExperiencesPage() {
         </section>
       ))}
 
-      <footer className="border-t border-border bg-background py-8">
-        <div className="mx-auto w-full max-w-[1400px] px-6 text-sm text-foreground/60 sm:px-10">
-          © 2026 The Real Return™. Reconnect with intention.
-        </div>
-      </footer>
+      <SiteFooter />
     </div>
   );
 }

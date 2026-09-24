@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 import { SiteHeader } from "@/components/home/SiteHeader";
+import { SiteFooter } from "@/components/layout/SiteFooter";
 import { DepositCheckout } from "@/components/reserve/DepositCheckout";
 import { InquiryForm } from "@/components/reserve/InquiryForm";
 import { PackageBanner } from "@/components/experiences/PackageBanner";
@@ -40,8 +41,8 @@ export default async function ReservePage({ searchParams }: { searchParams: Prom
         <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/45 to-ink/15" />
         <div className="absolute inset-0 bg-gradient-to-r from-ink/55 via-ink/12 to-transparent" />
         <div className="relative mx-auto w-full max-w-[1400px] px-6 sm:px-10">
-          <p className="text-[0.75rem] font-semibold uppercase tracking-[0.32em] text-gold-luxury">Reserve Your Journey</p>
-          <div className="mt-4 h-px w-16 bg-gradient-to-r from-gold-luxury to-transparent" />
+          <p className="text-[0.75rem] font-semibold uppercase tracking-[0.32em] text-purple-luxury">Reserve Your Journey</p>
+          <div className="mt-4 h-px w-16 bg-gradient-to-r from-purple-luxury to-transparent" />
           <h1 className="mt-6 max-w-2xl font-serif text-4xl font-normal leading-tight text-background sm:text-5xl">
             Hold your place on the Ghana Legacy Journey.
           </h1>
@@ -56,7 +57,7 @@ export default async function ReservePage({ searchParams }: { searchParams: Prom
       {featuredPackages.length > 0 ? (
         <section className="border-b border-border py-16 sm:py-20">
           <div className="mx-auto w-full max-w-[1400px] px-6 sm:px-10">
-            <p className="text-[0.75rem] font-semibold uppercase tracking-[0.32em] text-gold">Choose Your Experience</p>
+            <p className="text-[0.75rem] font-semibold uppercase tracking-[0.32em] text-purple">Choose Your Experience</p>
             <h2 className="mt-4 max-w-2xl font-serif text-3xl font-normal leading-tight text-foreground sm:text-4xl">
               Curated journeys into the story of Ghana.
             </h2>
@@ -84,12 +85,12 @@ export default async function ReservePage({ searchParams }: { searchParams: Prom
                 key={t.name}
                 className={`relative flex flex-col rounded-sm border p-8 ${
                   i === 1
-                    ? "border-gold-luxury/50 bg-gradient-to-b from-[#171410] via-ink to-[#0a1512] shadow-[0_25px_60px_-15px_rgba(217,178,92,0.25)]"
+                    ? "border-purple-luxury/50 bg-gradient-to-b from-[#171410] via-ink to-[#0a1512] shadow-[0_25px_60px_-15px_rgba(217,178,92,0.25)]"
                     : "border-border bg-background"
                 }`}
               >
                 {i === 1 ? (
-                  <span className="absolute -top-3 left-8 rounded-full bg-gold-luxury px-4 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-ink">
+                  <span className="absolute -top-3 left-8 rounded-full bg-purple-luxury px-4 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-ink">
                     Most Requested
                   </span>
                 ) : null}
@@ -110,7 +111,7 @@ export default async function ReservePage({ searchParams }: { searchParams: Prom
                 </ul>
                 <a
                   href={`/reserve?tier=${encodeURIComponent(t.name)}#inquire`}
-                  className="mt-8 inline-flex h-11 items-center justify-center rounded-sm bg-gold-luxury px-5 text-[0.75rem] font-semibold uppercase tracking-[0.18em] text-ink transition-transform hover:scale-[1.02]"
+                  className="mt-8 inline-flex h-11 items-center justify-center rounded-sm bg-purple-luxury px-5 text-[0.75rem] font-semibold uppercase tracking-[0.18em] text-ink transition-transform hover:scale-[1.02]"
                 >
                   {t.ctaLabel}
                 </a>
@@ -124,7 +125,7 @@ export default async function ReservePage({ searchParams }: { searchParams: Prom
       <section id="inquire" className="border-t border-border bg-muted py-16 sm:py-20">
         <div className="mx-auto grid w-full max-w-[1400px] gap-12 px-6 sm:px-10 lg:grid-cols-[0.85fr_1.15fr]">
           <div>
-            <p className="text-[0.75rem] font-semibold uppercase tracking-[0.32em] text-gold">Hold Your Spot</p>
+            <p className="text-[0.75rem] font-semibold uppercase tracking-[0.32em] text-purple">Hold Your Spot</p>
             <h2 className="mt-4 font-serif text-3xl font-normal leading-tight text-foreground sm:text-4xl">
               Secure your place with a deposit.
             </h2>
@@ -138,7 +139,7 @@ export default async function ReservePage({ searchParams }: { searchParams: Prom
           </div>
 
           <div>
-            <p className="text-[0.75rem] font-semibold uppercase tracking-[0.32em] text-gold">Prefer To Talk First?</p>
+            <p className="text-[0.75rem] font-semibold uppercase tracking-[0.32em] text-purple">Prefer To Talk First?</p>
             <h2 className="mt-4 font-serif text-3xl font-normal leading-tight text-foreground sm:text-4xl">
               Send us an inquiry.
             </h2>
@@ -152,11 +153,7 @@ export default async function ReservePage({ searchParams }: { searchParams: Prom
         </div>
       </section>
 
-      <footer className="border-t border-border bg-background py-8">
-        <div className="mx-auto w-full max-w-[1400px] px-6 text-sm text-foreground/60 sm:px-10">
-          © 2026 The Real Return™. Reconnect with intention.
-        </div>
-      </footer>
+      <SiteFooter />
     </div>
   );
 }
