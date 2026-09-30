@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 
 import { SiteHeader } from "@/components/home/SiteHeader";
@@ -12,6 +13,24 @@ import {
   getItineraryContent,
   getPillarsContent,
 } from "@/lib/sanity/site";
+import { jsonLdScript, organizationJsonLd, pageMetadata, SITE_DESCRIPTION, SITE_NAME, SITE_TAGLINE, SITE_URL } from "@/lib/seo";
+
+export const metadata: Metadata = {
+  ...pageMetadata({ title: SITE_TAGLINE, description: SITE_DESCRIPTION, path: "/" }),
+  title: { absolute: `${SITE_NAME} | ${SITE_TAGLINE}` },
+};
+
+const homeJsonLd = [
+  organizationJsonLd,
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": `${SITE_URL}/#website`,
+    name: SITE_NAME,
+    url: SITE_URL,
+    publisher: { "@id": `${SITE_URL}/#organization` },
+  },
+];
 
 export const revalidate = 60;
 
@@ -31,6 +50,10 @@ export default async function HomePage() {
 
   return (
     <div className="min-h-screen bg-background font-sans text-foreground">
+      <script type="application/ld+json" dangerouslySetInnerHTML={jsonLdScript(homeJsonLd)} />
+      {/* The visible hero headline is a rotating, client-animated caption, so the page's
+          single h1 lives here for search engines and screen readers. */}
+      <h1 className="sr-only">{SITE_NAME}: heritage journeys home to Ghana for the African diaspora</h1>
       <HomeIntroHero heroSlides={heroSlides}>
         <SiteHeader />
       </HomeIntroHero>
