@@ -15,7 +15,7 @@ export function GhanaRegionMap() {
               d={region.d}
               className={
                 hasPackages
-                  ? "fill-forest/25 stroke-background stroke-[6] transition-colors duration-300 hover:fill-gold-luxury"
+                  ? "fill-forest/25 stroke-background stroke-[6] transition-colors duration-300 hover:fill-purple-luxury"
                   : "fill-foreground/10 stroke-background stroke-[6]"
               }
             >

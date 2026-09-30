@@ -19,7 +19,7 @@ export async function PackageDetail({ package: pkg }: PackageDetailProps) {
         <Image src={pkg.heroImage.src} alt={pkg.heroImage.alt} fill priority sizes="100vw" className="object-cover" />
         <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/30 to-ink/5" />
         <div className="relative z-10 mx-auto w-full max-w-[1400px] px-6 pb-20 pt-40 sm:px-10 sm:pb-28">
-          <p className="text-[0.75rem] font-semibold uppercase tracking-[0.32em] text-gold-luxury">
+          <p className="text-[0.75rem] font-semibold uppercase tracking-[0.32em] text-purple-luxury">
             {pkg.region} · {pkg.locations.join(", ")}
           </p>
           <h1 className="mt-4 max-w-3xl font-serif text-5xl font-normal leading-tight text-background sm:text-6xl">{pkg.title}</h1>
@@ -32,7 +32,7 @@ export async function PackageDetail({ package: pkg }: PackageDetailProps) {
           <div className="mt-8 flex flex-wrap gap-3">
             <a
               href="#register"
-              className="inline-flex h-12 items-center justify-center rounded-sm bg-gold-luxury px-7 text-[0.8rem] font-semibold uppercase tracking-[0.18em] text-ink transition-transform hover:scale-[1.02]"
+              className="inline-flex h-12 items-center justify-center rounded-sm bg-purple-luxury px-7 text-[0.8rem] font-semibold uppercase tracking-[0.18em] text-ink transition-transform hover:scale-[1.02]"
             >
               {pkg.registration.cta}
             </a>
@@ -49,7 +49,7 @@ export async function PackageDetail({ package: pkg }: PackageDetailProps) {
       {/* The story */}
       <section className="py-24 sm:py-32">
         <div className="mx-auto w-full max-w-[900px] px-6 sm:px-10">
-          <p className="text-[0.75rem] font-semibold uppercase tracking-[0.32em] text-gold">The Story</p>
+          <p className="text-[0.75rem] font-semibold uppercase tracking-[0.32em] text-purple">The Story</p>
           <p className="mt-6 font-serif text-2xl font-normal leading-relaxed text-foreground sm:text-3xl">{pkg.longDescription}</p>
         </div>
       </section>
@@ -57,7 +57,7 @@ export async function PackageDetail({ package: pkg }: PackageDetailProps) {
       {/* Why this experience */}
       <section className="bg-ink py-24 sm:py-32">
         <div className="mx-auto w-full max-w-[900px] px-6 text-center sm:px-10">
-          <p className="text-[0.75rem] font-semibold uppercase tracking-[0.32em] text-gold-luxury">Why This Experience</p>
+          <p className="text-[0.75rem] font-semibold uppercase tracking-[0.32em] text-purple-luxury">Why This Experience</p>
           <p className="mt-6 font-serif text-2xl italic leading-relaxed text-background sm:text-3xl">{pkg.whyThisExperience}</p>
         </div>
       </section>
@@ -65,12 +65,12 @@ export async function PackageDetail({ package: pkg }: PackageDetailProps) {
       {/* What you will experience */}
       <section className="py-24 sm:py-32">
         <div className="mx-auto w-full max-w-[1400px] px-6 sm:px-10">
-          <p className="text-[0.75rem] font-semibold uppercase tracking-[0.32em] text-gold">What You Will Experience</p>
+          <p className="text-[0.75rem] font-semibold uppercase tracking-[0.32em] text-purple">What You Will Experience</p>
           <h2 className="mt-4 max-w-2xl font-serif text-4xl font-normal leading-tight sm:text-5xl">The moments that shape this journey.</h2>
           <ul className="mt-12 grid gap-6 sm:grid-cols-2">
             {pkg.highlights.map((highlight) => (
               <li key={highlight} className="flex gap-4 rounded-sm border border-border bg-muted p-6">
-                <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-gold-luxury" aria-hidden="true" />
+                <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-purple-luxury" aria-hidden="true" />
                 <span className="text-base leading-7 text-foreground/80">{highlight}</span>
               </li>
             ))}
@@ -81,12 +81,12 @@ export async function PackageDetail({ package: pkg }: PackageDetailProps) {
       {/* Itinerary */}
       <section id="itinerary" className="border-t border-border bg-muted py-24 sm:py-32">
         <div className="mx-auto w-full max-w-[1400px] px-6 sm:px-10">
-          <p className="text-[0.75rem] font-semibold uppercase tracking-[0.32em] text-gold">Itinerary</p>
+          <p className="text-[0.75rem] font-semibold uppercase tracking-[0.32em] text-purple">Itinerary</p>
           <h2 className="mt-4 max-w-2xl font-serif text-4xl font-normal leading-tight sm:text-5xl">A journey held together by place and ritual.</h2>
           <div className="mt-12 grid gap-px overflow-hidden rounded-sm bg-border sm:grid-cols-2 lg:grid-cols-4">
             {pkg.itinerary.map((stop) => (
               <div key={stop.day} className="flex flex-col bg-background p-7">
-                <p className="text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-gold">
+                <p className="text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-purple">
                   Day {stop.day}
                   {stop.location ? ` · ${stop.location}` : ""}
                 </p>
@@ -102,7 +102,7 @@ export async function PackageDetail({ package: pkg }: PackageDetailProps) {
       {pkg.culturalContext ? (
         <section className="bg-forest py-20 sm:py-28">
           <div className="mx-auto w-full max-w-[900px] px-6 text-center sm:px-10">
-            <p className="text-[0.75rem] font-semibold uppercase tracking-[0.32em] text-gold-luxury">Cultural Context</p>
+            <p className="text-[0.75rem] font-semibold uppercase tracking-[0.32em] text-purple-luxury">Cultural Context</p>
             <p className="mt-6 text-lg leading-8 text-background/85">{pkg.culturalContext}</p>
           </div>
         </section>
@@ -111,7 +111,7 @@ export async function PackageDetail({ package: pkg }: PackageDetailProps) {
       {/* Gallery */}
       <section className="py-24 sm:py-32">
         <div className="mx-auto w-full max-w-[1400px] px-6 sm:px-10">
-          <p className="text-[0.75rem] font-semibold uppercase tracking-[0.32em] text-gold">Gallery</p>
+          <p className="text-[0.75rem] font-semibold uppercase tracking-[0.32em] text-purple">Gallery</p>
           <h2 className="mt-4 max-w-2xl font-serif text-4xl font-normal leading-tight sm:text-5xl">A living portrait of {pkg.region}.</h2>
           <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {pkg.gallery.map((image) => (
@@ -133,7 +133,7 @@ export async function PackageDetail({ package: pkg }: PackageDetailProps) {
       <section className="border-t border-border bg-muted py-24 sm:py-32">
         <div className="mx-auto grid w-full max-w-[1400px] gap-12 px-6 sm:px-10 lg:grid-cols-2">
           <div>
-            <p className="text-[0.75rem] font-semibold uppercase tracking-[0.32em] text-gold">What&apos;s Included</p>
+            <p className="text-[0.75rem] font-semibold uppercase tracking-[0.32em] text-purple">What&apos;s Included</p>
             <ul className="mt-6 space-y-3">
               {pkg.included.map((item) => (
                 <li key={item} className="flex gap-3 text-base leading-7 text-foreground/80">
@@ -160,7 +160,7 @@ export async function PackageDetail({ package: pkg }: PackageDetailProps) {
       {/* Practical information */}
       <section className="py-24 sm:py-32">
         <div className="mx-auto w-full max-w-[1400px] px-6 sm:px-10">
-          <p className="text-[0.75rem] font-semibold uppercase tracking-[0.32em] text-gold">Practical Information</p>
+          <p className="text-[0.75rem] font-semibold uppercase tracking-[0.32em] text-purple">Practical Information</p>
           <dl className="mt-8 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {pkg.practicalInformation.bestTime ? (
               <div>
@@ -194,7 +194,7 @@ export async function PackageDetail({ package: pkg }: PackageDetailProps) {
       {related.length > 0 ? (
         <section className="border-t border-border bg-muted py-24 sm:py-32">
           <div className="mx-auto w-full max-w-[1400px] px-6 sm:px-10">
-            <p className="text-[0.75rem] font-semibold uppercase tracking-[0.32em] text-gold">Related Experiences</p>
+            <p className="text-[0.75rem] font-semibold uppercase tracking-[0.32em] text-purple">Related Experiences</p>
             <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
               {related.map((r) => (
                 <Link key={r.slug} href={`/experiences/${r.slug}`} className="group block">
@@ -221,14 +221,14 @@ export async function PackageDetail({ package: pkg }: PackageDetailProps) {
         <div className="relative mx-auto w-full max-w-[1400px] px-6 sm:px-10">
           <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr]">
             <div>
-              <p className="text-[0.75rem] font-semibold uppercase tracking-[0.32em] text-gold-luxury">Register Your Interest</p>
+              <p className="text-[0.75rem] font-semibold uppercase tracking-[0.32em] text-purple-luxury">Register Your Interest</p>
               <h2 className="mt-4 font-serif text-3xl font-normal leading-tight text-background sm:text-4xl">Begin your return.</h2>
               <p className="mt-6 max-w-md text-base leading-8 text-background/70">
                 Tell us about your family and dates, and a steward will personally shape {pkg.title} around you.
               </p>
               <p className="mt-8 text-sm leading-7 text-background/50">
                 Prefer something fully private?{" "}
-                <Link href="/reserve#inquire" className="underline decoration-gold-luxury/50 underline-offset-4 hover:text-background">
+                <Link href="/reserve#inquire" className="underline decoration-purple-luxury/50 underline-offset-4 hover:text-background">
                   Plan a Bespoke Journey
                 </Link>
                 .

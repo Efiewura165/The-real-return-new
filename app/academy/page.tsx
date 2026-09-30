@@ -3,6 +3,7 @@ import { Suspense } from "react";
 import Image from "next/image";
 
 import { SiteHeader } from "@/components/home/SiteHeader";
+import { SiteFooter } from "@/components/layout/SiteFooter";
 import { CourseCard } from "@/components/academy/CourseCard";
 import { EnrollmentForm } from "@/components/academy/EnrollmentForm";
 import { getAcademyHero, getAcademyPhases, getAcademyCourses } from "@/lib/sanity/academy";
@@ -26,14 +27,14 @@ export default async function AcademyPage() {
         <Image src={academyHero.image.src} alt={academyHero.image.alt} fill priority sizes="100vw" className="object-cover" />
         <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/45 to-ink/15" />
         <div className="relative z-10 mx-auto w-full max-w-[1400px] px-6 pb-20 pt-40 sm:px-10 sm:pb-28">
-          <p className="text-[0.75rem] font-semibold uppercase tracking-[0.32em] text-gold-luxury">{academyHero.eyebrow}</p>
+          <p className="text-[0.75rem] font-semibold uppercase tracking-[0.32em] text-purple-luxury">{academyHero.eyebrow}</p>
           <h1 className="mt-4 max-w-2xl font-serif text-4xl font-normal leading-tight text-background sm:text-5xl">{academyHero.title}</h1>
           <p className="mt-5 max-w-xl text-base leading-8 text-background/80">{academyHero.description}</p>
           <p className="mt-4 text-[0.75rem] font-semibold uppercase tracking-[0.18em] text-background/60">{academyHero.facilitator}</p>
           <div className="mt-8 flex flex-wrap gap-3">
             <a
               href="#courses"
-              className="inline-flex h-12 items-center justify-center rounded-sm bg-gold-luxury px-7 text-[0.8rem] font-semibold uppercase tracking-[0.18em] text-ink transition-transform hover:scale-[1.02]"
+              className="inline-flex h-12 items-center justify-center rounded-sm bg-purple-luxury px-7 text-[0.8rem] font-semibold uppercase tracking-[0.18em] text-ink transition-transform hover:scale-[1.02]"
             >
               Browse Courses
             </a>
@@ -51,7 +52,7 @@ export default async function AcademyPage() {
       <section id="courses" className="scroll-mt-20 border-b border-border py-24 sm:py-32">
         <div className="mx-auto w-full max-w-[1400px] px-6 sm:px-10">
           <div className="max-w-2xl">
-            <p className="text-[0.75rem] font-semibold uppercase tracking-[0.32em] text-gold">Courses</p>
+            <p className="text-[0.75rem] font-semibold uppercase tracking-[0.32em] text-purple">Courses</p>
             <h2 className="mt-4 font-serif text-4xl font-normal leading-tight sm:text-5xl">Start with Foundation & Orientation.</h2>
             <p className="mt-6 text-base leading-8 text-foreground/70">
               Take a single course, or enroll in the Full Academy Membership for the complete path: every phase, plus ongoing 1:1 guidance.
@@ -69,7 +70,7 @@ export default async function AcademyPage() {
       <section className="border-b border-border bg-ink py-24 sm:py-32">
         <div className="mx-auto w-full max-w-[1400px] px-6 sm:px-10">
           <div className="max-w-2xl">
-            <p className="text-[0.75rem] font-semibold uppercase tracking-[0.32em] text-gold-luxury">The Full Path</p>
+            <p className="text-[0.75rem] font-semibold uppercase tracking-[0.32em] text-purple-luxury">The Full Path</p>
             <h2 className="mt-4 font-serif text-4xl font-normal leading-tight text-background sm:text-5xl">Six phases. One return.</h2>
             <p className="mt-6 text-base leading-8 text-background/70">
               Foundation & Orientation is where every member begins. The Full Academy Membership unlocks everything after it.
@@ -79,10 +80,10 @@ export default async function AcademyPage() {
             {academyPhases.map((phase) => (
               <div key={phase.phase} className="flex flex-col bg-ink p-7">
                 <div className="flex items-center justify-between">
-                  <p className="text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-gold-luxury">{phase.phase}</p>
+                  <p className="text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-purple-luxury">{phase.phase}</p>
                   <span
                     className={`rounded-full px-2.5 py-1 text-[0.6rem] font-semibold uppercase tracking-[0.12em] ${
-                      phase.unlocked ? "bg-gold-luxury text-ink" : "border border-background/20 text-background/50"
+                      phase.unlocked ? "bg-purple-luxury text-ink" : "border border-background/20 text-background/50"
                     }`}
                   >
                     {phase.unlocked ? "Available Now" : "Full Membership"}
@@ -100,7 +101,7 @@ export default async function AcademyPage() {
       <section id="enroll" className="scroll-mt-20 py-24 sm:py-32">
         <div className="mx-auto w-full max-w-[900px] px-6 sm:px-10">
           <div className="text-center">
-            <p className="text-[0.75rem] font-semibold uppercase tracking-[0.32em] text-gold">Enroll</p>
+            <p className="text-[0.75rem] font-semibold uppercase tracking-[0.32em] text-purple">Enroll</p>
             <h2 className="mt-4 font-serif text-4xl font-normal leading-tight sm:text-5xl">Begin your Academy path.</h2>
             <p className="mt-6 text-base leading-8 text-foreground/70">Choose a course below and a member of our team will confirm your enrollment within 48 hours.</p>
           </div>
@@ -112,9 +113,7 @@ export default async function AcademyPage() {
         </div>
       </section>
 
-      <footer className="border-t border-border bg-background py-8">
-        <div className="mx-auto w-full max-w-[1400px] px-6 text-sm text-foreground/60 sm:px-10">© 2026 The Real Return™. Reconnect with intention.</div>
-      </footer>
+      <SiteFooter />
     </div>
   );
 }

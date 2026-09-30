@@ -5,7 +5,7 @@ import type { Image } from "sanity";
 export interface PopupBanner {
   id: string;
   pages: string[];
-  image: { src: string; alt: string };
+  images: { src: string; alt: string }[];
   eyebrow: string;
   message: string;
   buttonLabel: string;
@@ -18,7 +18,7 @@ export interface PopupBanner {
 interface SanityPopupBanner {
   _id: string;
   pages?: string[];
-  image: Image & { alt: string };
+  images: (Image & { alt: string })[];
   eyebrow: string;
   message: string;
   buttonLabel: string;
@@ -28,13 +28,13 @@ interface SanityPopupBanner {
   reappearIntervalSeconds: number;
 }
 
-const BANNERS_QUERY = `*[_type == "popupBanner" && enabled == true]{ _id, pages, image, eyebrow, message, buttonLabel, buttonLink, firstShowDelaySeconds, visibleDurationSeconds, reappearIntervalSeconds }`;
+const BANNERS_QUERY = `*[_type == "popupBanner" && enabled == true]{ _id, pages, images, eyebrow, message, buttonLabel, buttonLink, firstShowDelaySeconds, visibleDurationSeconds, reappearIntervalSeconds }`;
 
 function toBanner(doc: SanityPopupBanner): PopupBanner {
   return {
     id: doc._id,
     pages: doc.pages ?? [],
-    image: { src: urlForImage(doc.image)?.url() ?? "", alt: doc.image.alt },
+    images: (doc.images ?? []).map((image) => ({ src: urlForImage(image)?.url() ?? "", alt: image.alt })),
     eyebrow: doc.eyebrow,
     message: doc.message,
     buttonLabel: doc.buttonLabel,
@@ -49,7 +49,12 @@ const staticFallback: PopupBanner[] = [
   {
     id: "static-booking-cta",
     pages: [],
-    image: { src: "/images/stock/ghana-water-welcome-smile.jpg", alt: "A smiling Ghanaian woman in traditional dress, welcoming guests with a warm Akwaaba spirit" },
+    images: [
+      {
+        src: "/images/stock/ghana-water-welcome-smile.jpg",
+        alt: "A smiling Ghanaian woman in traditional dress, welcoming guests with a warm Akwaaba spirit",
+      },
+    ],
     eyebrow: "The Real Return™",
     message: "You are at the Right Spot Where Luxury meets Adventure",
     buttonLabel: "Book Now For Our Next Exciting Destination Package",
@@ -64,7 +69,7 @@ export async function getPopupBanners(): Promise<PopupBanner[]> {
   if (isSanityConfigured()) {
     const client = getSanityClient();
     const docs = await client?.fetch<SanityPopupBanner[]>(BANNERS_QUERY).catch(() => null);
-    if (docs?.length) return docs.map(toBanner);
+    if (docs?.length) return docs.map(toBanner).filter((banner) => banner.images.length > 0);
   }
   return staticFallback;
 }

@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
+import { redirect } from "next/navigation";
 
 import { logout } from "@/app/admin/login/actions";
 import { getLeads } from "@/lib/leads";
 import { isSupabaseConfigured } from "@/lib/supabase/client";
+import { createClient } from "@/lib/supabase/server";
 import { getExperiencePackages } from "@/lib/sanity/experiences";
 import { getAcademyCourses } from "@/lib/sanity/academy";
 import { LeadStatusSelect } from "@/components/admin/LeadStatusSelect";
@@ -24,7 +26,7 @@ export default async function AdminLeadsPage({ searchParams }: { searchParams: P
   if (!isSupabaseConfigured()) {
     return (
       <div className="mx-auto flex min-h-screen max-w-lg flex-col items-center justify-center px-6 text-center">
-        <p className="text-[0.75rem] font-semibold uppercase tracking-[0.32em] text-gold">Admin</p>
+        <p className="text-[0.75rem] font-semibold uppercase tracking-[0.32em] text-purple">Admin</p>
         <h1 className="mt-4 font-serif text-2xl font-normal text-foreground">The dashboard isn&apos;t configured yet.</h1>
         <p className="mt-4 text-sm leading-6 text-foreground/65">
           Set <code>NEXT_PUBLIC_SUPABASE_URL</code>, <code>NEXT_PUBLIC_SUPABASE_ANON_KEY</code>, and{" "}
@@ -33,6 +35,12 @@ export default async function AdminLeadsPage({ searchParams }: { searchParams: P
       </div>
     );
   }
+
+  const supabase = await createClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+  if (!user) redirect("/admin/login");
 
   const [allLeads, academyCourses, experiencePackages] = await Promise.all([getLeads(), getAcademyCourses(), getExperiencePackages()]);
   const packageById = new Map(experiencePackages.map((pkg) => [pkg.id, pkg]));
@@ -69,7 +77,7 @@ export default async function AdminLeadsPage({ searchParams }: { searchParams: P
     <div className="min-h-screen bg-background font-sans text-foreground">
       <header className="flex h-16 items-center justify-between border-b border-border px-6 sm:px-10">
         <div>
-          <p className="text-[0.65rem] font-semibold uppercase tracking-[0.28em] text-gold">The Real Return™</p>
+          <p className="text-[0.65rem] font-semibold uppercase tracking-[0.28em] text-purple">The Real Return™</p>
           <p className="font-serif text-lg leading-tight">Leads</p>
         </div>
         <form action={logout}>
@@ -88,7 +96,7 @@ export default async function AdminLeadsPage({ searchParams }: { searchParams: P
           <div className="mb-10 flex flex-wrap gap-3">
             {popularity.slice(0, 6).map(([title, count]) => (
               <span key={title} className="rounded-full border border-border px-3 py-1 text-xs text-foreground/70">
-                {title} <span className="font-semibold text-gold">{count}</span>
+                {title} <span className="font-semibold text-purple">{count}</span>
               </span>
             ))}
           </div>
@@ -103,12 +111,12 @@ export default async function AdminLeadsPage({ searchParams }: { searchParams: P
               name="q"
               defaultValue={params.q}
               placeholder="Name or email"
-              className="h-10 rounded-sm border border-border bg-background px-3 text-sm outline-none focus:border-gold"
+              className="h-10 rounded-sm border border-border bg-background px-3 text-sm outline-none focus:border-purple"
             />
           </div>
           <div className="space-y-1">
             <label className="text-[0.65rem] font-semibold uppercase tracking-[0.15em] text-foreground/50">Status</label>
-            <select name="status" defaultValue={params.status ?? ""} className="h-10 rounded-sm border border-border bg-background px-3 text-sm outline-none focus:border-gold">
+            <select name="status" defaultValue={params.status ?? ""} className="h-10 rounded-sm border border-border bg-background px-3 text-sm outline-none focus:border-purple">
               <option value="">All</option>
               {["new", "contacted", "planning", "quoted", "booked", "completed", "lost"].map((s) => (
                 <option key={s} value={s}>
@@ -119,7 +127,7 @@ export default async function AdminLeadsPage({ searchParams }: { searchParams: P
           </div>
           <div className="space-y-1">
             <label className="text-[0.65rem] font-semibold uppercase tracking-[0.15em] text-foreground/50">Region</label>
-            <select name="region" defaultValue={params.region ?? ""} className="h-10 rounded-sm border border-border bg-background px-3 text-sm outline-none focus:border-gold">
+            <select name="region" defaultValue={params.region ?? ""} className="h-10 rounded-sm border border-border bg-background px-3 text-sm outline-none focus:border-purple">
               <option value="">All</option>
               {regions.map((r) => (
                 <option key={r} value={r}>
@@ -130,7 +138,7 @@ export default async function AdminLeadsPage({ searchParams }: { searchParams: P
           </div>
           <div className="space-y-1">
             <label className="text-[0.65rem] font-semibold uppercase tracking-[0.15em] text-foreground/50">Package</label>
-            <select name="package" defaultValue={params.package ?? ""} className="h-10 rounded-sm border border-border bg-background px-3 text-sm outline-none focus:border-gold">
+            <select name="package" defaultValue={params.package ?? ""} className="h-10 rounded-sm border border-border bg-background px-3 text-sm outline-none focus:border-purple">
               <option value="">All</option>
               {packageTitles.map((t) => (
                 <option key={t} value={t}>
@@ -141,7 +149,7 @@ export default async function AdminLeadsPage({ searchParams }: { searchParams: P
           </div>
           <div className="space-y-1">
             <label className="text-[0.65rem] font-semibold uppercase tracking-[0.15em] text-foreground/50">Country</label>
-            <select name="country" defaultValue={params.country ?? ""} className="h-10 rounded-sm border border-border bg-background px-3 text-sm outline-none focus:border-gold">
+            <select name="country" defaultValue={params.country ?? ""} className="h-10 rounded-sm border border-border bg-background px-3 text-sm outline-none focus:border-purple">
               <option value="">All</option>
               {countries.map((c) => (
                 <option key={c} value={c}>

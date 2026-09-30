@@ -7,8 +7,8 @@
   --border: rgba(22, 19, 16, 0.12);
   --ink: #1c140f;
   --forest: #1f4d3d;
-  --gold: #b6863c;
-  --gold-luxury: #d9b25c;
+  --purple: #7c4dbd;
+  --purple-luxury: #b98ee8;
 }
 
 @theme inline {
@@ -18,8 +18,8 @@
   --color-border: var(--border);
   --color-ink: var(--ink);
   --color-forest: var(--forest);
-  --color-gold: var(--gold);
-  --color-gold-luxury: var(--gold-luxury);
+  --color-purple: var(--purple);
+  --color-purple-luxury: var(--purple-luxury);
   --font-sans: var(--font-sans);
   --font-serif: var(--font-serif);
 }
@@ -36,7 +36,7 @@ body {
 }
 
 ::selection {
-  background: rgba(217, 178, 92, 0.3);
+  background: rgba(185, 142, 232, 0.3);
   color: var(--foreground);
 }
 
@@ -48,6 +48,25 @@ body {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes zoom-in-right-hold {
+  0% {
+    opacity: 0;
+    transform: translateX(140px) scale(0.75);
+  }
+  5% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+  95% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(0) scale(1);
   }
 }
 

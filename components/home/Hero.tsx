@@ -18,9 +18,11 @@ interface HeroSlide {
 
 interface HeroProps {
   heroSlides: HeroSlide[];
+  /** Hides the caption + CTA row so it doesn't overlap the full-screen welcome intro while that's on screen. */
+  suppressCaption?: boolean;
 }
 
-export function Hero({ heroSlides }: HeroProps) {
+export function Hero({ heroSlides, suppressCaption }: HeroProps) {
   const [index, setIndex] = useState(0);
   const [videoIndex, setVideoIndex] = useState(0);
   const [showVideo, setShowVideo] = useState(true);
@@ -67,7 +69,11 @@ export function Hero({ heroSlides }: HeroProps) {
 
       <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-ink/18 to-ink/5" />
 
-      <div className="relative z-10 mx-auto w-full max-w-[1600px] px-6 pb-24 pt-40 sm:px-10 sm:pb-32">
+      <div
+        className="relative z-10 mx-auto w-full max-w-[1600px] px-6 pb-24 pt-40 transition-opacity duration-500 ease-out sm:px-10 sm:pb-32"
+        style={{ opacity: suppressCaption ? 0 : 1 }}
+        aria-hidden={suppressCaption}
+      >
         <p
           key={captionKey}
           className="max-w-3xl font-sans text-4xl font-bold leading-[1.05] tracking-tight text-background [text-shadow:0_6px_30px_rgba(0,0,0,0.55)] sm:text-6xl lg:text-7xl"
@@ -79,7 +85,7 @@ export function Hero({ heroSlides }: HeroProps) {
         <div className="mt-8 flex flex-wrap items-center gap-4">
           <a
             href="/reserve"
-            className="inline-flex h-12 items-center justify-center rounded-sm bg-gold-luxury px-7 text-[0.8rem] font-semibold uppercase tracking-[0.18em] text-ink transition-transform hover:scale-[1.02]"
+            className="inline-flex h-12 items-center justify-center rounded-sm bg-purple-luxury px-7 text-[0.8rem] font-semibold uppercase tracking-[0.18em] text-ink transition-transform hover:scale-[1.02]"
           >
             Begin Your Journey
           </a>
@@ -103,7 +109,7 @@ export function Hero({ heroSlides }: HeroProps) {
             aria-label={`Show slide ${i + 1}`}
             aria-current={i === index}
             onClick={() => setIndex(i)}
-            className={`h-1.5 rounded-full transition-all ${i === index ? "w-8 bg-gold-luxury" : "w-1.5 bg-white/40 hover:bg-white/70"}`}
+            className={`h-1.5 rounded-full transition-all ${i === index ? "w-8 bg-purple-luxury" : "w-1.5 bg-white/40 hover:bg-white/70"}`}
           />
         ))}
       </div>

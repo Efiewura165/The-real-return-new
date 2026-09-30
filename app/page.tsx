@@ -1,7 +1,8 @@
 import Image from "next/image";
 
 import { SiteHeader } from "@/components/home/SiteHeader";
-import { Hero } from "@/components/home/Hero";
+import { SiteFooter } from "@/components/layout/SiteFooter";
+import { HomeIntroHero } from "@/components/home/HomeIntroHero";
 import { getAcademyHero, getAcademyCourses } from "@/lib/sanity/academy";
 import {
   getCommunityContent,
@@ -30,8 +31,9 @@ export default async function HomePage() {
 
   return (
     <div className="min-h-screen bg-background font-sans text-foreground">
-      <SiteHeader />
-      <Hero heroSlides={heroSlides} />
+      <HomeIntroHero heroSlides={heroSlides}>
+        <SiteHeader />
+      </HomeIntroHero>
 
       {/* Story / founder quote */}
       <section id="story" className="bg-ink py-24 sm:py-32">
@@ -40,7 +42,7 @@ export default async function HomePage() {
             <Image src={founderContent.image.src} alt={founderContent.image.alt} fill className="object-cover" sizes="(min-width:1024px) 40vw, 90vw" />
           </div>
           <div>
-            <p className="text-[0.75rem] font-semibold uppercase tracking-[0.32em] text-gold-luxury">{founderContent.eyebrow}</p>
+            <p className="text-[0.75rem] font-semibold uppercase tracking-[0.32em] text-purple-luxury">{founderContent.eyebrow}</p>
             <blockquote className="mt-6 font-serif text-3xl italic leading-snug text-background sm:text-4xl">“{founderContent.pullQuote}”</blockquote>
             <p className="mt-8 text-base leading-8 text-background/70">{founderContent.body}</p>
             <p className="mt-8 text-sm font-semibold uppercase tracking-[0.18em] text-background">
@@ -54,7 +56,7 @@ export default async function HomePage() {
       <section id="pillars" className="py-24 sm:py-32">
         <div className="mx-auto w-full max-w-[1400px] px-6 sm:px-10">
           <div className="max-w-2xl">
-            <p className="text-[0.75rem] font-semibold uppercase tracking-[0.32em] text-gold">{pillarsContent.eyebrow}</p>
+            <p className="text-[0.75rem] font-semibold uppercase tracking-[0.32em] text-purple">{pillarsContent.eyebrow}</p>
             <h2 className="mt-4 font-serif text-4xl font-normal leading-tight sm:text-5xl">{pillarsContent.title}</h2>
           </div>
           <div className="mt-14 grid gap-6 sm:grid-cols-3">
@@ -82,7 +84,7 @@ export default async function HomePage() {
       <section id="academy" className="bg-muted py-24 sm:py-32">
         <div className="mx-auto grid w-full max-w-[1400px] gap-14 px-6 sm:px-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
           <div>
-            <p className="text-[0.75rem] font-semibold uppercase tracking-[0.32em] text-gold">{academyHero.eyebrow}</p>
+            <p className="text-[0.75rem] font-semibold uppercase tracking-[0.32em] text-purple">{academyHero.eyebrow}</p>
             <h2 className="mt-4 font-serif text-4xl font-normal leading-tight sm:text-5xl">{academyHero.title}</h2>
             <p className="mt-6 max-w-md text-base leading-8 text-foreground/70">{academyHero.description}</p>
             <p className="mt-4 text-sm font-medium uppercase tracking-[0.14em] text-foreground/50">{academyHero.facilitator}</p>
@@ -102,14 +104,14 @@ export default async function HomePage() {
               <a
                 key={course.slug}
                 href={`/academy?course=${course.slug}#enroll`}
-                className="group rounded-sm border border-border bg-background p-7 transition-colors hover:border-gold"
+                className="group rounded-sm border border-border bg-background p-7 transition-colors hover:border-purple"
               >
-                <p className="text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-gold">
+                <p className="text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-purple">
                   {course.format} · {course.lessonCount} Lessons
                 </p>
                 <h3 className="mt-3 font-serif text-xl font-normal">{course.title}</h3>
                 <p className="mt-2 text-sm leading-7 text-foreground/65">{course.tagline}</p>
-                <span className="mt-4 inline-flex items-center gap-1.5 text-[0.7rem] font-semibold uppercase tracking-[0.15em] text-gold transition-transform group-hover:translate-x-1">
+                <span className="mt-4 inline-flex items-center gap-1.5 text-[0.7rem] font-semibold uppercase tracking-[0.15em] text-purple transition-transform group-hover:translate-x-1">
                   Enroll Now <span aria-hidden="true">→</span>
                 </span>
               </a>
@@ -122,7 +124,7 @@ export default async function HomePage() {
       <section id="journey" className="py-24 sm:py-32">
         <div className="mx-auto w-full max-w-[1400px] px-6 sm:px-10">
           <div className="max-w-2xl">
-            <p className="text-[0.75rem] font-semibold uppercase tracking-[0.32em] text-gold">{itineraryContent.eyebrow}</p>
+            <p className="text-[0.75rem] font-semibold uppercase tracking-[0.32em] text-purple">{itineraryContent.eyebrow}</p>
             <h2 className="mt-4 font-serif text-4xl font-normal leading-tight sm:text-5xl">{itineraryContent.title}</h2>
             <p className="mt-6 text-base leading-8 text-foreground/70">{itineraryContent.description}</p>
           </div>
@@ -130,7 +132,7 @@ export default async function HomePage() {
           <div className="mt-14 grid gap-px overflow-hidden rounded-sm bg-border sm:grid-cols-2 lg:grid-cols-4">
             {itineraryContent.highlights.map((stop) => (
               <div key={stop.day} className="flex flex-col bg-background p-7">
-                <p className="text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-gold">
+                <p className="text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-purple">
                   {stop.day} · {stop.location}
                 </p>
                 <h3 className="mt-3 font-serif text-lg font-normal">{stop.title}</h3>
@@ -152,7 +154,7 @@ export default async function HomePage() {
       <section id="invest" className="bg-ink py-24 sm:py-32">
         <div className="mx-auto w-full max-w-[1400px] px-6 sm:px-10">
           <div className="max-w-2xl">
-            <p className="text-[0.75rem] font-semibold uppercase tracking-[0.32em] text-gold-luxury">{investmentContent.eyebrow}</p>
+            <p className="text-[0.75rem] font-semibold uppercase tracking-[0.32em] text-purple-luxury">{investmentContent.eyebrow}</p>
             <h2 className="mt-4 font-serif text-4xl font-normal leading-tight text-background sm:text-5xl">
               {investmentContent.title}
             </h2>
@@ -161,7 +163,7 @@ export default async function HomePage() {
 
           <div className="mt-14 grid gap-6 lg:grid-cols-3">
             {investmentContent.tiers.map((tier, i) => (
-              <div key={tier.name} className={`flex flex-col rounded-sm border p-8 ${i === 1 ? "border-gold-luxury/60 bg-white/[0.04]" : "border-background/15"}`}>
+              <div key={tier.name} className={`flex flex-col rounded-sm border p-8 ${i === 1 ? "border-purple-luxury/60 bg-white/[0.04]" : "border-background/15"}`}>
                 <h3 className="font-serif text-2xl font-normal text-background">{tier.name}</h3>
                 <p className="mt-3 text-sm leading-6 text-background/65">{tier.description}</p>
                 <div className="mt-6 rounded-sm border border-background/15 bg-background/5 px-4 py-3">
@@ -177,7 +179,7 @@ export default async function HomePage() {
                 </ul>
                 <a
                   href={`/reserve?tier=${encodeURIComponent(tier.name)}#inquire`}
-                  className="mt-8 inline-flex h-11 items-center justify-center rounded-sm bg-gold-luxury px-5 text-[0.75rem] font-semibold uppercase tracking-[0.18em] text-ink transition-transform hover:scale-[1.02]"
+                  className="mt-8 inline-flex h-11 items-center justify-center rounded-sm bg-purple-luxury px-5 text-[0.75rem] font-semibold uppercase tracking-[0.18em] text-ink transition-transform hover:scale-[1.02]"
                 >
                   {tier.ctaLabel}
                 </a>
@@ -190,11 +192,11 @@ export default async function HomePage() {
       {/* Community */}
       <section id="community" className="bg-forest py-20 sm:py-28">
         <div className="mx-auto flex w-full max-w-[1000px] flex-col items-center px-6 text-center sm:px-10">
-          <p className="text-[0.75rem] font-semibold uppercase tracking-[0.32em] text-gold-luxury">{communityContent.eyebrow}</p>
+          <p className="text-[0.75rem] font-semibold uppercase tracking-[0.32em] text-purple-luxury">{communityContent.eyebrow}</p>
           <h2 className="mt-5 font-serif text-3xl font-normal leading-tight text-background sm:text-4xl">{communityContent.title}</h2>
           <p className="mt-5 max-w-xl text-base leading-8 text-background/75">{communityContent.description}</p>
           <a
-            href="#"
+            href="/reserve#inquire"
             className="mt-8 inline-flex h-12 items-center justify-center rounded-sm border border-background/50 px-7 text-[0.8rem] font-semibold uppercase tracking-[0.18em] text-background transition-colors hover:bg-background hover:text-forest"
           >
             {communityContent.buttonLabel}
@@ -202,11 +204,7 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <footer className="border-t border-border bg-background py-8">
-        <div className="mx-auto w-full max-w-[1400px] px-6 text-sm text-foreground/60 sm:px-10">
-          © 2026 The Real Return™. Reconnect with intention.
-        </div>
-      </footer>
+      <SiteFooter />
     </div>
   );
 }

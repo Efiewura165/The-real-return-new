@@ -22,7 +22,7 @@ export function PackageCard({ package: pkg }: PackageCardProps) {
       />
       <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/35 to-transparent" />
       <div className="relative mt-auto p-5">
-        <p className="text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-gold-luxury">
+        <p className="text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-purple-luxury">
           {pkg.region} · {pkg.locations[0]}
         </p>
         <h3 className="mt-2 font-serif text-xl font-normal leading-snug text-background">{pkg.title}</h3>

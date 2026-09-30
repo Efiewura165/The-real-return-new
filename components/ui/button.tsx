@@ -9,7 +9,7 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        gold: "bg-gold-luxury text-ink hover:scale-[1.02]",
+        purple: "bg-purple-luxury text-ink hover:scale-[1.02]",
         outline: "border border-foreground/30 text-foreground hover:border-foreground",
         outlineLight: "border border-background/50 text-background hover:bg-background hover:text-ink",
         dark: "bg-ink text-background hover:bg-forest",
@@ -20,7 +20,7 @@ const buttonVariants = cva(
       },
     },
     defaultVariants: {
-      variant: "gold",
+      variant: "purple",
       size: "default",
     },
   },

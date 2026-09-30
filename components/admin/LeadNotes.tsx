@@ -19,7 +19,7 @@ export function LeadNotes({ id, notes }: { id: string; notes?: string }) {
         }}
         rows={2}
         placeholder="Internal notes…"
-        className="w-full rounded-sm border border-border bg-background px-3 py-2 text-xs leading-5 text-foreground outline-none focus:border-gold"
+        className="w-full rounded-sm border border-border bg-background px-3 py-2 text-xs leading-5 text-foreground outline-none focus:border-purple"
       />
       <button
         type="button"
@@ -30,7 +30,7 @@ export function LeadNotes({ id, notes }: { id: string; notes?: string }) {
             setSaved(true);
           })
         }
-        className="text-[0.65rem] font-semibold uppercase tracking-[0.15em] text-gold disabled:text-foreground/30"
+        className="text-[0.65rem] font-semibold uppercase tracking-[0.15em] text-purple disabled:text-foreground/30"
       >
         {pending ? "Saving…" : saved ? "Saved" : "Save note"}
       </button>

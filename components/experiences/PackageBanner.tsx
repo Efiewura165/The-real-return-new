@@ -22,7 +22,7 @@ export function PackageBanner({ package: pkg, videoStartIndex = 0 }: PackageBann
       />
       <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/25 to-transparent" />
       <div className="relative mt-auto w-full p-6 sm:p-10">
-        <p className="text-[0.75rem] font-semibold uppercase tracking-[0.32em] text-gold-luxury">
+        <p className="text-[0.75rem] font-semibold uppercase tracking-[0.32em] text-purple-luxury">
           {pkg.region} · {pkg.locations.join(", ")}
         </p>
         <h3 className="mt-3 max-w-xl font-serif text-2xl font-normal leading-tight text-background sm:text-4xl">{pkg.title}</h3>
@@ -31,7 +31,7 @@ export function PackageBanner({ package: pkg, videoStartIndex = 0 }: PackageBann
           <span className="rounded-full border border-background/30 px-3 py-1 text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-background/85">
             {pkg.duration.days} Day{pkg.duration.days === 1 ? "" : "s"}
           </span>
-          <span className="text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-gold-luxury">{pkg.category.join(" · ")}</span>
+          <span className="text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-purple-luxury">{pkg.category.join(" · ")}</span>
         </div>
         <span className="mt-6 inline-flex items-center gap-2 text-[0.8rem] font-semibold uppercase tracking-[0.18em] text-background transition-transform group-hover:translate-x-1">
           {pkg.registration.cta} <span aria-hidden="true">→</span>

@@ -68,6 +68,7 @@ const STEP_LABELS = ["About You", "Your Journey", "Your Interests", "Travel Styl
 export function RegistrationForm({ experienceSlug, experienceTitle }: RegistrationFormProps) {
   const [step, setStep] = useState(1);
   const [form, setForm] = useState<FormState>(INITIAL_STATE);
+  const [company, setCompany] = useState("");
   const [errors, setErrors] = useState<string[]>([]);
   const [status, setStatus] = useState<Status>("idle");
 
@@ -143,6 +144,7 @@ export function RegistrationForm({ experienceSlug, experienceTitle }: Registrati
           interests: form.interests,
           travelStyle: form.travelStyle,
           message: form.message || undefined,
+          company,
         }),
       });
       if (!response.ok) throw new Error("Request failed");
@@ -154,16 +156,16 @@ export function RegistrationForm({ experienceSlug, experienceTitle }: Registrati
 
   if (status === "success") {
     return (
-      <div className="rounded-sm border border-gold-luxury/40 bg-ink p-10 text-center">
+      <div className="rounded-sm border border-purple-luxury/40 bg-ink p-10 text-center">
         <p className="font-serif text-3xl font-normal leading-tight text-background sm:text-4xl">Your Return Begins Here.</p>
         <p className="mx-auto mt-5 max-w-xl text-base leading-8 text-background/75">
-          Thank you for choosing The Real Return™. We&apos;ve received your journey request. Our team will review your preferences and
+          Thank you for choosing The Real Return™. We&apos;ve received your journey request. A steward will review your preferences and
           contact you to begin shaping your Ghana experience.
         </p>
         <div className="mt-8 flex flex-wrap justify-center gap-3">
           <Link
             href="/reserve"
-            className="inline-flex h-12 items-center justify-center rounded-sm bg-gold-luxury px-7 text-[0.8rem] font-semibold uppercase tracking-[0.18em] text-ink transition-transform hover:scale-[1.02]"
+            className="inline-flex h-12 items-center justify-center rounded-sm bg-purple-luxury px-7 text-[0.8rem] font-semibold uppercase tracking-[0.18em] text-ink transition-transform hover:scale-[1.02]"
           >
             Explore More Experiences
           </Link>
@@ -180,18 +182,27 @@ export function RegistrationForm({ experienceSlug, experienceTitle }: Registrati
 
   return (
     <div className="rounded-sm border border-border bg-background p-6 sm:p-8">
+      <input
+        type="text"
+        tabIndex={-1}
+        autoComplete="off"
+        aria-hidden="true"
+        value={company}
+        onChange={(e) => setCompany(e.target.value)}
+        className="absolute left-[-9999px] h-0 w-0 opacity-0"
+      />
       <div className="flex items-center gap-2">
         {STEP_LABELS.map((label, index) => (
           <div key={label} className="flex flex-1 items-center gap-2">
             <span
               className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-[0.65rem] font-semibold ${
-                index + 1 <= step ? "bg-gold-luxury text-ink" : "bg-muted text-foreground/40"
+                index + 1 <= step ? "bg-purple-luxury text-ink" : "bg-muted text-foreground/40"
               }`}
             >
               {index + 1}
             </span>
             {index < STEP_LABELS.length - 1 ? (
-              <span className={`h-px flex-1 ${index + 1 < step ? "bg-gold-luxury" : "bg-border"}`} />
+              <span className={`h-px flex-1 ${index + 1 < step ? "bg-purple-luxury" : "bg-border"}`} />
             ) : null}
           </div>
         ))}
@@ -303,7 +314,7 @@ export function RegistrationForm({ experienceSlug, experienceTitle }: Registrati
               rows={5}
               value={form.message}
               onChange={(e) => update("message", e.target.value)}
-              className="w-full rounded-sm border border-border bg-background px-4 py-3 text-sm text-foreground outline-none focus:border-gold"
+              className="w-full rounded-sm border border-border bg-background px-4 py-3 text-sm text-foreground outline-none focus:border-purple"
             />
           </Field>
         ) : null}
@@ -331,7 +342,7 @@ export function RegistrationForm({ experienceSlug, experienceTitle }: Registrati
           <button
             type="button"
             onClick={goNext}
-            className="inline-flex h-11 items-center justify-center rounded-sm bg-gold-luxury px-7 text-[0.75rem] font-semibold uppercase tracking-[0.18em] text-ink transition-transform hover:scale-[1.02]"
+            className="inline-flex h-11 items-center justify-center rounded-sm bg-purple-luxury px-7 text-[0.75rem] font-semibold uppercase tracking-[0.18em] text-ink transition-transform hover:scale-[1.02]"
           >
             Continue
           </button>
@@ -340,7 +351,7 @@ export function RegistrationForm({ experienceSlug, experienceTitle }: Registrati
             type="button"
             onClick={handleSubmit}
             disabled={status === "submitting"}
-            className="inline-flex h-11 items-center justify-center rounded-sm bg-gold-luxury px-7 text-[0.75rem] font-semibold uppercase tracking-[0.18em] text-ink transition-transform hover:scale-[1.02] disabled:pointer-events-none disabled:opacity-60"
+            className="inline-flex h-11 items-center justify-center rounded-sm bg-purple-luxury px-7 text-[0.75rem] font-semibold uppercase tracking-[0.18em] text-ink transition-transform hover:scale-[1.02] disabled:pointer-events-none disabled:opacity-60"
           >
             {status === "submitting" ? "Sending…" : "Register Your Interest"}
           </button>
@@ -350,7 +361,7 @@ export function RegistrationForm({ experienceSlug, experienceTitle }: Registrati
   );
 }
 
-const inputClass = "h-12 w-full rounded-sm border border-border bg-background px-4 text-sm text-foreground outline-none focus:border-gold";
+const inputClass = "h-12 w-full rounded-sm border border-border bg-background px-4 text-sm text-foreground outline-none focus:border-purple";
 
 function Field({ label, children }: { label: string; children: React.ReactNode }) {
   return (
@@ -368,7 +379,7 @@ function Chip({ label, selected, onClick }: { label: string; selected: boolean; 
       onClick={onClick}
       aria-pressed={selected}
       className={`rounded-full border px-4 py-2 text-[0.75rem] font-medium transition-colors ${
-        selected ? "border-gold-luxury bg-gold-luxury text-ink" : "border-border text-foreground/70 hover:border-gold"
+        selected ? "border-purple-luxury bg-purple-luxury text-ink" : "border-border text-foreground/70 hover:border-purple"
       }`}
     >
       {label}

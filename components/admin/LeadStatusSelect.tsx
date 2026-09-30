@@ -22,7 +22,7 @@ export function LeadStatusSelect({ id, status }: { id: string; status: TravelLea
           changeLeadStatus(id, next);
         });
       }}
-      className="h-9 rounded-sm border border-border bg-background px-2 text-xs uppercase tracking-[0.1em] text-foreground outline-none focus:border-gold disabled:opacity-60"
+      className="h-9 rounded-sm border border-border bg-background px-2 text-xs uppercase tracking-[0.1em] text-foreground outline-none focus:border-purple disabled:opacity-60"
     >
       {STATUSES.map((s) => (
         <option key={s} value={s}>

@@ -50,11 +50,14 @@ async function main() {
     internalName: "Homepage Booking CTA",
     enabled: true,
     pages: [],
-    image: {
-      _type: "image",
-      asset: { _type: "reference", _ref: asset._id },
-      alt: "A smiling Ghanaian woman in traditional dress, welcoming guests with a warm Akwaaba spirit",
-    },
+    images: [
+      {
+        _type: "image",
+        _key: asset._id,
+        asset: { _type: "reference", _ref: asset._id },
+        alt: "A smiling Ghanaian woman in traditional dress, welcoming guests with a warm Akwaaba spirit",
+      },
+    ],
     eyebrow: "The Real Return™",
     message: "You are at the Right Spot Where Luxury meets Adventure",
     buttonLabel: "Book Now For Our Next Exciting Destination Package",

@@ -24,6 +24,7 @@ export function EnrollmentForm({ courses }: EnrollmentFormProps) {
   const [country, setCountry] = useState("");
   const [courseSlug, setCourseSlug] = useState(defaultSlug);
   const [message, setMessage] = useState("");
+  const [company, setCompany] = useState("");
   const [errors, setErrors] = useState<string[]>([]);
   const [status, setStatus] = useState<Status>("idle");
 
@@ -46,7 +47,7 @@ export function EnrollmentForm({ courses }: EnrollmentFormProps) {
       const response = await fetch("/api/academy-enrollment", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, phone: phone || undefined, country, courseSlug, message: message || undefined }),
+        body: JSON.stringify({ name, email, phone: phone || undefined, country, courseSlug, message: message || undefined, company }),
       });
       if (!response.ok) throw new Error("Request failed");
       setStatus("success");
@@ -57,10 +58,10 @@ export function EnrollmentForm({ courses }: EnrollmentFormProps) {
 
   if (status === "success") {
     return (
-      <div className="rounded-sm border border-gold-luxury/40 bg-ink p-10 text-center">
+      <div className="rounded-sm border border-purple-luxury/40 bg-ink p-10 text-center">
         <p className="font-serif text-3xl font-normal leading-tight text-background sm:text-4xl">You&apos;re Enrolled.</p>
         <p className="mx-auto mt-5 max-w-xl text-base leading-8 text-background/75">
-          Thank you for joining The Real Return™ Academy. A member of our team will reach out within 48 hours to confirm your enrollment and share
+          Thank you for joining The Real Return™ Academy. A steward will reach out within 48 hours to confirm your enrollment and share
           your course materials.
         </p>
       </div>
@@ -69,6 +70,15 @@ export function EnrollmentForm({ courses }: EnrollmentFormProps) {
 
   return (
     <form onSubmit={handleSubmit} className="rounded-sm border border-border bg-background p-6 sm:p-8">
+      <input
+        type="text"
+        tabIndex={-1}
+        autoComplete="off"
+        aria-hidden="true"
+        value={company}
+        onChange={(e) => setCompany(e.target.value)}
+        className="absolute left-[-9999px] h-0 w-0 opacity-0"
+      />
       <div className="grid gap-5 sm:grid-cols-2">
         <Field label="Full Name">
           <input value={name} onChange={(e) => setName(e.target.value)} className={inputClass} />
@@ -102,7 +112,7 @@ export function EnrollmentForm({ courses }: EnrollmentFormProps) {
             rows={4}
             value={message}
             onChange={(e) => setMessage(e.target.value)}
-            className="w-full rounded-sm border border-border bg-background px-4 py-3 text-sm text-foreground outline-none focus:border-gold"
+            className="w-full rounded-sm border border-border bg-background px-4 py-3 text-sm text-foreground outline-none focus:border-purple"
           />
         </Field>
       </div>
@@ -130,7 +140,7 @@ export function EnrollmentForm({ courses }: EnrollmentFormProps) {
         <button
           type="submit"
           disabled={status === "submitting"}
-          className="inline-flex h-12 items-center justify-center rounded-sm bg-gold-luxury px-8 text-[0.75rem] font-semibold uppercase tracking-[0.18em] text-ink transition-transform hover:scale-[1.02] disabled:pointer-events-none disabled:opacity-60"
+          className="inline-flex h-12 items-center justify-center rounded-sm bg-purple-luxury px-8 text-[0.75rem] font-semibold uppercase tracking-[0.18em] text-ink transition-transform hover:scale-[1.02] disabled:pointer-events-none disabled:opacity-60"
         >
           {status === "submitting" ? "Enrolling…" : "Enroll Now"}
         </button>
@@ -139,7 +149,7 @@ export function EnrollmentForm({ courses }: EnrollmentFormProps) {
   );
 }
 
-const inputClass = "h-12 w-full rounded-sm border border-border bg-background px-4 text-sm text-foreground outline-none focus:border-gold";
+const inputClass = "h-12 w-full rounded-sm border border-border bg-background px-4 text-sm text-foreground outline-none focus:border-purple";
 
 function Field({ label, children }: { label: string; children: React.ReactNode }) {
   return (
