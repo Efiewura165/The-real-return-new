@@ -7,8 +7,8 @@ import { inquiryConfirmationEmail, inquiryInternalNotificationEmail } from "@/li
 import { slugify } from "@/lib/utils";
 import { getClientIp, isRateLimited } from "@/lib/rate-limit";
 import type { TravelLead } from "@/types/experience";
+import { NOTIFY_EMAIL, sendEmail } from "@/lib/email";
 
-const NOTIFY_EMAIL = process.env.RESERVE_NOTIFY_EMAIL ?? "tarshalewis@therealreturngh.com";
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 interface InquiryPayload {
@@ -91,8 +91,8 @@ export async function POST(request: Request) {
     const internal = inquiryInternalNotificationEmail(lead.id, name, email, tier, phone, preferredDates, message);
 
     await Promise.all([
-      resend.emails.send({ from: "The Real Return™ <onboarding@resend.dev>", to: email, subject: confirmation.subject, text: confirmation.text }),
-      resend.emails.send({ from: "The Real Return™ <onboarding@resend.dev>", to: NOTIFY_EMAIL, replyTo: email, subject: internal.subject, text: internal.text }),
+      sendEmail(resend, { to: email, subject: confirmation.subject, text: confirmation.text }),
+      sendEmail(resend, { to: NOTIFY_EMAIL, replyTo: email, subject: internal.subject, text: internal.text }),
     ]);
 
     return NextResponse.json({ ok: true, leadId: lead.id, delivered: true });

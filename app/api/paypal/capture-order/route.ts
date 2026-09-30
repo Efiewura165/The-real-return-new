@@ -7,8 +7,8 @@ import { saveLead } from "@/lib/leads";
 import { depositConfirmationEmail, depositInternalNotificationEmail } from "@/lib/deposit-emails";
 import { getClientIp, isRateLimited } from "@/lib/rate-limit";
 import type { TravelLead } from "@/types/experience";
+import { NOTIFY_EMAIL, sendEmail } from "@/lib/email";
 
-const NOTIFY_EMAIL = process.env.RESERVE_NOTIFY_EMAIL ?? "tarshalewis@therealreturngh.com";
 
 interface PaypalCapture {
   id: string;
@@ -122,7 +122,7 @@ async function recordDeposit(capture: PaypalCapture, tier: string | undefined) {
   const internal = depositInternalNotificationEmail(lead, amount, currency, captureId);
 
   await Promise.all([
-    resend.emails.send({ from: "The Real Return™ <onboarding@resend.dev>", to: lead.email, subject: confirmation.subject, text: confirmation.text }),
-    resend.emails.send({ from: "The Real Return™ <onboarding@resend.dev>", to: NOTIFY_EMAIL, replyTo: lead.email, subject: internal.subject, text: internal.text }),
+    sendEmail(resend, { to: lead.email, subject: confirmation.subject, text: confirmation.text }),
+    sendEmail(resend, { to: NOTIFY_EMAIL, replyTo: lead.email, subject: internal.subject, text: internal.text }),
   ]);
 }
