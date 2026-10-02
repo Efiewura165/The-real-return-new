@@ -7,7 +7,7 @@ import { inquiryConfirmationEmail, inquiryInternalNotificationEmail } from "@/li
 import { slugify } from "@/lib/utils";
 import { getClientIp, isRateLimited } from "@/lib/rate-limit";
 import type { TravelLead } from "@/types/experience";
-import { NOTIFY_EMAIL, sendEmail } from "@/lib/email";
+import { notifyTeam, sendEmail } from "@/lib/email";
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -92,7 +92,7 @@ export async function POST(request: Request) {
 
     await Promise.all([
       sendEmail(resend, { to: email, subject: confirmation.subject, text: confirmation.text }),
-      sendEmail(resend, { to: NOTIFY_EMAIL, replyTo: email, subject: internal.subject, text: internal.text }),
+      notifyTeam(resend, { replyTo: email, subject: internal.subject, text: internal.text }),
     ]);
 
     return NextResponse.json({ ok: true, leadId: lead.id, delivered: true });
