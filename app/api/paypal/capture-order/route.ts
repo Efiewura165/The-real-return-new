@@ -7,7 +7,7 @@ import { saveLead } from "@/lib/leads";
 import { depositConfirmationEmail, depositInternalNotificationEmail } from "@/lib/deposit-emails";
 import { getClientIp, isRateLimited } from "@/lib/rate-limit";
 import type { TravelLead } from "@/types/experience";
-import { NOTIFY_EMAIL, sendEmail } from "@/lib/email";
+import { notifyTeam, sendEmail } from "@/lib/email";
 
 
 interface PaypalCapture {
@@ -123,6 +123,6 @@ async function recordDeposit(capture: PaypalCapture, tier: string | undefined) {
 
   await Promise.all([
     sendEmail(resend, { to: lead.email, subject: confirmation.subject, text: confirmation.text }),
-    sendEmail(resend, { to: NOTIFY_EMAIL, replyTo: lead.email, subject: internal.subject, text: internal.text }),
+    notifyTeam(resend, { replyTo: lead.email, subject: internal.subject, text: internal.text }),
   ]);
 }
